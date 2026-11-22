@@ -17,7 +17,7 @@
 A file existing does not mean its contents are complete, approved, implemented or tested.
 
 ## 2. Application documentation
-The 24-file application experience book is authored as draft. It covers the suite inventory; fourteen Staff Portal chapters; Technician Android; Customer Android; Customer Web; Monitoring Engine; Notification Engine; Platform Administration; cross-application workflows; API catalogue; quality/operations and programme governance.
+The 25-file application experience book (24 numbered chapters, 00–23, plus the master programme) is authored as draft. It covers the suite inventory; fourteen Staff Portal chapters; Technician Android; Customer Android; Customer Web; Monitoring Engine; Notification Engine; Platform Administration; cross-application workflows; API catalogue; quality/operations and programme governance.
 
 Primary location: [Application experience book](../12-application-experience/00-application-suite-and-screen-inventory.md)
 
