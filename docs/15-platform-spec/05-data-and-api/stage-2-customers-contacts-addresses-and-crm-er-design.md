@@ -27,6 +27,19 @@ This is a logical ER design, not final SQL. No mock or sample records are includ
 9. Duplicate detection may suggest matches; it must not automatically merge uncertain records.
 10. Retain the original display value and relevant snapshots when normalized or master-linked values change.
 
+## 2.1 Customer identity and authorised account linkage
+
+Customer profile, contact person and login identity are distinct records. A customer identity account must be explicitly linked to a customer record through a verified authorization link; a matching phone number/email, invitation delivery or contact-method record is not proof of authority.
+
+The logical link supports:
+- One customer having multiple authorized customer accounts/contacts.
+- One customer account being explicitly authorized for more than one customer record, where the business relationship is verified.
+- An optional contact-person link, constrained to a contact belonging to the same customer.
+- Pending, active, rejected and revoked states with verification/revocation timestamps and actor audit.
+- Customer/site-scoped authorization; no employee group or employee scope is inherited.
+
+The current physical implementation is `iam.customer_account_links`, introduced in migration 0006, referencing `crm.customers` and optional `crm.customer_contacts`. The initial account model uses separate employee, customer and service account types. A shared employee/customer login is not supported until a separate identity-context design is approved. See the [ERD logical-to-physical mapping register](ERD-LOGICAL-PHYSICAL-MAPPING.md).
+
 ## 3. Proposed entities
 
 ### 3.1 Customer
@@ -395,4 +408,4 @@ The diagram is intentionally a relationship overview. The entity definitions abo
 
 ## 11. Implementation note
 
-Implement this domain after the Stage 2 geography and organization/access-control foundations. Finalize master-data ownership, privacy requirements and conversion rules with stakeholders before generating migrations. Do not treat this logical design as authorization to collect optional identity data or to send communications.
+The customer/contact core and customer identity link foundation are introduced by migration 0006; this is not the full CRM implementation. Implement remaining CRM entities after the Stage 2 geography and organization/access-control foundations. Finalize master-data ownership, privacy requirements, account verification evidence and conversion rules with stakeholders before generating later migrations. Do not treat this logical design as authorization to collect optional identity data or to send communications.
