@@ -11,6 +11,7 @@ This package supplements the existing product and website documentation. It defi
 - 04-architecture: system architecture and technology decisions
 - 05-data-and-api: logical data model and API outline
   - [Stage 1 — Database Scope and Entity Inventory](05-data-and-api/stage-1-database-scope-and-entity-inventory.md)
+  - [Stage 2 — Master Data & Geography ER Design](05-data-and-api/stage-2-master-data-and-geography-er-design.md)
 - 06-security-and-access: authorization, privacy and security
 - 07-iot-monitoring: device integrations, telemetry and alerts
 - 08-integrations: notifications and external systems
