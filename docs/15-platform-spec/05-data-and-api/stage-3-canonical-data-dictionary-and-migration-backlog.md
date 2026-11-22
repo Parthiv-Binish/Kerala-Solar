@@ -144,7 +144,8 @@ These are proposed paths, not final OpenAPI contracts. The frontend calls GreenG
 | iam.permission_set_permissions | permission_set_id PK/FK, permission_id PK/FK, effect | Explicit allow/deny |
 | iam.group_permission_set_grants | grant_id PK, group_id FK, permission_set_id FK, scope_type/reference, effect, validity | Groups and permissions remain separate |
 | iam.account_permission_overrides | override_id PK, account_id FK, permission_id FK, scope, effect, reason, validity | Individually audited |
-| iam.invitations | invitation_id PK, account_id FK, token_hash, expires_at, accepted_at, revoked_at | Single-use and expiry; application validates intended subject context |\n| iam.customer_account_links | customer_account_link_id PK, account_id FK, customer_id FK, optional customer_contact_id FK, relationship_type, status, verification/revocation audit | Customer-specific verified authorization; migration 0006 |
+| iam.invitations | invitation_id PK, account_id FK, token_hash, expires_at, accepted_at, revoked_at | Single-use and expiry; application validates intended subject context |
+| iam.customer_account_links | customer_account_link_id PK, account_id FK, customer_id FK, optional customer_contact_id FK, relationship_type, status, verification/revocation audit | Customer-specific verified authorization; migration 0006 |
 
 Authentication and authorization remain separate. Manager relationships do not automatically grant permissions. Employee links use `iam.employee_account_links`; customer links use `iam.customer_account_links`. The initial model does not support one account simultaneously acting as employee and customer. See [ERD Logical-to-Physical Mapping](ERD-LOGICAL-PHYSICAL-MAPPING.md).
 
