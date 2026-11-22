@@ -217,7 +217,11 @@ Counts describe this initial register and may overlap by affected workstream onl
 - **Correction:** Conduct structured walkthroughs with sales, survey/engineering, project operations, procurement, accounts, technicians and support. Record current process, exceptions, owner, approval limit and future-state decision.
 - **Acceptance:** Named business owners approve workflow diagrams, status transitions, required fields, notification rules and responsibility matrix. Unknowns remain explicitly open.
 
-## 4. Remediation progress (22 November 2026)\n\nThe following repository changes have been authored and committed: canonical logical-to-physical mapping register; explicit authorization deny/allow evaluation semantics; typed customer-account link model; migration 0006 for customer/contact subject foundations and verified/revocable customer links; aligned Stage 2, Stage 3, security and migration documentation. These are documentation/schema-artifact corrections only. They do not implement the backend authorization resolver, customer invitation/verification UI, complete CRM, or cross-customer/site tests. DOC-001, DOC-002 and DOC-003 therefore remain OPEN.\n\n## 5. Dependency-aware correction sequence
+## 4. Remediation progress (22 November 2026)
+
+The following repository changes have been authored and committed: canonical logical-to-physical mapping register; explicit authorization deny/allow evaluation semantics; typed customer-account link model; migration 0006 for customer/contact subject foundations and verified/revocable customer links; aligned Stage 2, Stage 3, security and migration documentation. These are documentation/schema-artifact corrections only. They do not implement the backend authorization resolver, customer invitation/verification UI, complete CRM, or cross-customer/site tests. DOC-001, DOC-002 and DOC-003 therefore remain OPEN.
+
+## 5. Dependency-aware correction sequence
 
 | Sequence | Issues | Work package | Exit condition |
 |---|---|---|---|
