@@ -124,6 +124,7 @@ If this is your first time opening the repository, follow this order:
 | Chapter | Document | What you will find |
 |---|---|---|
 | II.33 | [Staff Portal — Navigation, Workspace Shell & Dashboard](docs/15-platform-spec/12-application-experience/01-staff-portal-navigation-and-dashboard.md) | Sign-in, global layout, navigation, search, notifications, dashboard, My Work, profile, permissions and shared UX rules |
+| II.36 | [Staff Portal — Solar Design, Bill of Materials & Quotation Management](docs/15-platform-spec/12-application-experience/04-staff-portal-design-and-quotations.md) | Design versions, technical inputs, product catalogue, BOM, costing, pricing, approvals, quotation issue, acceptance and revisions |
 | II.35 | [Staff Portal — Survey Scheduling, Site Assessment & Survey Review](docs/15-platform-spec/12-application-experience/03-staff-portal-survey-management.md) | Survey requests, appointments, site/roof/electrical assessment, evidence, submission, review, approval and hand-off to design |
 | II.35 | [Staff Portal — Survey Scheduling, Site Assessment & Survey Review](docs/15-platform-spec/12-application-experience/03-staff-portal-survey-management.md) | Survey request, scheduling, field assessment, evidence, submission, review, approval and hand-off to design |
 | II.34 | [Staff Portal — Enquiries, Follow-ups & Customer Management](docs/15-platform-spec/12-application-experience/02-staff-portal-enquiries-and-customers.md) | Detailed enquiry capture, duplicate checks, follow-ups, customer profiles, sites, invitations and conversion workflow |
