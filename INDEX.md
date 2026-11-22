@@ -148,6 +148,20 @@ If this is your first time opening the repository, follow this order:
 
 | II.56 | [Complete Application Documentation Programme](docs/15-platform-spec/12-application-experience/MASTER-APPLICATION-DOCUMENTATION-PROGRAMME.md) | Master scope, documentation standards, quality gates and delivery governance |
 
+### Book 11 — Implementation blueprints and pending documentation
+
+| Chapter | Document | What you will find |
+|---|---|---|
+| II.57 | [Master Documentation Register](docs/15-platform-spec/13-implementation-blueprints/DOCUMENTATION-REGISTER.md) | Existing and pending document register, owners, dependencies, statuses and approval gates |
+| II.58 | [Screen & Experience Implementation Specification](docs/15-platform-spec/13-implementation-blueprints/01-screen-and-experience-implementation-specification.md) | Screen/action contracts, fields, validation, navigation, permissions, notifications and UI states |
+| II.59 | [API & Backend Contracts](docs/15-platform-spec/13-implementation-blueprints/02-api-and-backend-contracts.md) | Endpoint families, schemas, errors, auth, idempotency, events and OpenAPI governance |
+| II.60 | [Database Completion & Data Governance](docs/15-platform-spec/13-implementation-blueprints/03-database-completion-and-data-governance.md) | Schema reconciliation, DDL, migrations, indexes, provenance, backup and retention |
+| II.61 | [External Integration Contracts](docs/15-platform-spec/13-implementation-blueprints/04-external-integration-contracts.md) | PIN, DISCOM, inverter, WhatsApp, email/SMS/push and storage verification |
+| II.62 | [Security, Privacy & Compliance Implementation](docs/15-platform-spec/13-implementation-blueprints/05-security-privacy-and-compliance-implementation.md) | DPDP controls, notices, requests, retention, threat model, CERT-In verification and security tests |
+| II.63 | [Application Engineering & Deployment](docs/15-platform-spec/13-implementation-blueprints/06-application-engineering-and-deployment.md) | Code structure, environments, VPS, Docker, Nginx, CI/CD, observability and recovery |
+| II.64 | [Testing, Traceability & Acceptance](docs/15-platform-spec/13-implementation-blueprints/07-testing-traceability-and-acceptance.md) | Requirement traceability, test layers, end-to-end cases, UAT and release gates |
+| II.65 | [Business User Manuals & SOPs](docs/15-platform-spec/13-implementation-blueprints/08-business-user-manuals-and-operating-procedures.md) | Staff, technician and customer manuals, onboarding, business SOPs and support |
+
 ## Part III — Visual walkthrough
 
 *Use this section when you want to understand the proposed experience without reading the full technical specification.*
