@@ -100,3 +100,16 @@ Confirmed from supplied brief = explicitly supplied information. Proposed = reco
 7. Do not commit credentials or customer personal data to this repository.
 
 This is a planning specification, not legal, tax, electrical engineering or API-access approval. Reverify regulatory and provider claims before implementation.
+
+## 13. Implementation blueprints and documentation governance
+
+- [Implementation blueprints book index](13-implementation-blueprints/README.md)
+- [Master Documentation Register](13-implementation-blueprints/DOCUMENTATION-REGISTER.md)
+- [Screen & Experience Implementation Specification](13-implementation-blueprints/01-screen-and-experience-implementation-specification.md)
+- [API & Backend Contracts](13-implementation-blueprints/02-api-and-backend-contracts.md)
+- [Database Completion & Data Governance](13-implementation-blueprints/03-database-completion-and-data-governance.md)
+- [External Integration Contracts](13-implementation-blueprints/04-external-integration-contracts.md)
+- [Security, Privacy & Compliance Implementation](13-implementation-blueprints/05-security-privacy-and-compliance-implementation.md)
+- [Application Engineering & Deployment](13-implementation-blueprints/06-application-engineering-and-deployment.md)
+- [Testing, Traceability & Acceptance](13-implementation-blueprints/07-testing-traceability-and-acceptance.md)
+- [Business User Manuals & SOPs](13-implementation-blueprints/08-business-user-manuals-and-operating-procedures.md)
