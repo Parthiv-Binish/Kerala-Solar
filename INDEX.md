@@ -161,7 +161,7 @@ If this is your first time opening the repository, follow this order:
 | II.63 | [Security, Privacy & Compliance Implementation](docs/15-platform-spec/13-implementation-blueprints/05-security-privacy-and-compliance-implementation.md) | DPDP controls, notices, requests, retention, threat model, CERT-In verification and security tests |
 | II.64 | [Application Engineering & Deployment](docs/15-platform-spec/13-implementation-blueprints/06-application-engineering-and-deployment.md) | Code structure, environments, VPS, Docker, Nginx, CI/CD, observability and recovery |
 | II.65 | [Testing, Traceability & Acceptance](docs/15-platform-spec/13-implementation-blueprints/07-testing-traceability-and-acceptance.md) | Requirement traceability, test layers, end-to-end cases, UAT and release gates |
-| II.66 | [Business User Manuals & SOPs](docs/15-platform-spec/13-implementation-blueprints/08-business-user-manuals-and-operating-procedures.md) | Staff, technician and customer manuals, onboarding, business SOPs and support |
+| II.66 | [Business User Manuals & SOPs](docs/15-platform-spec/13-implementation-blueprints/08-business-user-manuals-and-operating-procedures.md) | Staff, technician and customer manuals, onboarding, business SOPs and support |\n| II.67 | [Consistency Resolution Decisions](docs/15-platform-spec/13-implementation-blueprints/10-consistency-resolution-decisions.md) | Proposed canonical decisions resolving access, conversion, MVP, retention, finance, API and regulatory inconsistencies |
 
 ## Part III — Visual walkthrough
 
