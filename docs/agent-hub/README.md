@@ -3,7 +3,8 @@
 This is the single repository-backed coordination workspace for agents A0–A9. Repository records, approved contracts, task board and pull requests are authoritative; chat and private agent notes are not.
 
 ## Start here
-1. Read [the multi-agent development plan](../15-platform-spec/13-implementation-blueprints/11-multi-agent-development-work-plan.md), canonical [consistency decisions](../15-platform-spec/13-implementation-blueprints/10-consistency-resolution-decisions.md), [application inventory](../15-platform-spec/12-application-experience/00-application-suite-and-screen-inventory.md), and [UI/UX system](../15-platform-spec/12-application-experience/24-ui-ux-design-system-and-interaction-standards.md).
+1. Read the [required agent document navigation](REQUIRED-READING-MAP.md) first. It provides the common mandatory reading list and a role-specific document route for every agent A0–A9.
+2. Read the [multi-agent development plan](../15-platform-spec/13-implementation-blueprints/11-multi-agent-development-work-plan.md), canonical [consistency decisions](../15-platform-spec/13-implementation-blueprints/10-consistency-resolution-decisions.md), [application inventory](../15-platform-spec/12-application-experience/00-application-suite-and-screen-inventory.md), and [UI/UX system](../15-platform-spec/12-application-experience/24-ui-ux-design-system-and-interaction-standards.md).
 3. Read [PROJECT-STATUS](PROJECT-STATUS.md) and claim work on [TASK-BOARD](TASK-BOARD.md).
 4. Publish progress in your [agent status report](AGENT-STATUS/).
 5. Register shared API, database, event, UI and provider changes in [CONTRACTS](CONTRACTS/).
