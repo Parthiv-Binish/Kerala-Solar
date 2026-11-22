@@ -57,7 +57,11 @@ The same policy applies to list/detail/search/export/analytics/files/realtime/jo
 
 
 
-### 2.5 Physical mapping and customer identity\n\nThe canonical physical mapping is maintained in [ERD Logical-to-Physical Mapping](../05-data-and-api/ERD-LOGICAL-PHYSICAL-MAPPING.md). Employee identity uses `iam.employee_account_links`; customer identity uses `iam.customer_account_links`. The latter is customer-specific, optionally contact-specific, verified before activation and revocable with history. The minimum customer/contact subject tables and link are authored in migration 0006; remaining CRM tables are later migrations. No polymorphic employee/customer ID columns are permitted.\n\n### 2.6 Authorization truth table for implementation tests
+### 2.5 Physical mapping and customer identity
+
+The canonical physical mapping is maintained in [ERD Logical-to-Physical Mapping](../05-data-and-api/ERD-LOGICAL-PHYSICAL-MAPPING.md). Employee identity uses `iam.employee_account_links`; customer identity uses `iam.customer_account_links`. The latter is customer-specific, optionally contact-specific, verified before activation and revocable with history. The minimum customer/contact subject tables and link are authored in migration 0006; remaining CRM tables are later migrations. No polymorphic employee/customer ID columns are permitted.
+
+### 2.6 Authorization truth table for implementation tests
 
 Assume the requested record is within the stated scope and all grants/memberships are currently valid.
 
