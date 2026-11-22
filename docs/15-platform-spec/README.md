@@ -53,6 +53,12 @@ The application suite blueprint defines the proposed products and overall screen
 - 10-delivery: roadmap, effort and cost assumptions
 - 11-governance: discovery questions, acceptance and verification
 - 12-application-experience: product suite, navigation, screen inventory and user experience
+  - [Complete Application Documentation Programme](12-application-experience/MASTER-APPLICATION-DOCUMENTATION-PROGRAMME.md)
+  - [Application Suite and Screen Inventory](12-application-experience/00-application-suite-and-screen-inventory.md)
+  - [Staff Portal — Navigation and Dashboard](12-application-experience/01-staff-portal-navigation-and-dashboard.md)
+  - [Staff Portal — Enquiries and Customers](12-application-experience/02-staff-portal-enquiries-and-customers.md)
+  - [Staff Portal — Survey Management](12-application-experience/03-staff-portal-survey-management.md)
+  - [Staff Portal — Design and Quotations](12-application-experience/04-staff-portal-design-and-quotations.md)
   - [Staff Portal — Navigation and Dashboard](12-application-experience/01-staff-portal-navigation-and-dashboard.md)
   - [Staff Portal — Enquiries and Customers](12-application-experience/02-staff-portal-enquiries-and-customers.md)
 
