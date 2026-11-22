@@ -26,6 +26,7 @@ This package supplements the existing product and website documentation. It defi
   - [Stage 2 — Notifications, Communication, WhatsApp, Email, SMS & Push ER Design](05-data-and-api/stage-2-notifications-communication-whatsapp-email-sms-and-push-er-design.md)
   - [Stage 2 — Documents, File Storage, Digital Signatures, Audit Logs & Data Governance ER Design](05-data-and-api/stage-2-documents-file-storage-signatures-audit-and-data-governance-er-design.md)
   - [Stage 2 — Platform Settings, Integrations, Background Jobs, Error Logging & Administration ER Design](05-data-and-api/stage-2-platform-settings-integrations-background-jobs-error-logging-and-administration-er-design.md)
+  - [Stage 3 — PostgreSQL Implementation Blueprint & Migration Plan](05-data-and-api/stage-3-postgresql-implementation-blueprint-and-migration-plan.md)
 - 06-security-and-access: authorization, privacy and security
   - [Platform Security — Authentication, Authorization, Privacy & Compliance](../06-security-and-access/platform-security-authentication-authorization-privacy-and-compliance.md)
 - 07-iot-monitoring: device integrations, telemetry and alerts
