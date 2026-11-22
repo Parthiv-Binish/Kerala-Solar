@@ -1,0 +1,164 @@
+# GreenGrid Solar — Project Book & Master Index
+
+> **A guided index to the GreenGrid Solar study, business workflows, software specification and implementation blueprint.**
+>
+> Repository: [Parthiv-Binish/Kerala-Solar](https://github.com/Parthiv-Binish/Kerala-Solar)  
+> Documentation status: Working draft for stakeholder validation  
+> Last organised: 22 November 2026
+
+---
+
+## Start here
+
+If this is your first time opening the repository, follow this order:
+
+1. **[Project overview and business study](casestudy/greengrid-solar-platform-study.md)** — understand the problem, the proposed platform and the overall direction.
+2. **[Business workflows](casestudy/01-business-workflows.md)** — understand how work moves through the solar agency.
+3. **[Platform showcase](showcase/index.html)** — see the proposed experience and how the web workspace, customer app and technician app fit together.
+4. **[Project charter and scope](docs/15-platform-spec/01-strategy/01-project-charter-and-scope.md)** — understand what the project intends to deliver.
+5. **[Software requirements specification](docs/15-platform-spec/03-requirements/01-software-requirements-specification.md)** — review what the software must do.
+6. **[System architecture](docs/15-platform-spec/04-architecture/01-system-architecture-and-stack.md)** — understand how the solution is expected to be built.
+7. **[Discovery and verification register](docs/15-platform-spec/11-governance/01-discovery-acceptance-and-verification.md)** — identify what still needs confirmation before implementation or release.
+
+---
+
+# Table of contents
+
+## Part I — The business study
+
+*Understand the organisation, the current business process, the operational challenges and the opportunity for a connected solar platform.*
+
+| Chapter | Document | What you will find |
+|---|---|---|
+| I.1 | [Complete GreenGrid Solar platform study](casestudy/greengrid-solar-platform-study.md) | Consolidated study, proposed capabilities, business context and platform direction |
+| I.2 | [Business workflows](casestudy/01-business-workflows.md) | Enquiry handling, people involved, hand-offs and the solar project lifecycle |
+| I.3 | [Regulatory and compliance study](casestudy/02-regulatory-and-compliance.md) | Relevant policy, regulatory and compliance considerations to verify |
+| I.4 | [Device monitoring study](casestudy/03-device-monitoring.md) | Inverter/device monitoring, data sources, telemetry and integration considerations |
+| I.5 | [Platform architecture study](casestudy/04-platform-architecture.md) | Proposed system components, application structure and technology direction |
+| I.6 | [Roadmap, costs and open questions](casestudy/05-roadmap-costs-and-open-questions.md) | Delivery phases, estimates, dependencies and unresolved decisions |
+
+## Part II — The product and software specification
+
+*Define what the platform should do before implementation begins.*
+
+### Book 1 — Strategy and scope
+
+| Chapter | Document | What you will find |
+|---|---|---|
+| II.1 | [Project charter and scope](docs/15-platform-spec/01-strategy/01-project-charter-and-scope.md) | Goals, boundaries, stakeholders and project outcomes |
+| II.2 | [Business requirements](docs/15-platform-spec/01-strategy/02-business-requirements.md) | Business needs and expected operational improvements |
+
+### Book 2 — How the work flows
+
+| Chapter | Document | What you will find |
+|---|---|---|
+| II.3 | [Enquiry to customer workflow](docs/15-platform-spec/02-workflows/01-enquiry-to-customer.md) | Enquiry capture, assignment, follow-up and conversion |
+| II.4 | [Project, utility, installation and service workflow](docs/15-platform-spec/02-workflows/02-project-utility-installation-service.md) | Project execution, external application tracking, installation, handover and service |
+
+### Book 3 — Software requirements
+
+| Chapter | Document | What you will find |
+|---|---|---|
+| II.5 | [Software requirements specification (SRS)](docs/15-platform-spec/03-requirements/01-software-requirements-specification.md) | Functional requirements, system behaviour, application roles and quality expectations |
+
+### Book 4 — Technical architecture
+
+| Chapter | Document | What you will find |
+|---|---|---|
+| II.6 | [System architecture and technology stack](docs/15-platform-spec/04-architecture/01-system-architecture-and-stack.md) | Web, mobile, backend, database, background jobs, hosting and deployment design |
+
+### Book 5 — Data, database and APIs
+
+*The data design is split into stages so that each business area can be reviewed independently.*
+
+| Chapter | Document | What you will find |
+|---|---|---|
+| II.7 | [Stage 1 — Database scope and entity inventory](docs/15-platform-spec/05-data-and-api/stage-1-database-scope-and-entity-inventory.md) | Domain boundaries and the inventory of data entities |
+| II.8 | [Stage 2 — Master data and geography ER design](docs/15-platform-spec/05-data-and-api/stage-2-master-data-and-geography-er-design.md) | Geography, postal references, address and shared reference data |
+| II.9 | [Stage 2 — Organisation, employees and access control ER design](docs/15-platform-spec/05-data-and-api/stage-2-organization-employees-and-access-control-er-design.md) | Company structure, employees, groups, memberships and access grants |
+| II.10 | [Stage 2 — Customers, contacts, addresses and CRM ER design](docs/15-platform-spec/05-data-and-api/stage-2-customers-contacts-addresses-and-crm-er-design.md) | Customer records, contacts, sites, addresses and CRM relationships |
+| II.11 | [Stage 2 — Survey, design and quotations ER design](docs/15-platform-spec/05-data-and-api/stage-2-survey-design-and-quotations-er-design.md) | Site surveys, technical design and quotation data |
+| II.12 | [Stage 2 — Project management ER design](docs/15-platform-spec/05-data-and-api/stage-2-project-management-tasks-milestones-and-scheduling-er-design.md) | Projects, tasks, milestones, assignments and scheduling |
+| II.13 | [Stage 2 — Government applications and subsidies ER design](docs/15-platform-spec/05-data-and-api/stage-2-government-applications-subsidies-and-external-tracking-er-design.md) | Application records, subsidy tracking and external portal references |
+| II.14 | [Stage 2 — Procurement and inventory ER design](docs/15-platform-spec/05-data-and-api/stage-2-procurement-suppliers-purchase-orders-and-inventory-er-design.md) | Suppliers, purchasing, stock movements and inventory |
+| II.15 | [Stage 2 — Installation and handover ER design](docs/15-platform-spec/05-data-and-api/stage-2-installation-commissioning-quality-and-handover-er-design.md) | Installation work, commissioning, quality checks and handover |
+| II.16 | [Stage 2 — Finance ER design](docs/15-platform-spec/05-data-and-api/stage-2-finance-payments-receipts-expenses-and-profitability-er-design.md) | Payments, receipts, expenses and project profitability |
+| II.17 | [Stage 2 — Asset and warranty ER design](docs/15-platform-spec/05-data-and-api/stage-2-asset-registry-equipment-lifecycle-and-warranty-er-design.md) | Installed assets, equipment lifecycle and warranty records |
+| II.18 | [Stage 2 — Solar monitoring and telemetry ER design](docs/15-platform-spec/05-data-and-api/stage-2-solar-monitoring-iot-telemetry-analytics-and-alerts-er-design.md) | Monitoring sources, telemetry, analytics and alerts |
+| II.19 | [Stage 2 — Service management ER design](docs/15-platform-spec/05-data-and-api/stage-2-service-management-work-orders-field-visits-and-maintenance-er-design.md) | Service cases, work orders, field visits and maintenance |
+| II.20 | [Stage 2 — Notifications and communications ER design](docs/15-platform-spec/05-data-and-api/stage-2-notifications-communication-whatsapp-email-sms-and-push-er-design.md) | Notification events, delivery channels and message records |
+| II.21 | [Stage 2 — Documents, signatures and audit ER design](docs/15-platform-spec/05-data-and-api/stage-2-documents-file-storage-signatures-audit-and-data-governance-er-design.md) | File metadata, access, signatures, audit and data governance |
+| II.22 | [Stage 2 — Platform administration and integrations ER design](docs/15-platform-spec/05-data-and-api/stage-2-platform-settings-integrations-background-jobs-error-logging-and-administration-er-design.md) | Platform settings, integration configuration, jobs and operational logs |
+| II.23 | [Stage 3 — PostgreSQL implementation blueprint](docs/15-platform-spec/05-data-and-api/stage-3-postgresql-implementation-blueprint-and-migration-plan.md) | Schema implementation strategy, dependencies and migration planning |
+| II.24 | [Stage 3 — Canonical data dictionary and migration backlog](docs/15-platform-spec/05-data-and-api/stage-3-canonical-data-dictionary-and-migration-backlog.md) | Proposed canonical tables, fields, constraints, indexes and migration backlog |
+| II.25 | [PostgreSQL bootstrap migrations](database/migrations/README.md) | Initial SQL schema scripts, execution order and migration safety notes |
+
+### Book 6 — Security, identity and access
+
+| Chapter | Document | What you will find |
+|---|---|---|
+| II.26 | [Platform security, authentication, authorization, privacy and compliance](docs/15-platform-spec/06-security-and-access/platform-security-authentication-authorization-privacy-and-compliance.md) | Accounts, sessions, MFA, group-based permissions, scope enforcement, privacy, audit and security controls |
+
+### Book 7 — Monitoring and external connections
+
+| Chapter | Document | What you will find |
+|---|---|---|
+| II.27 | [Device integrations and telemetry](docs/15-platform-spec/07-iot-monitoring/01-device-integrations-and-telemetry.md) | Monitoring architecture, vendor adapters, telemetry and alert handling |
+| II.28 | [Notifications and external systems](docs/15-platform-spec/08-integrations/01-notifications-and-external-systems.md) | WhatsApp, email, SMS, push and other external integration boundaries |
+
+### Book 8 — Mobile applications
+
+| Chapter | Document | What you will find |
+|---|---|---|
+| II.29 | [Customer and technician applications](docs/15-platform-spec/09-mobile-apps/01-customer-and-technician-apps.md) | Customer-facing visibility and technician field workflows |
+
+### Book 9 — Delivery and governance
+
+| Chapter | Document | What you will find |
+|---|---|---|
+| II.30 | [Roadmap, estimates and costs](docs/15-platform-spec/10-delivery/01-roadmap-estimates-and-costs.md) | Delivery phases, implementation estimates and cost assumptions |
+| II.31 | [Discovery, acceptance and verification](docs/15-platform-spec/11-governance/01-discovery-acceptance-and-verification.md) | Questions for stakeholders, acceptance criteria and items requiring evidence |
+
+## Part III — Visual walkthrough
+
+*Use this section when you want to understand the proposed experience without reading the full technical specification.*
+
+| Resource | Purpose |
+|---|---|
+| [Open the interactive platform showcase](showcase/index.html) | Walk through the proposed platform, its applications, capabilities and end-to-end operating model |
+| [Showcase notes](showcase/README.md) | How to view and maintain the showcase |
+
+## Part IV — Implementation assets
+
+| Resource | Purpose |
+|---|---|
+| [Database migration directory](database/migrations/) | Versioned PostgreSQL bootstrap SQL files |
+| [Database migration instructions](database/migrations/README.md) | Prerequisites, execution order and validation guidance |
+
+Implementation source code will be added in its own application folders as development begins. A design or specification document does not mean the corresponding feature has already been implemented.
+
+---
+
+## How to use this book
+
+- **Business stakeholders:** Read Part I, then Part II Books 1–3, and finish with the discovery and acceptance chapter.
+- **Developers:** Read the business workflows first, then the SRS, architecture, data dictionary, security and implementation assets.
+- **Operations and field teams:** Focus on the workflow chapters, customer/technician apps, monitoring, notifications and service design.
+- **Reviewers:** Use the regulatory study and verification register to distinguish established facts from assumptions that still need evidence.
+
+## Reading and status conventions
+
+The documents use these status terms:
+
+- **Confirmed from supplied brief** — explicitly present in the information provided for the study.
+- **Proposed** — a recommended design that still needs stakeholder agreement.
+- **VERIFY** — requires confirmation from the client, relevant authority, manufacturer, integration provider or qualified professional.
+- **Deferred** — intentionally planned for a later phase; not necessarily excluded permanently.
+
+## Important project note
+
+This repository contains a study, a proposed product design and implementation planning material. It must not be read as proof that the production platform, mobile applications, government integrations, WhatsApp delivery or live inverter monitoring are already operational. External access, provider support, regulatory applicability, engineering decisions and stakeholder requirements must be validated before production commitments.
+
+---
+
+**Navigation rule:** This file is the repository's master table of contents. Add new major documents here when they are created, and keep the relevant folder README in sync.
