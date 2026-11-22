@@ -73,7 +73,7 @@ Preserve source timestamp separately from ingestion timestamp. Normalise units a
 | TimescaleDB | Hypertables, compression, retention, aggregates | Extension/hosting compatibility | Add when justified |
 | ClickHouse | Fast analytical scans | Another system to operate | Later |
 
-Initial engineering retention proposal: raw points 30–90 days; 5-minute aggregates 12–24 months; daily aggregates while justified; fault/service history according to warranty and legal retention. These are not statutory retention periods.
+Provisional planning baseline (not a statutory or approved legal retention period): raw provider payloads and normalized observations 90 days; 15-minute aggregates 12 months; daily aggregates 5 years. Alert/fault events, service evidence, customer documents and security/audit logs require separate schedules. Confirm purpose, storage cost, legal basis and owner before deletion automation. This replaces the earlier 30–90-day raw / 5-minute 12–24-month proposal.
 
 Example: 100 devices × 10 metrics × 288 samples/day at 5-minute sampling = 288,000 samples/day before indexes and metadata.
 
