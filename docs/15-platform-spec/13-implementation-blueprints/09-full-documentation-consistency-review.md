@@ -6,6 +6,8 @@
 **Review type:** Expanded static repository/documentation review  
 **Overall result:** Broadly coherent product direction; implementation is blocked by unresolved access-control semantics, logical-to-physical mappings, identity linkage and MVP boundaries.
 
+**Follow-up note (22 November 2026):** Foundational remediation artifacts have since been added: [ERD Logical-to-Physical Mapping](../05-data-and-api/ERD-LOGICAL-PHYSICAL-MAPPING.md), migration 0006 for customer/contact identity subjects and verified customer-account links, and aligned Stage 2/Stage 3/security/decision documents. The original AUD findings below are preserved as the historical review baseline; use the live [Documentation Issue Register](DOCUMENTATION-ISSUE-REGISTER.md) for current remediation status. DOC-001–DOC-003 remain open pending backend authorization implementation/tests, full CRM/customer verification workflow and complete domain-wide physical mapping/DDL reconciliation.
+
 ## 1. Executive assessment
 
 The repository describes one central API and PostgreSQL system of record, a staff web portal, technician Android app, customer Android app and web portal, monitoring and notification background services, and a restricted platform administration area.
