@@ -103,6 +103,7 @@ This is a planning specification, not legal, tax, electrical engineering or API-
 
 ## 13. Implementation blueprints and documentation governance
 
+- [Multi-Agent Development Work Plan](13-implementation-blueprints/11-multi-agent-development-work-plan.md) — ten agent charters, ownership boundaries, shared contracts, task handoff template, dependencies and delivery gates.
 - [Implementation blueprints book index](13-implementation-blueprints/README.md)
 - [Full Documentation Consistency Review](13-implementation-blueprints/09-full-documentation-consistency-review.md)
 - [Consistency Resolution Decisions](13-implementation-blueprints/10-consistency-resolution-decisions.md)
