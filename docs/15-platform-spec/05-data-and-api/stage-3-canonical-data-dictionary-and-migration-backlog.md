@@ -386,3 +386,27 @@ All endpoint paths are proposals. OpenAPI must define request/response schemas, 
 ## 15. Next implementation artifact
 
 After this dictionary is approved, generate reviewed SQLAlchemy/Alembic migrations in small dependency-ordered batches. Start with empty schemas, reference structures, organization and identity; then test the first vertical slice through enquiry capture. Add the India Post import as a separate auditable integration job only after source access and data-use terms are confirmed.
+
+
+## 12. Canonical access-control physical mapping and scope vocabulary
+
+The Stage 2 access ER is logical. The current physical bootstrap model uses:
+- `org.employee_groups.group_id` and `org.employee_group_memberships.group_id`;
+- `iam.permissions`, `iam.permission_sets`, `iam.permission_set_permissions`;
+- `iam.group_permission_set_grants` as the group-to-permission-set/scope grant;
+- `iam.account_permission_overrides` as the individual allow/deny override;
+- `iam.identity_accounts` and `iam.employee_account_links` for identity linkage.
+
+Do not create duplicate tables named `group_permissions`, `user_accounts` or `employee_permission_overrides` solely to mirror logical labels. Maintain explicit logical-to-physical mappings in the ER reconciliation register.
+
+Canonical scope values for new writes are exactly `own`, `assigned`, `team`, `related`, `location`, `company`. Do not use `group`, `resource`, `branch` or `all`. Group is a grant source; scope reference is a separately validated parameter. Scope semantics and deny precedence are defined in [Consistency Resolution Decisions](../13-implementation-blueprints/10-consistency-resolution-decisions.md). Enforce identical predicates for list/detail/search/export/aggregate/file/realtime/background paths.
+
+## 13. Finance and API naming reconciliation
+
+The initial release records receipts for funds actually received; it does not initiate online payments. The physical finance model must distinguish payment instructions/dues, unverified receipts, verified/posted receipts, allocations, reversals/refunds and supplier payment records. A customer-submitted UPI screenshot/reference is not settlement proof. No gateway transaction entity or endpoint is implied unless a separate gateway integration is approved.
+
+Use receipt-oriented command names in the normative API: record receipt, verify receipt, allocate receipt, reverse receipt and record refund. Generic `POST /payments` in older logical examples is illustrative only and must not be implemented as a gateway initiation endpoint.
+
+## 14. Telemetry retention alignment
+
+Use the provisional planning baseline in the consistency decision register: raw observations/provider payloads 90 days; 15-minute aggregates 12 months; daily aggregates 5 years. Alert/fault events, service evidence, customer documents and security/audit logs each require separate schedules. These are not approved legal retention periods. No deletion automation may be enabled until purpose, legal basis, owner and retention approval are recorded.
