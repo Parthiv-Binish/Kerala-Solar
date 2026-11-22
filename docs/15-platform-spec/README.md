@@ -22,6 +22,7 @@ This package supplements the existing product and website documentation. It defi
   - [Stage 2 — Finance, Payments, Receipts, Expenses & Profitability ER Design](05-data-and-api/stage-2-finance-payments-receipts-expenses-and-profitability-er-design.md)
   - [Stage 2 — Asset Registry, Equipment Lifecycle & Warranty ER Design](05-data-and-api/stage-2-asset-registry-equipment-lifecycle-and-warranty-er-design.md)
   - [Stage 2 — Solar Monitoring, IoT, Telemetry, Analytics & Alerts ER Design](05-data-and-api/stage-2-solar-monitoring-iot-telemetry-analytics-and-alerts-er-design.md)
+  - [Stage 2 — Service Management, Work Orders, Field Visits & Maintenance ER Design](05-data-and-api/stage-2-service-management-work-orders-field-visits-and-maintenance-er-design.md)
 - 06-security-and-access: authorization, privacy and security
 - 07-iot-monitoring: device integrations, telemetry and alerts
 - 08-integrations: notifications and external systems
