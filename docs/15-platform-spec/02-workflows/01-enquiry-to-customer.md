@@ -23,15 +23,15 @@ Quotation versions reference survey/design basis, components, taxes, exclusions,
 **Precondition:** The customer has accepted a specific issued quotation version and the required commercial approvals/contract conditions are satisfied. Survey approval alone does not create a project. The accepted quotation response is the event that makes the enquiry eligible to enter Won conversion.
 
 1. Lock enquiry and verify conversion eligibility, accepted quotation version and conversion prerequisites.
-2. Search for possible existing customer matches.
-3. Create customer or link the confirmed existing customer.
-4. Create project linked to customer and site.
+2. Search for possible existing customer matches; staff reviews and confirms the correct identity.
+3. Resolve the installation site: confirm a matching existing site or create a new site after required identity/address fields are verified. Ambiguous or incomplete site details remain on the enquiry/prospect-site and block project creation.
+4. Create project linked to the confirmed customer and exactly one confirmed site.
 5. Link accepted quotation, survey, documents and activity history.
 6. Create default milestones and owner.
 7. Record audit event and idempotency key.
 8. Send customer invitation only after transaction commit.
 
-A repeated conversion request returns the existing result and must not create duplicate projects.
+A repeated conversion request returns the existing result and must not create duplicate projects. Customer/site merges or corrections require an audited review; never silently merge candidates.
 
 ## Lost and on hold
 Lost requires a reason and optional notes. On hold requires a reason and review date. Reopening requires permission and is audited.
