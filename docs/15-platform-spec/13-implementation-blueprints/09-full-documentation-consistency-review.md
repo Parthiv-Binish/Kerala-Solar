@@ -523,3 +523,28 @@ This is a static review of repository contents on the main branch. No live datab
 
 **Owner:** Documentation maintainer.  
 **Acceptance:** One unique chapter number per entry; all internal links resolve to existing paths; no duplicate navigation entries.
+
+
+## 12. Remediation status after 22 November 2026 documentation updates
+
+The following are **document-level corrections / proposed resolutions**, not stakeholder approvals or implementation verification.
+
+| Finding | Documentation action | Current state |
+|---|---|---|
+| AUD-001 | Canonical scope vocabulary and predicates added to decision register, SRS and Stage 2; migration 0005 added | Proposed resolution documented; backend resolver/tests pending |
+| AUD-002 | Deterministic deny precedence documented in decision register and Stage 2 | Proposed resolution documented; truth-table tests and security approval pending |
+| AUD-003 | Logical-to-physical access mapping documented in decision register and Stage 3 | Mapping documented; full ER/dictionary/DDL reconciliation pending |
+| AUD-004 | Accepted exact quotation + confirmed site conversion preconditions added to workflow, BRD and SRS | Wording aligned; GreenGrid workflow approval and API transaction tests pending |
+| AUD-005 | Stale application programme statuses corrected in prior review pass | Corrected in documentation; stakeholder approval pending |
+| AUD-013 | Product/deployment boundaries and MVP phases added to charter, decision register and application suite | Proposed boundary documented; scope approval pending |
+| AUD-014 | Technician offline moved to Phase 2 Should in BRD, SRS, roadmap and technician app | Wording aligned; scope approval pending |
+| AUD-015 | Common provisional telemetry retention baseline added to case study, monitoring and Stage 3 | Wording aligned; legal/business retention approval pending |
+| AUD-016 | Site resolution and duplicate review clarified in workflow and decision register | Wording aligned; customer/site rules approval pending |
+| AUD-017 | Manual receipt verification and no-gateway boundary clarified in SRS, finance UI and API outline | Wording aligned; finance owner approval pending |
+| AUD-018 | API examples marked illustrative; normative OpenAPI rule and canonical resource vocabulary documented | Guidance aligned; OpenAPI generation/review pending |
+| AUD-019 | Effective-dated applicability fields specified in decision register | Proposed data contract; regulatory schema/reviewer approval pending |
+| AUD-020 | Index numbering and duplicate navigation corrected | Corrected and re-fetched from GitHub |
+
+**Migration caution:** Migration 0005 is authored but has not been executed. Review existing scope rows and backup a populated database before applying. It does not implement authorization logic.
+
+**Still open:** stakeholder approvals; complete Stage 2/Stage 3 mapping across every domain; feature-level release matrix; atomic SRS traceability; complete API schemas/OpenAPI; regulatory/provider verification; automated tests; live migration validation; UAT.
