@@ -94,7 +94,7 @@ Counts describe this initial register and may overlap by affected workstream onl
 - **Owners:** A4 database, A3 backend, A9 DevOps
 - **Affected documents:** SQL migrations 0001–0006; migration README; Stage 3 migration plan; database completion blueprint; consistency decisions; agent hub.
 - **Problem:** SQL bootstrap exists while Alembic is recommended later. A duplicate execution path or untested baseline could corrupt deployed schemas. Existing review text also referenced the earlier 0001–0004 sequence; current bootstrap scripts are 0001–0006.
-- **Correction:** Select one documented baseline approach: execute bootstrap once then stamp a verified Alembic baseline, or translate scripts into Alembic and retire standalone execution. Add migration coverage matrix with dependency, DDL review and test status. Update all references to include 0005 and 0006; select and test a single migration runner/baseline strategy.
+- **Correction:** Use ordered SQL migrations 0001–0006 as the sole current schema source. Defer Alembic; before adoption, convert the full history to reviewed Alembic revisions and retire direct SQL application. Add a migration ledger, dependency/DDL coverage matrix and disposable PostgreSQL clean-install/upgrade tests.
 - **Acceptance:** A fresh disposable PostgreSQL database can be created and upgraded using exactly one supported command path; repeat/upgrade/failure behaviour is tested. No migration is claimed live-executed without evidence.
 
 ### DOC-009 — Screen specifications are uneven against G1–G8
