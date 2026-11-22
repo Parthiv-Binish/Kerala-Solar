@@ -9,7 +9,7 @@ Run exactly in this order on a new, empty GreenGrid database:
 1. `0001_create_platform_schemas.sql` — creates domain namespaces.
 2. `0002_create_reference_and_geography.sql` — creates empty geography, postal-source, provenance and unit tables.
 3. `0003_create_organization.sql` — creates company locations, departments, employees, contacts, addresses and configurable employee groups.
-4. `0004_create_identity_and_access.sql` — creates accounts, credentials, sessions, MFA, permission sets, group grants and individual overrides.
+4. `0004_create_identity_and_access.sql` — creates accounts, credentials, sessions, MFA, permission sets, group grants and individual overrides.\n5. `0005_align_authorization_scopes.sql` — maps legacy scope aliases to the canonical scope vocabulary and constrains future values.
 
 Each script uses a transaction. Stop on the first error; do not continue with later scripts after a failed migration.
 
@@ -28,7 +28,7 @@ Example:
 psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f database/migrations/0001_create_platform_schemas.sql
 psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f database/migrations/0002_create_reference_and_geography.sql
 psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f database/migrations/0003_create_organization.sql
-psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f database/migrations/0004_create_identity_and_access.sql
+psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f database/migrations/0004_create_identity_and_access.sql\npsql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f database/migrations/0005_align_authorization_scopes.sql
 ```
 
 Do not place a real production URL, password or secret in shell history, CI logs or repository files. Use the deployment platform's secret manager.
@@ -77,3 +77,10 @@ On a fresh database, the four counts should be zero. This confirms the no-seed-d
 ## Not yet included
 
 CRM/customer tables, customer identity links, product catalogue, survey/quotation, projects, finance, inventory, installation, assets, telemetry, service, notifications, documents and integration workers are later migration batches. Do not create these tables manually outside the approved migration sequence.
+
+
+## Migration 0005 — authorization scope alignment
+
+Canonical scope values are `own`, `assigned`, `team`, `related`, `location` and `company`. The migration maps legacy `group` to `team`, `resource` to `related`, `branch` to `location`, and `all` to `company` (within the single GreenGrid company boundary only). Review existing grant rows and export a backup before applying this migration to any populated database. The SQL change does not implement the authorization resolver or prove deny-precedence correctness; those require backend policy code and automated tests.
+
+The canonical resolver and precedence are specified in [Consistency Resolution Decisions](../../docs/15-platform-spec/13-implementation-blueprints/10-consistency-resolution-decisions.md). The migration has not been executed against a live database as part of this documentation change.
