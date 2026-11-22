@@ -1,14 +1,17 @@
 # Kerala-Solar
 
-## GreenGrid Solar Platform
+## GreenGrid Solar — Project Repository
 
-A plain-language, client-facing showcase of the proposed GreenGrid Solar digital platform is available in **[showcase/](showcase/)**. Open [showcase/index.html](showcase/index.html) to explore the customer journey, internal web workspace, customer app, technician app, project workflows, monitoring, service operations and the key assumptions behind the study.
+**New here? Start with the [Project Book & Master Index](INDEX.md).** It is the complete table of contents for the study, workflows, software requirements, architecture, data design, security, implementation assets and visual showcase.
 
-## Detailed documentation
+### Quick access
 
-- [Business case study](casestudy/README.md) — business workflows, regulatory and compliance research, device monitoring, architecture, roadmap and open questions.
-- [Platform specification](docs/15-platform-spec/README.md) — project charter, business requirements, enquiry-to-customer workflow, project/utility/service workflows, SRS, architecture, data/API outline, group-based access and security, IoT monitoring, notifications, mobile apps, delivery plan and acceptance/verification register.
+- [Project Book & Master Index](INDEX.md) — read the repository in a guided, book-like order.
+- [Business case study](casestudy/README.md) — research, business workflows, compliance, monitoring, architecture and roadmap.
+- [Platform specification](docs/15-platform-spec/README.md) — detailed requirements and technical design.
+- [Interactive platform showcase](showcase/index.html) — explore the proposed web workspace, customer app, technician app and operating workflows.
+- [Database migrations](database/migrations/README.md) — PostgreSQL bootstrap schema and execution notes.
 
-## Important status note
+## Project status
 
-The showcase describes a **proposed solution and study**, not a claim that the production software, mobile apps, integrations or live device monitoring are already implemented. Client discovery, current official-source checks, manufacturer/API access and professional reviews remain required before implementation or customer-facing commitments.
+This repository contains a study, proposed solution design and implementation planning material. The showcase and specifications do not imply that the production software, mobile apps, integrations or live monitoring are already operational. Stakeholder discovery and external/provider verification remain necessary before production commitments.
