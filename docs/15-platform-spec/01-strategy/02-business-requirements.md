@@ -30,7 +30,10 @@ An enquiry is a potential sale, not automatically a customer. Won conversion req
 ## Roles
 Owner/admin; sales; surveyor; designer/engineer; project manager; procurement; technician; accounts; support; customer. Actual headcount and hierarchy are VERIFY items.
 
-## Finance boundary\nMVP finance records and verifies funds actually received, then allocates posted receipts. Customer-submitted screenshots/references are not proof of settlement. No online payment gateway is assumed.\n\n## Constraints
+## Finance boundary
+MVP finance records and verifies funds actually received, then allocates posted receipts. Customer-submitted screenshots/references are not proof of settlement. No online payment gateway is assumed.
+
+## Constraints
 Government portal status remains authoritative. Generation and savings must show timestamps and limitations. Authorization is server-side. Important status changes retain actor and timestamp.
 
 ## Open decisions
