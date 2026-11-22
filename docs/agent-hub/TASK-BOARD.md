@@ -43,4 +43,6 @@ Task assignments below are work ownership, not evidence that work has started. A
 - A9: AG-0013, AG-0024; environments, CI/CD and reliability.
 
 ## Task rules
-DOC-001–DOC-003 are partially remediated at documentation/schema-artifact level only. Migration 0006 is authored but not executed. AG-0004, AG-0015 and AG-0025 remain blocked until backend authorization and customer identity behaviour are implemented and tested. AG-0016 is limited to schema/documentation planning until migration strategy and database review are approved.\n\nEvery task must add: requirement links, planned files, acceptance criteria, test IDs, dependencies, owner, reviewer and PR. Do not mark DONE without merged code/docs and test evidence. A8 may mark test execution complete; A0 controls integrated milestone status.
+DOC-001–DOC-003 are partially remediated at documentation/schema-artifact level only. Migration 0006 is authored but not executed. AG-0004, AG-0015 and AG-0025 remain blocked until backend authorization and customer identity behaviour are implemented and tested. AG-0016 is limited to schema/documentation planning until migration strategy and database review are approved.
+
+Every task must add: requirement links, planned files, acceptance criteria, test IDs, dependencies, owner, reviewer and PR. Do not mark DONE without merged code/docs and test evidence. A8 may mark test execution complete; A0 controls integrated milestone status.
