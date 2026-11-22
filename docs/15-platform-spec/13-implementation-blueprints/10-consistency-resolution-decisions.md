@@ -43,7 +43,7 @@ The following are **not** canonical scope keys: `branch`, `all`, `group`, `resou
 8. Enforce scope before pagination, counts, aggregates, exports, file access, realtime subscription and background processing.
 9. Deny by default. Missing relationship data, expired membership or unresolved scope means no access.
 
-A scope parameter such as a team/location/resource identifier must be validated against the actor's authority; clients cannot choose arbitrary scope references. Customer accounts use customer/site ownership relationships and a separate customer authorization policy, not employee scopes.
+A scope parameter such as a team/location/resource identifier must be validated against the actor's authority; clients cannot choose arbitrary scope references. Customer accounts use verified `iam.customer_account_links` to customer/contact relationships and a separate customer/site authorization policy, not employee scopes. The initial physical model has separate employee/customer/service account types; a shared employee/customer login is unsupported until separately designed and approved.
 
 ### 2.4 Canonical precedence
 - Account disabled/locked, expired session or revoked identity: deny all.
@@ -53,11 +53,11 @@ A scope parameter such as a team/location/resource identifier must be validated 
 - No matching allow: deny.
 - An individual allow cannot override a deny. Removing a deny requires a separate authorised, audited change.
 
-The same policy applies to list/detail/search/export/analytics/files/realtime/jobs. Add truth-table tests for overlapping groups, scope intersections, expiry and denies.
+The same policy applies to list/detail/search/export/analytics/files/realtime/jobs. Add truth-table tests for overlapping groups, scope intersections, expiry and denies. Permission-set allow rules are effective only through a matching allow group grant; a permission-set deny or a matching deny group grant is a deny candidate. Any matching deny wins over all allows for that permission/record.
 
 
 
-### 2.5 Authorization truth table for implementation tests
+### 2.5 Physical mapping and customer identity\n\nThe canonical physical mapping is maintained in [ERD Logical-to-Physical Mapping](../05-data-and-api/ERD-LOGICAL-PHYSICAL-MAPPING.md). Employee identity uses `iam.employee_account_links`; customer identity uses `iam.customer_account_links`. The latter is customer-specific, optionally contact-specific, verified before activation and revocable with history. The minimum customer/contact subject tables and link are authored in migration 0006; remaining CRM tables are later migrations. No polymorphic employee/customer ID columns are permitted.\n\n### 2.6 Authorization truth table for implementation tests
 
 Assume the requested record is within the stated scope and all grants/memberships are currently valid.
 
