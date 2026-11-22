@@ -23,6 +23,50 @@
 @media(max-width:900px){.hero-grid,.split{grid-template-columns:1fr}.solar-art{min-height:330px}.stats{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(2,1fr)}.flow{grid-template-columns:repeat(3,1fr)}.flow-step:after{display:none!important}.sticky-copy{position:static}.ecosystem{grid-template-columns:1fr}.eco-card.featured{transform:none}.nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:#f7faf6;padding:18px 22px 24px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.nav-links.open{display:flex}.menu-btn{display:block}.nav-cta{display:none}}
 @media(max-width:600px){.wrap{width:min(100% - 28px,1160px)}.section{padding:66px 0}.hero{padding:62px 0 56px}.hero-grid{gap:15px}.solar-art{min-height:280px}.sun{width:160px;height:160px}.roof-card{margin-top:65px;padding:16px}.roof-panels span{height:34px}.float-chip{font-size:.7rem;padding:10px}.chip-one{left:0}.chip-two{right:0}.stats{gap:8px}.stat{padding:16px}.stat b{font-size:1.35rem}.grid-3,.grid-2{grid-template-columns:1fr}.flow{grid-template-columns:repeat(2,1fr)}.flow-step{min-height:125px}.tab-panel.active{grid-template-columns:1fr}.feature-list{grid-template-columns:1fr 1fr}.comparison{font-size:.78rem}.comparison th,.comparison td{padding:10px 8px}.comparison td:first-child{width:25%}.nav-inner{height:64px}.nav-links{top:64px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+/* Study and connected-record presentation */
+.study-band{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:stretch}
+.study-feature{background:var(--dark);color:#fff;border-radius:24px;padding:30px}
+.study-feature p{color:#c2d7cb}
+.study-feature .eyebrow{color:var(--lime)}
+.study-points{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.study-point{background:#fff;border:1px solid var(--line);border-radius:17px;padding:18px}
+.study-point b{display:block;margin-bottom:6px}
+.study-point p{font-size:.86rem;color:var(--muted);margin:0}
+.business-lines{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.business-line{background:#fff;border:1px solid var(--line);border-radius:17px;padding:20px}
+.business-line small{display:block;color:var(--green);font-weight:850;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.business-line p{font-size:.86rem;color:var(--muted);margin:0}
+.relationship-shell{background:#f0f7f1;border:1px solid #d7e7d9;border-radius:24px;padding:24px}
+.relationship-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;align-items:stretch}
+.record{background:#fff;border:1px solid #d8e5da;border-radius:14px;padding:15px;min-height:110px}
+.record strong{display:block;font-size:.9rem;margin-bottom:5px}
+.record span{font-size:.77rem;color:var(--muted)}
+.record.primary{background:var(--dark);color:#fff;border-color:var(--dark)}
+.record.primary span{color:#c2d7cb}
+.relationship-caption{text-align:center;color:var(--green);font-size:.8rem;font-weight:800;padding:12px}
+.relationship-note{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.relationship-note article{background:#fff;border:1px solid var(--line);border-radius:15px;padding:17px}
+.relationship-note p{font-size:.83rem;color:var(--muted);margin:0}
+.scenario-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
+.scenario-tab{border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:12px;padding:11px 15px;font-weight:750;cursor:pointer}
+.scenario-tab[aria-selected="true"]{background:var(--dark);color:#fff;border-color:var(--dark)}
+.scenario-panel{display:none;background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px}
+.scenario-panel.active{display:grid;grid-template-columns:.8fr 1.2fr;gap:24px;align-items:start}
+.scenario-steps{list-style:none;padding:0;margin:0;counter-reset:scenario}
+.scenario-steps li{counter-increment:scenario;display:grid;grid-template-columns:30px 1fr;gap:12px;padding:11px 0;border-bottom:1px solid #edf1ed;font-size:.9rem}
+.scenario-steps li:before{content:counter(scenario,decimal-leading-zero);font-size:.72rem;color:var(--green);font-weight:900;padding-top:3px}
+.scenario-steps li:last-child{border:0}
+.scenario-output{background:var(--mint);border-radius:15px;padding:19px}
+.scenario-output b{display:block;margin-bottom:7px}
+.scenario-output p{font-size:.87rem;color:#4e665b;margin:0}
+.role-matrix{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;font-size:.87rem}
+.role-matrix th,.role-matrix td{padding:13px 15px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.role-matrix th{background:#eff6ef;color:var(--green)}
+.role-matrix tr:last-child td{border:0}
+@media(max-width:900px){.study-band,.scenario-panel.active{grid-template-columns:1fr}.business-lines{grid-template-columns:1fr 1fr}.relationship-row{grid-template-columns:repeat(2,1fr)}.relationship-note{grid-template-columns:1fr}}
+@media(max-width:600px){.study-points,.business-lines{grid-template-columns:1fr}.relationship-shell{padding:14px}.relationship-row{grid-template-columns:1fr 1fr}.record{min-height:95px;padding:12px}.scenario-panel{padding:16px}.role-matrix{font-size:.76rem}.role-matrix th,.role-matrix td{padding:9px 8px}}
+
 </style>
 </head>
 <body>
@@ -30,7 +74,7 @@
  <div class="wrap nav-inner">
   <a class="brand" href="#top" aria-label="GreenGrid Solar home"><span class="brand-mark">G</span><span>GreenGrid <span style="color:var(--green)">Solar</span></span></a>
   <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-   <a href="#platform">The platform</a><a href="#journey">Customer journey</a><a href="#apps">Apps & software</a><a href="#difference">What is different</a><a href="#trust">Trust & compliance</a>
+   <a href="#study">Business study</a><a href="#platform">The ecosystem</a><a href="#journey">How it works</a><a href="#relationships">How data connects</a><a href="#difference">Why this approach</a><a href="#delivery">Roadmap</a>
   </nav>
   <a class="nav-cta" href="#next">Explore the study ↗</a>
   <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu</button>
@@ -72,6 +116,32 @@
    <article class="card"><div class="icon">02</div><h3>Keep everyone connected</h3><p>Office staff, customers and technicians work from the same project information, with access suited to their work.</p></article>
    <article class="card"><div class="icon">03</div><h3>Keep a useful history</h3><p>Documents, site photos, equipment serial numbers, updates and service records stay linked to the right customer and site.</p></article>
   </div>
+ </div>
+</section>
+
+
+<section class="section" id="study">
+ <div class="wrap">
+  <div class="section-head"><span class="eyebrow">01 · Understanding the business</span><h2>A solar company is managing more than installations.</h2><p>The study starts with GreenGrid's operating context: different solar products, multiple customer types, site-specific work, external approvals and long-term service. The platform must reflect those differences instead of forcing every job into one generic checklist.</p></div>
+  <div class="study-band">
+   <article class="study-feature"><span class="eyebrow">The central finding</span><h3 style="font-size:1.65rem;line-height:1.2;margin-top:12px">The customer relationship, the project and the solar plant are connected — but they are not the same record.</h3><p>A customer may own multiple sites. A site may host multiple projects over time. Each project can have its own quotations, utility applications, payments, installation records and handover. After commissioning, the plant and its devices create a separate service and monitoring history.</p></article>
+   <div class="study-points">
+    <article class="study-point"><b>Work crosses teams</b><p>Sales, survey, design, procurement, field work, accounts and support need coordinated handovers.</p></article>
+    <article class="study-point"><b>Progress has dependencies</b><p>Utility inspection, meter installation and commissioning are separate milestones with different owners.</p></article>
+    <article class="study-point"><b>Evidence matters</b><p>Photos, serial numbers, approvals, test readings and customer acknowledgements should remain linked to the work.</p></article>
+    <article class="study-point"><b>Service continues later</b><p>Warranty, AMC, device alerts and customer requests depend on the history created during installation.</p></article>
+   </div>
+  </div>
+  <div class="section-head" style="margin:38px 0 18px"><span class="eyebrow">Different business lines</span><h3>One company, more than one solar workflow.</h3><p class="muted">The platform should adapt to the system being sold and installed.</p></div>
+  <div class="business-lines">
+   <article class="business-line"><small>Residential on-grid</small><h3>Home rooftop systems</h3><p>Consumer details, scheme eligibility checks, utility application milestones, meter progress and commissioning.</p></article>
+   <article class="business-line"><small>Off-grid & hybrid</small><h3>Backup and battery systems</h3><p>Battery sizing, backup requirements, configuration, battery commissioning and warranty records.</p></article>
+   <article class="business-line"><small>Commercial & industrial</small><h3>Larger energy projects</h3><p>Load analysis, technical design, approvals, project coordination and commercial reporting.</p></article>
+   <article class="business-line"><small>Solar water heaters</small><h3>Thermal solar products</h3><p>Collector and tank details, plumbing, leak and corrosion checks, and a service model distinct from PV plants.</p></article>
+   <article class="business-line"><small>After-sales</small><h3>Support across the lifetime</h3><p>Service cases, manufacturer warranty claims, AMC schedules, maintenance visits and customer communication.</p></article>
+   <article class="business-line"><small>Important boundary</small><h3>External systems remain external</h3><p>Government portals, utility approvals, manufacturer clouds and payment providers remain authoritative for their own services.</p></article>
+  </div>
+  <p class="caveat">The supplied business brief describes these product and customer categories. GreenGrid should confirm which lines are currently active, their volumes and the actual process used by each team before scope is finalised.</p>
  </div>
 </section>
 
@@ -118,6 +188,63 @@
    <div class="timeline-item"><span class="tagline">04 · Survey & proposal</span><h3>Visit, assess and prepare a quote</h3><p>The survey captures roof area, shade, electrical details and photos. The proposal lists equipment, capacity, estimated generation, price, taxes, payment stages and warranty terms.</p></div>
    <div class="timeline-item"><span class="tagline">05 · Decision</span><h3>Won, lost or on hold</h3><p>Accepted proposals move forward. Declined opportunities keep a reason and history. On-hold enquiries get a planned follow-up.</p></div>
    <div class="timeline-item"><span class="tagline">06 · Conversion</span><h3>Create the customer relationship</h3><p>The accepted enquiry is linked to a customer, site and project. Duplicate checks prevent creating the same customer twice. App access is invited separately.</p></div>
+  </div>
+ </div>
+</section>
+
+
+<section class="section soft" id="relationships">
+ <div class="wrap">
+  <div class="section-head"><span class="eyebrow">04 · How information connects</span><h2>One shared history, not three separate databases.</h2><p>Every workspace works with the same underlying business records. The system links the records so an update made by one team can become the right update for another person — without exposing private internal notes or unrelated customer data.</p></div>
+  <div class="relationship-shell">
+   <div class="relationship-row">
+    <div class="record primary"><strong>Customer</strong><span>Person or organisation buying from GreenGrid</span></div>
+    <div class="record"><strong>Site</strong><span>Physical property where work takes place</span></div>
+    <div class="record"><strong>Project</strong><span>A specific installation or delivery engagement</span></div>
+    <div class="record"><strong>Solar plant</strong><span>Installed system handed over to the customer</span></div>
+   </div>
+   <div class="relationship-caption">Customer → one or more sites → one or more projects → installed plant and equipment</div>
+   <div class="relationship-row">
+    <div class="record"><strong>Enquiry & activity</strong><span>Source, contact history, owner and next follow-up</span></div>
+    <div class="record"><strong>Survey & quotation</strong><span>Site findings, design versions and accepted price</span></div>
+    <div class="record"><strong>Project records</strong><span>Milestones, documents, utility events and payments</span></div>
+    <div class="record"><strong>Devices & telemetry</strong><span>Inverter, datalogger, readings and device status</span></div>
+   </div>
+   <div class="relationship-caption">Operational records attach to the correct customer, site, project or plant — not to a loose chat thread</div>
+   <div class="relationship-row">
+    <div class="record"><strong>Work order</strong><span>Assigned technician, checklist, parts and visit report</span></div>
+    <div class="record"><strong>Service case</strong><span>Customer request, alert, owner, SLA and resolution</span></div>
+    <div class="record"><strong>Warranty & AMC</strong><span>Coverage, claims, visits and renewal dates</span></div>
+    <div class="record primary"><strong>Customer history</strong><span>Approved progress, handover documents and service history</span></div>
+   </div>
+  </div>
+  <div class="relationship-note">
+   <article><h3>Office updates the record</h3><p>When staff change an approved milestone, the customer timeline can show the new status and send a notification based on consent and preferences.</p></article>
+   <article><h3>Technician updates the work</h3><p>When a field visit is submitted, photos, readings, serials and parts used return to the work order for office review.</p></article>
+   <article><h3>A plant alert becomes a case</h3><p>A supported device alert can be reviewed, deduplicated and converted into a service case. An alert is not automatically treated as a confirmed fault.</p></article>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="scenarios">
+ <div class="wrap">
+  <div class="section-head"><span class="eyebrow">05 · See the hand-offs</span><h2>What happens when someone does something?</h2><p>These examples show how one action moves through the system and who sees the result.</p></div>
+  <div class="scenario-tabs" role="tablist" aria-label="Choose an operational example">
+   <button class="scenario-tab" type="button" role="tab" aria-selected="true" aria-controls="scenario-enquiry" data-scenario="enquiry">A new enquiry arrives</button>
+   <button class="scenario-tab" type="button" role="tab" aria-selected="false" aria-controls="scenario-install" data-scenario="install">A technician completes a visit</button>
+   <button class="scenario-tab" type="button" role="tab" aria-selected="false" aria-controls="scenario-alert" data-scenario="alert">A plant reports a fault</button>
+  </div>
+  <div class="scenario-panel active" id="scenario-enquiry" role="tabpanel">
+   <div><span class="tagline">Example 01 · Sales to project</span><h3>A customer asks about rooftop solar.</h3><p class="muted">The system creates a lead first. It becomes a customer and project only after the agreed conversion checks.</p></div>
+   <div><ol class="scenario-steps"><li>Office staff record the enquiry source, contact details, site and requirement.</li><li>A sales owner is assigned and receives a follow-up task.</li><li>The customer receives an acknowledgement if a valid contact channel and consent basis are available.</li><li>Survey findings and quotation versions are attached to the opportunity.</li><li>After acceptance and required checks, the lead is linked to the customer, site and new project.</li></ol><div class="scenario-output"><b>What each person sees</b><p>Sales sees the follow-up and quotation. Management sees the pipeline. The customer sees only their acknowledgement and approved updates. Project operations sees the new project after conversion.</p></div></div>
+  </div>
+  <div class="scenario-panel" id="scenario-install" role="tabpanel">
+   <div><span class="tagline">Example 02 · Office to field</span><h3>A technician finishes an installation visit.</h3><p class="muted">The technician submits evidence; the office reviews it before the project milestone is marked complete.</p></div>
+   <div><ol class="scenario-steps"><li>The project manager creates a work order, assigns a team and schedules the visit.</li><li>The technician opens the assigned job and checks the site and safety instructions.</li><li>The app captures checklist results, equipment serial numbers, photos, readings and parts used.</li><li>The submission syncs to the server; incomplete or conflicting records are flagged for review.</li><li>The project manager reviews the evidence, requests rework if needed, then updates the installation milestone.</li></ol><div class="scenario-output"><b>What each person sees</b><p>The technician sees assigned work. The office sees evidence and review status. The customer sees the approved progress update, not internal notes. Utility inspection and commissioning remain separate milestones.</p></div></div>
+  </div>
+  <div class="scenario-panel" id="scenario-alert" role="tabpanel">
+   <div><span class="tagline">Example 03 · Monitoring to service</span><h3>A connected inverter reports an issue.</h3><p class="muted">Only supported device models and authorised manufacturer connections can supply this information.</p></div>
+   <div><ol class="scenario-steps"><li>A device connector receives a reading or fault event and records its source and timestamp.</li><li>Rules check data quality, duplicate events, severity and whether the device has gone offline.</li><li>An alert is created for review; it is not automatically labelled as a confirmed equipment failure.</li><li>Support checks the customer and plant history, then opens or links a service case.</li><li>A technician is assigned if a field visit is required; diagnosis and resolution are recorded against the case.</li></ol><div class="scenario-output"><b>What each person sees</b><p>Support sees the alert and case. The technician sees the assigned work order. The customer receives a clear service update. Management can review response time and recurring issues.</p></div></div>
   </div>
  </div>
 </section>
@@ -203,6 +330,28 @@
  </div>
 </section>
 
+
+<section class="section soft" id="roles">
+ <div class="wrap">
+  <div class="section-head"><span class="eyebrow">People and access</span><h2>Access follows the work people are allowed to do.</h2><p>Instead of giving every employee one fixed role, the proposal uses groups. A person can belong to more than one group, and the system checks both the permission and the records they are allowed to access.</p></div>
+  <div style="overflow-x:auto">
+   <table class="role-matrix">
+    <thead><tr><th>Example group</th><th>Typical work</th><th>Example access boundary</th></tr></thead>
+    <tbody>
+     <tr><td>Sales</td><td>Enquiries, customer contact, quotations and follow-ups</td><td>Own or team pipeline and approved customer details</td></tr>
+     <tr><td>Survey / Design</td><td>Site assessment, technical design and bill of materials</td><td>Assigned surveys and projects</td></tr>
+     <tr><td>Project team</td><td>Milestones, schedules, procurement coordination and reviews</td><td>Team or branch projects</td></tr>
+     <tr><td>Technicians</td><td>Assigned installation and service jobs, checklists and visit reports</td><td>Assigned work orders and cases</td></tr>
+     <tr><td>Accounts</td><td>Invoices, receipts, dues, refunds and reconciliation</td><td>Financial records; no automatic access to unrelated technical notes</td></tr>
+     <tr><td>Support</td><td>Customer requests, case assignment and communication</td><td>Assigned or team support queue</td></tr>
+     <tr><td>Owner / Admin</td><td>Business oversight, configuration and approvals</td><td>All records explicitly authorised for the business</td></tr>
+    </tbody>
+   </table>
+  </div>
+  <div class="notice"><b>How group membership works:</b> permissions from a user's groups are combined, but record scope still applies. A technician who also belongs to Staff does not automatically receive access to accounts or every customer's private records. Explicit restrictions override grants, and access is denied by default.</div>
+ </div>
+</section>
+
 <section class="section" id="monitoring">
  <div class="wrap split">
   <div><span class="eyebrow">After commissioning</span><h2>A solar plant should not become invisible after handover.</h2><p class="muted">Where the installed equipment and manufacturer access support it, the platform can collect performance data and show it to authorised users.</p><div class="notice">Monitoring depends on the exact inverter, datalogger, firmware, connectivity and manufacturer API access. Brand names alone do not guarantee integration.</div></div>
@@ -283,7 +432,7 @@
 </main>
 <footer class="footer">
  <div class="wrap">
-  <div class="footer-grid"><div><a class="brand" href="#top"><span class="brand-mark">G</span><span style="color:white">GreenGrid Solar</span></a><p style="margin-top:16px">A connected digital operations concept for GreenGrid Solar Solutions, Erattupetta, Kottayam, Kerala.</p></div><div><b>Explore</b><p><a href="#platform">Platform overview</a><br><a href="#journey">Customer journey</a><br><a href="#apps">Apps and software</a><br><a href="#trust">Trust and compliance</a></p></div><div><b>Project documents</b><p><a href="https://github.com/Parthiv-Binish/Kerala-Solar/tree/main/casestudy" target="_blank" rel="noopener">Business case study ↗</a><br><a href="https://github.com/Parthiv-Binish/Kerala-Solar/tree/main/docs/15-platform-spec" target="_blank" rel="noopener">Platform specification ↗</a></p></div></div>
+  <div class="footer-grid"><div><a class="brand" href="#top"><span class="brand-mark">G</span><span style="color:white">GreenGrid Solar</span></a><p style="margin-top:16px">A connected digital operations concept for GreenGrid Solar Solutions, Erattupetta, Kottayam, Kerala.</p></div><div><b>Explore</b><p><a href="#platform">Platform overview</a><br><a href="#study">Business study</a><br><a href="#journey">Customer journey</a><br><a href="#relationships">Connected records</a><br><a href="#apps">Apps and software</a><br><a href="#trust">Trust and compliance</a></p></div><div><b>Project documents</b><p><a href="https://github.com/Parthiv-Binish/Kerala-Solar/tree/main/casestudy" target="_blank" rel="noopener">Business case study ↗</a><br><a href="https://github.com/Parthiv-Binish/Kerala-Solar/tree/main/docs/15-platform-spec" target="_blank" rel="noopener">Platform specification ↗</a></p></div></div>
   <div class="footer-bottom"><span>Study snapshot: 22 November 2026 · Version 1.0</span><span>Concept and planning material · Not a live service or regulatory approval</span></div>
  </div>
 </footer>
@@ -295,6 +444,9 @@
  const tabs=[...document.querySelectorAll('[data-tab]')];
  function activate(name){tabs.forEach(t=>{const on=t.dataset.tab===name;t.setAttribute('aria-selected',String(on));t.tabIndex=on?0:-1;document.getElementById('panel-'+t.dataset.tab).classList.toggle('active',on);});}
  tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>activate(tab.dataset.tab));tab.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const next=(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length;tabs[next].focus();activate(tabs[next].dataset.tab);}});});
+ const scenarioTabs=[...document.querySelectorAll('[data-scenario]')];
+ function activateScenario(name){scenarioTabs.forEach(t=>{const on=t.dataset.scenario===name;t.setAttribute('aria-selected',String(on));document.getElementById('scenario-'+t.dataset.scenario).classList.toggle('active',on);});}
+ scenarioTabs.forEach(tab=>tab.addEventListener('click',()=>activateScenario(tab.dataset.scenario)));
 })();
 </script>
 </body>
