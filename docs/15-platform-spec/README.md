@@ -43,7 +43,7 @@ The application suite blueprint defines the proposed products and overall screen
   - [Stage 2 — Documents, File Storage, Digital Signatures, Audit Logs & Data Governance ER Design](05-data-and-api/stage-2-documents-file-storage-signatures-audit-and-data-governance-er-design.md)
   - [Stage 2 — Platform Settings, Integrations, Background Jobs, Error Logging & Administration ER Design](05-data-and-api/stage-2-platform-settings-integrations-background-jobs-error-logging-and-administration-er-design.md)
   - [Stage 3 — PostgreSQL Implementation Blueprint & Migration Plan](05-data-and-api/stage-3-postgresql-implementation-blueprint-and-migration-plan.md)
-  - [Stage 3 — Canonical Data Dictionary & Migration Backlog](05-data-and-api/stage-3-canonical-data-dictionary-and-migration-backlog.md)
+  - [Stage 3 — Canonical Data Dictionary & Migration Backlog](05-data-and-api/stage-3-canonical-data-dictionary-and-migration-backlog.md)\n   - [ERD Logical-to-Physical Mapping](05-data-and-api/ERD-LOGICAL-PHYSICAL-MAPPING.md)
   - [PostgreSQL Bootstrap SQL Migrations](../../database/migrations/README.md)
 - 06-security-and-access: authorization, privacy and security
   - [Platform Security — Authentication, Authorization, Privacy & Compliance](06-security-and-access/platform-security-authentication-authorization-privacy-and-compliance.md)
@@ -94,7 +94,7 @@ Confirmed from supplied brief = explicitly supplied information. Proposed = reco
 1. Enquiry, customer, project, plant, device and case are separate entities.
 2. One customer may have multiple sites and projects.
 3. Government portals remain authoritative; mirror status unless an authorised API is confirmed.
-4. Group grants combine, explicit deny overrides, and resource scope is enforced server-side.
+4. Employee access uses separate group, permission, scope and override concepts. Canonical scopes are own, assigned, team, related, location and company; matching denies win, and the backend enforces record predicates on every access path. Customer accounts use verified customer-account links and separate customer/site authorization.
 5. Device alerts and service cases are distinct.
 6. Every pending milestone has an owner, reason, evidence and next action.
 7. Do not commit credentials or customer personal data to this repository.
