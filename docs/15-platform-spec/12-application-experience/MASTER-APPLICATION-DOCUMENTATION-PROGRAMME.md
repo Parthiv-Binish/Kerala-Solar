@@ -352,6 +352,6 @@ This order builds the business lifecycle first, then the field/customer channels
 
 ## 10. Current progress
 
-The application suite and screen inventory and the first four Staff Portal chapters exist. The remaining chapters listed above are planned, not yet authored or implemented. This document is the programme checklist and does not claim the full documentation set is already complete.
+The application suite blueprint, all fourteen Staff Portal chapters, Technician Android App, Customer Android App, Customer Web Portal, Monitoring Engine, Notification Engine, Platform Administration, cross-application workflows, API catalogue and quality/operations specification have now been authored as draft specifications in this repository. They have been committed and fetched for content verification. They are not yet stakeholder-approved, legally/technically certified, implemented or tested in a running system. Detailed API route schemas, exact database mappings, provider-specific integration contracts and formal acceptance sign-offs remain follow-on review work. This document remains the programme checklist and distinguishes authored documentation from approved/implemented capability.
 
 **Next delivery:** Staff Portal Chapter A05 — Project Workspace, Milestones, Tasks & Scheduling.
