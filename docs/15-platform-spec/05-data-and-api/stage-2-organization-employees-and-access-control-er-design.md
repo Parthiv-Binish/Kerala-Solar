@@ -153,13 +153,15 @@ Database-managed catalogue of the supported data scopes.
 | description |  | Scope semantics |
 | is_active |  | Whether assignable |
 
-Initial scope semantics to support:
-- own: records created/owned by the employee, where the module supports ownership.
-- assigned: records explicitly assigned to the employee.
-- team: records within an explicitly defined team boundary.
-- company: records across the company, subject to the permission itself.
+Canonical scope keys (exact values): own, assigned, team, related, location, company.
+- own: records owned/created by the employee, only where the domain defines ownership.
+- assigned: records actively assigned to the employee through a validity-dated assignment relation.
+- team: records assigned to an explicitly configured team; never infer team membership from manager hierarchy.
+- related: records reachable through an explicitly approved domain relationship with bounded traversal.
+- location: records associated with an operating location the employee is authorised for.
+- company: records within the single GreenGrid company boundary, subject to the permission.
 
-These are conceptual scope keys, not a list to hardcode into UI dropdowns. Store scope definitions in the database. The backend must implement and test the semantics. A scope cannot be inferred from a reporting-manager relationship.
+Do not use branch, all, group or resource as scope keys. Group is the grant source, not a data scope. A resource identifier is a validated scope parameter, not a scope type. Company does not mean cross-company access. The backend resolves each scope independently for list/detail/search/export/aggregate/file/realtime/background access. Store scope definitions in the database; do not hardcode dropdowns. Missing relationship data means deny.
 
 ### 3.9 employee_permission_overrides
 
@@ -279,28 +281,19 @@ The diagram is conceptual. Customer-linked accounts also reference customers fro
 
 ## 5. Authorization evaluation rules
 
-The backend should evaluate access in a consistent, testable order:
+The backend evaluates access using the canonical policy in [Consistency Resolution Decisions](../13-implementation-blueprints/10-consistency-resolution-decisions.md):
+1. Authenticate account and verify active status/session.
+2. Resolve employee identity and currently valid group memberships.
+3. Collect currently valid group permission-set grants and their scopes.
+4. Resolve each scope independently against the requested records. Do not merge different scope labels into a broader scope.
+5. Apply matching explicit denies from permission-set rules, group grants and individual overrides. Any matching deny blocks the affected permission for those records.
+6. Otherwise, valid allows from groups and authorised individual overrides may grant access within their respective scopes.
+7. An individual allow never overrides a matching deny. Removing a deny is a separate authorised, audited action.
+8. Enforce scope before pagination, counts, search, aggregate, export, file access, realtime and background processing.
+9. Deny by default if no valid permission/scope authorises the action. Missing relationship data means deny.
+10. Audit sensitive permission changes and security-relevant access decisions.
 
-1. Authenticate the user account and verify the account is active and not locked/revoked.
-2. Resolve the employee/customer identity linked to the account.
-3. Collect active group memberships for the employee at the current time.
-4. Collect active permission grants from those groups, including their configured scopes.
-5. Apply valid individual employee overrides.
-6. An explicit individual deny overrides a grant for the same permission and applicable scope.
-7. Enforce record-level ownership, assignment, team, or company scope in the query/service layer.
-8. Deny by default if no valid permission and scope combination authorizes the requested action.
-9. Record sensitive permission changes and relevant access decisions in the audit/security log.
-
-Where multiple group grants exist for the same permission, effective access may combine scopes only according to approved rules. A broader scope must not be accidentally created by combining ambiguous values. Define and test precedence explicitly before implementation.
-
-### Scope definitions
-
-- Own: records owned/created by the employee, only where the module defines ownership.
-- Assigned: records explicitly assigned to the employee.
-- Team: records in a separately defined team boundary. The exact team model must be approved; it must not be inferred automatically from manager relationships.
-- Company: records within the company, subject to the granted permission.
-
-The scope controls which records can be accessed; the permission controls which action can be performed. Both checks are required.
+Customer accounts use customer/site relationship authorisation, not employee scopes. Client-supplied scope references must be validated against the actor's authority. Reporting-manager relationships do not create access.
 
 ## 6. Master data and configuration rules
 
