@@ -139,7 +139,7 @@ Many-to-many junction assigning permissions to groups.
 | created_at, created_by |  | Assignment audit fields |
 | updated_at, updated_by |  | Update audit fields |
 
-Suggested uniqueness: employee_group_id + permission_id + scope_type_id, or a reviewed equivalent that prevents ambiguous duplicate grants. Prefer a clear grant model for groups; individual deny overrides are handled explicitly in employee overrides. If group-level deny is not required, omit effect from this table and treat group mappings as grants only.
+Group-level effect is supported and is either allow or deny. A matching deny from any active group grant blocks the affected permission/records even when another group grants allow. Individual overrides also support allow/deny; individual allow cannot override a matching deny. The physical implementation uses permission sets and group_permission_set_grants rather than a direct group_permissions table. Maintain the logical-to-physical mapping in Stage 3; do not create duplicate tables. Logical uniqueness must prevent ambiguous duplicate grants for the same group, permission-set, scope and validity window.
 
 ### 3.8 permission_scope_types
 
