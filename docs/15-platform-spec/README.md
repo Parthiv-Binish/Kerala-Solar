@@ -10,6 +10,11 @@ For the complete repository reading order and chapter descriptions, use the [Pro
 
 ## Application experience
 
+The application suite blueprint defines the proposed products and overall screen inventory. Detailed screen specifications are added chapter by chapter.
+
+- [Staff Portal — Navigation, Workspace Shell & Dashboard](12-application-experience/01-staff-portal-navigation-and-dashboard.md)
+- [Staff Portal — Enquiries, Follow-ups & Customer Management](12-application-experience/02-staff-portal-enquiries-and-customers.md)
+
 - [Application Suite, Screen Inventory & User Experience Blueprint](12-application-experience/00-application-suite-and-screen-inventory.md) — defines the proposed applications, users, navigation, screens, workflows, data movement and usability principles.
 
 ## Folder map
@@ -45,6 +50,8 @@ For the complete repository reading order and chapter descriptions, use the [Pro
 - 10-delivery: roadmap, effort and cost assumptions
 - 11-governance: discovery questions, acceptance and verification
 - 12-application-experience: product suite, navigation, screen inventory and user experience
+  - [Staff Portal — Navigation and Dashboard](12-application-experience/01-staff-portal-navigation-and-dashboard.md)
+  - [Staff Portal — Enquiries and Customers](12-application-experience/02-staff-portal-enquiries-and-customers.md)
 
 ## Status vocabulary
 Confirmed from supplied brief = explicitly supplied information. Proposed = recommended design. VERIFY = client, authority, manufacturer or professional confirmation required. Deferred = not part of initial release, not permanently excluded.
