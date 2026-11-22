@@ -8,6 +8,8 @@
 ## Current truth
 - Agent workstreams A0–A9 are defined in the development plan.
 - The shared agent hub has now been created as repository documentation.
+- Consolidated documentation remediation register is available at [DOCUMENTATION-ISSUE-REGISTER](../15-platform-spec/13-implementation-blueprints/DOCUMENTATION-ISSUE-REGISTER.md); all initial DOC issues are OPEN.
+- Critical documentation issues block implementation in their affected domains until resolved and verified.
 - No autonomous agents have been launched by this repository update.
 - No application code, provider connection, production deployment or live integration is claimed by this status page.
 - OpenWA is the proposed WhatsApp candidate, not yet verified as production-ready.
