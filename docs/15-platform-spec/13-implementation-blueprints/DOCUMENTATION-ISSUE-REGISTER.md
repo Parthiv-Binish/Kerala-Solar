@@ -41,7 +41,7 @@ Counts describe this initial register and may overlap by affected workstream onl
 
 ### DOC-002 — Customer identity and authorised-contact model is incomplete
 - **Priority:** Critical
-- **Remediation status (22 Nov 2026):** PARTIALLY IMPLEMENTED IN SCHEMA DESIGN — migration 0006 and the Stage 2/3/security documents now define typed, customer-specific, verified/revocable links and the minimum customer/contact subject tables. Full CRM migration, verification workflow, customer/site resolver and isolation tests remain outstanding; keep this issue OPEN.
+- **Remediation status (22 Nov 2026):** PARTIALLY IMPLEMENTED IN SCHEMA DESIGN — migration 0006 and the Stage 2/3/security documents now define typed, customer-specific links that require employee-account verification and preserve revocation actor/time and the minimum customer/contact subject tables. Full CRM migration, verification workflow, customer/site resolver and isolation tests remain outstanding; keep this issue OPEN.
 - **Owners:** A3 IAM/API, A4 CRM/IAM data, A8 security; business owner approval
 - **Affected documents:** Full security architecture; Stage 2 customer and access ERDs; Stage 3 dictionary; migration README/backlog; customer app/web; invitation and onboarding workflows.
 - **Problem:** Bootstrap migrations create employee identity linkage; customer identity linkage is deferred. The complete model for multiple contacts, representatives, household access, site-specific access, revocation and possible employee/customer dual identity is not yet a build contract.
@@ -92,9 +92,9 @@ Counts describe this initial register and may overlap by affected workstream onl
 ### DOC-008 — Migration baseline strategy and migration coverage need one source
 - **Priority:** High
 - **Owners:** A4 database, A3 backend, A9 DevOps
-- **Affected documents:** SQL migrations 0001–0005; migration README; Stage 3 migration plan; database completion blueprint; consistency decisions; agent hub.
+- **Affected documents:** SQL migrations 0001–0006; migration README; Stage 3 migration plan; database completion blueprint; consistency decisions; agent hub.
 - **Problem:** SQL bootstrap exists while Alembic is recommended later. A duplicate execution path or untested baseline could corrupt deployed schemas. Existing review text also references the earlier 0001–0004 sequence.
-- **Correction:** Select one documented baseline approach: execute bootstrap once then stamp a verified Alembic baseline, or translate scripts into Alembic and retire standalone execution. Add migration coverage matrix with dependency, DDL review and test status. Update all references to include 0005.
+- **Correction:** Select one documented baseline approach: execute bootstrap once then stamp a verified Alembic baseline, or translate scripts into Alembic and retire standalone execution. Add migration coverage matrix with dependency, DDL review and test status. Update all references to include 0005 and 0006; select and test a single migration runner/baseline strategy.
 - **Acceptance:** A fresh disposable PostgreSQL database can be created and upgraded using exactly one supported command path; repeat/upgrade/failure behaviour is tested. No migration is claimed live-executed without evidence.
 
 ### DOC-009 — Screen specifications are uneven against G1–G8
