@@ -220,11 +220,11 @@ Authentication identity linked to an employee or customer identity. Employee and
 
 Enforce that an account is linked to the intended identity type and does not accidentally represent both an employee and customer unless an approved account-linking model explicitly supports that case. Credentials/password hashes and external identity-provider secrets must be handled using the authentication design, not stored in employee profile fields.
 
-### 3.12 account_statuses
+### 3.13 account_statuses
 
 Database-managed account status catalogue. Actual values are maintained through authorized configuration. Status transitions and security restrictions must be enforced server-side.
 
-### 3.13 user_sessions
+### 3.14 user_sessions
 
 | Column | Key | Meaning |
 |---|---|---|
@@ -240,7 +240,7 @@ Database-managed account status catalogue. Actual values are maintained through 
 
 Session tokens must be high entropy, stored hashed, revocable, and protected from exposure in logs.
 
-### 3.14 authentication_events
+### 3.15 authentication_events
 
 | Column | Key | Meaning |
 |---|---|---|
@@ -277,7 +277,7 @@ erDiagram
     ACCOUNT_STATUSES ||--o{ USER_ACCOUNTS : classifies
 ~~~
 
-The diagram is conceptual. Customer-linked accounts also reference customers from the Customer Management domain. Employee contact and address entities remain separate and reference employees.
+The diagram is conceptual. Employee accounts link through `iam.employee_account_links`; customer accounts link through `iam.customer_account_links` to `crm.customers` and optionally `crm.customer_contacts`. These typed link tables prevent unconstrained polymorphic subject IDs. Employee contact and address entities remain separate and reference employees.
 
 ## 5. Authorization evaluation rules
 
