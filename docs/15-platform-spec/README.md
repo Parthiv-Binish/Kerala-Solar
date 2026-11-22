@@ -18,6 +18,7 @@ The application suite blueprint defines the proposed products and overall screen
 - [Staff Portal — Solar Design, Bill of Materials & Quotation Management](12-application-experience/04-staff-portal-design-and-quotations.md)
 
 - [Application Suite, Screen Inventory & User Experience Blueprint](12-application-experience/00-application-suite-and-screen-inventory.md) — defines the proposed applications, users, navigation, screens, workflows, data movement and usability principles.
+- [UI/UX Design System & Interaction Standards](12-application-experience/24-ui-ux-design-system-and-interaction-standards.md) — shared visual tokens, typography, layout, navigation, controls, dialogs, notifications, accessibility and responsive behaviour.
 
 ## Folder map
 - 01-strategy: charter and business requirements
