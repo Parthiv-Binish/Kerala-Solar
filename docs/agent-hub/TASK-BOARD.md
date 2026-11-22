@@ -19,7 +19,7 @@ Task assignments below are work ownership, not evidence that work has started. A
 | AG-0013 | A9 | CI pipeline, dev/staging architecture and secure deployment baseline | AG-0001 | P0 | READY |
 | AG-0014 | A0 | Establish contract review cadence, cross-agent dependency map and weekly integration report | AG-0001 | P0 | READY |
 | AG-0015 | A3 | Enquiry/customer/site APIs and idempotent enquiry intake | AG-0002/0003/0004; DOC-002 customer verification model | P1 | BLOCKED — customer/site authorization contract pending |
-| AG-0016 | A4 | CRM/project/finance/monitoring schema implementation sequence and dictionary; reconcile DOC-003 | AG-0003; migration 0006; ERD mapping register | P1 | IN PROGRESS — schema design artifacts only; no DB execution claimed |
+| AG-0016 | A4 | CRM/project/finance/monitoring schema implementation sequence and dictionary; reconcile DOC-003 | AG-0003; migration 0006; ERD mapping register | P1 | BLOCKED — remaining domain mappings and database review pending |
 | AG-0017 | A1 | Enquiry, customer, survey and quotation staff screens | AG-0006; A3 contracts | P1 | BACKLOG |
 | AG-0018 | A2 | Customer enquiry, project timeline and service request app journeys | AG-0008; A3 contracts | P2 | BACKLOG |
 | AG-0019 | A2 | Technician assigned jobs, survey, installation and service visit journeys | AG-0007; A3 contracts | P2 | BACKLOG |
