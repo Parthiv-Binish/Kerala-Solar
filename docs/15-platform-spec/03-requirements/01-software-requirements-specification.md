@@ -51,8 +51,12 @@
 - FR-063: Technicians see assigned/authorised jobs and submit evidence.
 - FR-064: Full encrypted offline job packs, durable drafts, media queueing and conflict-aware sync are Phase 2 (Should), not MVP acceptance. MVP is online-first and must clearly report connectivity and pending submission state.
 
-## Finance boundary\n- FR-070: MVP records funds actually received, verifies receipts through an authorised staff procedure and allocates posted receipts to eligible dues/invoices.\n- FR-071: Customer-submitted references/screenshots do not prove settlement. No payment gateway is assumed; gateway initiation/confirmation requires separately approved integration.\n\n## Non-functional requirements
-Security: server-side authorization on every protected API. Privacy: minimisation, purpose and retention controls. Reliability: idempotent retry-safe jobs. Auditability: actor/time for important changes. Accessibility: contrast, scalable text and keyboard navigation. Offline: drafts survive restart and sync safely. Backup: tested offsite restore. Observability: structured logs, metrics and error reporting.
+## Finance boundary
+- FR-070: MVP records funds actually received, verifies receipts through an authorised staff procedure and allocates posted receipts to eligible dues/invoices.
+- FR-071: Customer-submitted references/screenshots do not prove settlement. No payment gateway is assumed; gateway initiation/confirmation requires separately approved integration.
+
+## Non-functional requirements
+Security: server-side authorization on every protected API. Privacy: minimisation, purpose and retention controls. Reliability: idempotent retry-safe jobs. Auditability: actor/time for important changes. Accessibility: contrast, scalable text and keyboard navigation. Offline: Phase 2 encrypted drafts survive restart and sync safely; MVP is online-first and reports pending submissions accurately. Backup: tested offsite restore. Observability: structured logs, metrics and error reporting.
 
 ## Validation
 Validate required fields, ranges, dates, file types, transitions and relationships server-side. Errors must not expose secrets or stack traces. Every requirement maps to screen/API, data entity, permission and acceptance test before release. Route examples in other documents are illustrative; the reviewed OpenAPI contract is normative.
