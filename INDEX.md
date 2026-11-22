@@ -123,6 +123,8 @@ If this is your first time opening the repository, follow this order:
 
 | Chapter | Document | What you will find |
 |---|---|---|
+| II.33 | [Staff Portal — Navigation, Workspace Shell & Dashboard](docs/15-platform-spec/12-application-experience/01-staff-portal-navigation-and-dashboard.md) | Sign-in, global layout, navigation, search, notifications, dashboard, My Work, profile, permissions and shared UX rules |
+| II.34 | [Staff Portal — Enquiries, Follow-ups & Customer Management](docs/15-platform-spec/12-application-experience/02-staff-portal-enquiries-and-customers.md) | Detailed enquiry capture, duplicate checks, follow-ups, customer profiles, sites, invitations and conversion workflow |
 | II.32 | [Application suite, screen inventory and user experience blueprint](docs/15-platform-spec/12-application-experience/00-application-suite-and-screen-inventory.md) | Complete software/app list, user groups, navigation, screen inventory, end-to-end journeys, screen data movement, usability rules and implementation gates |
 
 ## Part III — Visual walkthrough
