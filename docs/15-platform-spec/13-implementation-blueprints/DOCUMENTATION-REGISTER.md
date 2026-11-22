@@ -37,7 +37,8 @@ Primary location: [Application experience book](../12-application-experience/00-
 
 ## 4. Canonical decision and audit documents
 - [Full Documentation Consistency Review](09-full-documentation-consistency-review.md) — findings AUD-001 onward; static review only.
-- [ERD Logical-to-Physical Mapping](../05-data-and-api/ERD-LOGICAL-PHYSICAL-MAPPING.md) — canonical mapping of organization/access/customer identity concepts to physical tables and migration coverage; identifies deferred physical entities.\n- [Consistency Resolution Decisions](10-consistency-resolution-decisions.md) — proposed canonical resolutions for access scopes, conversion, product boundaries, offline scope, retention, finance, API naming and regulatory applicability. Requires GreenGrid approval before treating decisions as approved.
+- [ERD Logical-to-Physical Mapping](../05-data-and-api/ERD-LOGICAL-PHYSICAL-MAPPING.md) — canonical mapping of organization/access/customer identity concepts to physical tables and migration coverage; identifies deferred physical entities.
+- [Consistency Resolution Decisions](10-consistency-resolution-decisions.md) — proposed canonical resolutions for access scopes, conversion, product boundaries, offline scope, retention, finance, API naming and regulatory applicability. Requires GreenGrid approval before treating decisions as approved.
 - [Documentation Issue Register](DOCUMENTATION-ISSUE-REGISTER.md) — consolidated DOC-001 onward remediation tracker with priority, owners, affected artefacts, acceptance criteria and dependency order. All initial issues are open.
 
 ## 5. Existing source documents that must be reconciled
