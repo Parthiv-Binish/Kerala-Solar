@@ -46,7 +46,7 @@ Bottom navigation: Today, My Jobs, Calendar, Updates, Profile. Job detail tabs: 
 
 **T17 Job History:** completed/returned jobs, reviewer feedback and allowed evidence. **T18 Updates:** assignments, schedule changes, return requests and system messages. **T19 Profile:** work contact, language/accessibility preferences, app version, device/session management and support.
 
-## 5. Offline and synchronisation model
+## 5. Offline and synchronisation model — Phase 2\nFull encrypted local job packs, durable drafts across restart, media queueing, conflict resolution and reliable background sync are Phase 2 (Should), not MVP acceptance. MVP is online-first; it must show connection state, preserve current unsent input where practical and never claim a submission synced before server acknowledgement. If offline capability is promoted into MVP, the scope and delivery estimate must be formally changed.\n\n
 Local encrypted storage contains only assigned job payload and necessary drafts. Each mutation has client-generated operation ID, entity version, device timestamp and pending state. Queue states: Pending, Uploading, Synced, Needs Attention, Failed. Retry is idempotent. Server timestamps and version checks govern authoritative order.
 
 Conflict rules:
