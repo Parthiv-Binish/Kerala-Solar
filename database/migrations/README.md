@@ -96,3 +96,8 @@ The canonical resolver and precedence are specified in [Consistency Resolution D
 ## Migration 0006 — customer identity foundation
 
 Migration 0006 adds the minimum customer and contact subject tables plus `iam.customer_account_links`. Customer links are per customer, may optionally identify a contact belonging to that customer, and retain verification/revocation state. The trigger rejects employee/service accounts; the FK ensures an optional contact belongs to the same customer. This does not prove the application-level authorization resolver or account verification workflow. Customer accounts remain separate from employee accounts in the initial design.
+
+
+## Single migration authority
+
+For the current foundation, ordered SQL files `0001`–`0006` are the only canonical schema-change source. Apply them in numeric order and record each successful file/checksum in the deployment migration ledger. Do not duplicate these changes in Alembic or apply an alternate bootstrap to the same database. Alembic adoption is deferred until backend implementation; before adoption, convert the complete SQL history into reviewed schema-equivalent revisions, verify clean install and upgrade equivalence in disposable PostgreSQL, then retire direct SQL application for Alembic-managed environments. Never stamp an unverified database. No live or disposable PostgreSQL execution is claimed by this documentation update.
