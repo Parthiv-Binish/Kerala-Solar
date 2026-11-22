@@ -104,6 +104,7 @@ This is a planning specification, not legal, tax, electrical engineering or API-
 
 - [Implementation blueprints book index](13-implementation-blueprints/README.md)
 - [Full Documentation Consistency Review](13-implementation-blueprints/09-full-documentation-consistency-review.md)
+- [Consistency Resolution Decisions](13-implementation-blueprints/10-consistency-resolution-decisions.md)
 - [Master Documentation Register](13-implementation-blueprints/DOCUMENTATION-REGISTER.md)
 - [Screen & Experience Implementation Specification](13-implementation-blueprints/01-screen-and-experience-implementation-specification.md)
 - [API & Backend Contracts](13-implementation-blueprints/02-api-and-backend-contracts.md)
