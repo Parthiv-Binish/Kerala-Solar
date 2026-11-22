@@ -163,6 +163,7 @@ If this is your first time opening the repository, follow this order:
 | II.65 | [Testing, Traceability & Acceptance](docs/15-platform-spec/13-implementation-blueprints/07-testing-traceability-and-acceptance.md) | Requirement traceability, test layers, end-to-end cases, UAT and release gates |
 | II.66 | [Business User Manuals & SOPs](docs/15-platform-spec/13-implementation-blueprints/08-business-user-manuals-and-operating-procedures.md) | Staff, technician and customer manuals, onboarding, business SOPs and support |
 | II.67 | [Consistency Resolution Decisions](docs/15-platform-spec/13-implementation-blueprints/10-consistency-resolution-decisions.md) | Proposed canonical decisions resolving access, conversion, MVP, retention, finance, API and regulatory inconsistencies |
+| II.68 | [UI/UX Design System & Interaction Standards](docs/15-platform-spec/12-application-experience/24-ui-ux-design-system-and-interaction-standards.md) | Shared colour palette, typography, spacing, responsive layouts, navigation, buttons, forms, popups, notifications, accessibility and screen design rules |
 
 ## Part III — Visual walkthrough
 
