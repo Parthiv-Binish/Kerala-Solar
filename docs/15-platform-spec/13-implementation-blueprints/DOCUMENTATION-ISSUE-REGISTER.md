@@ -62,8 +62,8 @@ Counts describe this initial register and may overlap by affected workstream onl
 - **Owners:** A0 product/architecture, A4 data, A3 API, A7 monitoring
 - **Affected documents:** Logical data/API outline; Stage 2 asset, monitoring and service ERDs; Stage 3 dictionary; staff/customer app screens; monitoring docs.
 - **Problem:** User-facing/API documents use `plant`, while physical documents use `asset.solar_systems` and `solar_system_id`.
-- **Correction:** Confirm whether “solar plant” is the business/API term mapped to the canonical `asset.solar_systems` entity. If not, define the distinct entities and cardinality. Publish a glossary and ID mapping.
-- **Acceptance:** One canonical entity lifecycle and identifier is used consistently across asset, monitoring, customer and service flows; no parallel plant table exists without an approved reason.
+- **Correction:** Use “solar plant” as the business/API resource mapped to `asset.solar_systems` (`solar_system_id`) through the adapter/mapping layer. A plant is not a project, site, device, monitoring connection or service case. Do not create a parallel `asset.plants` table.
+- **Acceptance:** All domain ERDs, API examples, screen specifications and data dictionaries use the plant→solar_system mapping and preserve distinct project/site/device relationships.
 
 ### DOC-005 — Enquiry-to-project conversion prerequisites are not equally explicit everywhere
 - **Priority:** High
@@ -93,7 +93,7 @@ Counts describe this initial register and may overlap by affected workstream onl
 - **Priority:** High
 - **Owners:** A4 database, A3 backend, A9 DevOps
 - **Affected documents:** SQL migrations 0001–0006; migration README; Stage 3 migration plan; database completion blueprint; consistency decisions; agent hub.
-- **Problem:** SQL bootstrap exists while Alembic is recommended later. A duplicate execution path or untested baseline could corrupt deployed schemas. Existing review text also references the earlier 0001–0004 sequence.
+- **Problem:** SQL bootstrap exists while Alembic is recommended later. A duplicate execution path or untested baseline could corrupt deployed schemas. Existing review text also referenced the earlier 0001–0004 sequence; current bootstrap scripts are 0001–0006.
 - **Correction:** Select one documented baseline approach: execute bootstrap once then stamp a verified Alembic baseline, or translate scripts into Alembic and retire standalone execution. Add migration coverage matrix with dependency, DDL review and test status. Update all references to include 0005 and 0006; select and test a single migration runner/baseline strategy.
 - **Acceptance:** A fresh disposable PostgreSQL database can be created and upgraded using exactly one supported command path; repeat/upgrade/failure behaviour is tested. No migration is claimed live-executed without evidence.
 
