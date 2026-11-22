@@ -27,6 +27,7 @@ This package supplements the existing product and website documentation. It defi
   - [Stage 2 — Documents, File Storage, Digital Signatures, Audit Logs & Data Governance ER Design](05-data-and-api/stage-2-documents-file-storage-signatures-audit-and-data-governance-er-design.md)
   - [Stage 2 — Platform Settings, Integrations, Background Jobs, Error Logging & Administration ER Design](05-data-and-api/stage-2-platform-settings-integrations-background-jobs-error-logging-and-administration-er-design.md)
 - 06-security-and-access: authorization, privacy and security
+  - [Platform Security — Authentication, Authorization, Privacy & Compliance](../06-security-and-access/platform-security-authentication-authorization-privacy-and-compliance.md)
 - 07-iot-monitoring: device integrations, telemetry and alerts
 - 08-integrations: notifications and external systems
 - 09-mobile-apps: customer and technician applications
