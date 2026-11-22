@@ -8,6 +8,10 @@ This package supplements the business study and visual showcase. It defines the 
 
 For the complete repository reading order and chapter descriptions, use the [Project Book & Master Index](../../INDEX.md).
 
+## Application experience
+
+- [Application Suite, Screen Inventory & User Experience Blueprint](12-application-experience/00-application-suite-and-screen-inventory.md) — defines the proposed applications, users, navigation, screens, workflows, data movement and usability principles.
+
 ## Folder map
 - 01-strategy: charter and business requirements
 - 02-workflows: enquiry conversion, project, utility, installation and service
@@ -40,6 +44,7 @@ For the complete repository reading order and chapter descriptions, use the [Pro
 - 09-mobile-apps: customer and technician applications
 - 10-delivery: roadmap, effort and cost assumptions
 - 11-governance: discovery questions, acceptance and verification
+- 12-application-experience: product suite, navigation, screen inventory and user experience
 
 ## Status vocabulary
 Confirmed from supplied brief = explicitly supplied information. Proposed = recommended design. VERIFY = client, authority, manufacturer or professional confirmation required. Deferred = not part of initial release, not permanently excluded.
