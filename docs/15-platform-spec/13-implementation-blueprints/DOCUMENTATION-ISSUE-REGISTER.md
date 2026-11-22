@@ -32,6 +32,7 @@ Counts describe this initial register and may overlap by affected workstream onl
 
 ### DOC-001 — Canonical authorization policy is not propagated to every source
 - **Priority:** Critical
+- **Remediation status (22 Nov 2026):** PARTIALLY DOCUMENTED — scope vocabulary, typed identity boundaries and deny evaluation semantics have been reconciled in the mapping register, resolution decisions and Stage 2/3 documents. Backend resolver, operation-wide enforcement and automated truth-table tests remain unimplemented/unverified; keep this issue OPEN.
 - **Owners:** A3 backend/security, A4 database, A8 QA, A0 integration; business owner approval
 - **Affected documents:** SRS; short and full security documents; Stage 2 organization/access ERD; Stage 3 dictionary; migrations 0003–0005; staff access screens; API catalogue; consistency decisions.
 - **Problem:** The canonical scopes and deny-overrides algorithm are described in the resolution document, but subordinate specifications and physical constraints may still use legacy terminology or omit identical semantics.
@@ -40,6 +41,7 @@ Counts describe this initial register and may overlap by affected workstream onl
 
 ### DOC-002 — Customer identity and authorised-contact model is incomplete
 - **Priority:** Critical
+- **Remediation status (22 Nov 2026):** PARTIALLY IMPLEMENTED IN SCHEMA DESIGN — migration 0006 and the Stage 2/3/security documents now define typed, customer-specific, verified/revocable links and the minimum customer/contact subject tables. Full CRM migration, verification workflow, customer/site resolver and isolation tests remain outstanding; keep this issue OPEN.
 - **Owners:** A3 IAM/API, A4 CRM/IAM data, A8 security; business owner approval
 - **Affected documents:** Full security architecture; Stage 2 customer and access ERDs; Stage 3 dictionary; migration README/backlog; customer app/web; invitation and onboarding workflows.
 - **Problem:** Bootstrap migrations create employee identity linkage; customer identity linkage is deferred. The complete model for multiple contacts, representatives, household access, site-specific access, revocation and possible employee/customer dual identity is not yet a build contract.
@@ -48,6 +50,7 @@ Counts describe this initial register and may overlap by affected workstream onl
 
 ### DOC-003 — Logical-to-physical entity and field mapping is incomplete
 - **Priority:** Critical
+- **Remediation status (22 Nov 2026):** PARTIALLY DOCUMENTED — a canonical mapping register now covers organization/access and customer identity foundations, identifies physical gaps, and links migration 0006. Full column/relationship mapping across every Stage 2 domain and DDL reconciliation remain outstanding; keep this issue OPEN.
 - **Owners:** A4 database, A3 backend, A0 architecture
 - **Affected documents:** Stage 1 entity inventory; all Stage 2 ERDs; Stage 3 data dictionary and PostgreSQL blueprint; current SQL migrations; logical API model.
 - **Problem:** Conceptual entity/field labels differ from physical names, with risk of duplicate tables and incorrect foreign keys.
@@ -214,7 +217,7 @@ Counts describe this initial register and may overlap by affected workstream onl
 - **Correction:** Conduct structured walkthroughs with sales, survey/engineering, project operations, procurement, accounts, technicians and support. Record current process, exceptions, owner, approval limit and future-state decision.
 - **Acceptance:** Named business owners approve workflow diagrams, status transitions, required fields, notification rules and responsibility matrix. Unknowns remain explicitly open.
 
-## 4. Dependency-aware correction sequence
+## 4. Remediation progress (22 November 2026)\n\nThe following repository changes have been authored and committed: canonical logical-to-physical mapping register; explicit authorization deny/allow evaluation semantics; typed customer-account link model; migration 0006 for customer/contact subject foundations and verified/revocable customer links; aligned Stage 2, Stage 3, security and migration documentation. These are documentation/schema-artifact corrections only. They do not implement the backend authorization resolver, customer invitation/verification UI, complete CRM, or cross-customer/site tests. DOC-001, DOC-002 and DOC-003 therefore remain OPEN.\n\n## 5. Dependency-aware correction sequence
 
 | Sequence | Issues | Work package | Exit condition |
 |---|---|---|---|
@@ -227,7 +230,7 @@ Counts describe this initial register and may overlap by affected workstream onl
 
 Dependencies can be worked in parallel only where they do not change the same source-of-truth documents. A0 coordinates edits and resolves conflicts before merge.
 
-## 5. Agent ownership and work allocation
+## 6. Agent ownership and work allocation
 
 | Agent | Primary issues |
 |---|---|
@@ -244,7 +247,7 @@ Dependencies can be worked in parallel only where they do not change the same so
 
 These are proposed document owners, not evidence that agents are running or work has started.
 
-## 6. Change and closure record
+## 7. Change and closure record
 
 Use this entry for every issue closure:
 
@@ -260,7 +263,7 @@ Use this entry for every issue closure:
 | Status | Open / In progress / Blocked / Resolved / Accepted risk |
 | Closed by/date | Responsible reviewer and date |
 
-## 7. Current state and limitations
+## 8. Current state and limitations
 
 All issues in this initial register are **Open**. No correction is claimed by creating this register. The review was static and did not execute SQL, run application tests, validate OpenAPI, verify provider access, obtain business approval or provide legal/electrical/tax certification.
 
