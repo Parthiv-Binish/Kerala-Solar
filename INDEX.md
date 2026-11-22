@@ -119,6 +119,12 @@ If this is your first time opening the repository, follow this order:
 | II.30 | [Roadmap, estimates and costs](docs/15-platform-spec/10-delivery/01-roadmap-estimates-and-costs.md) | Delivery phases, implementation estimates and cost assumptions |
 | II.31 | [Discovery, acceptance and verification](docs/15-platform-spec/11-governance/01-discovery-acceptance-and-verification.md) | Questions for stakeholders, acceptance criteria and items requiring evidence |
 
+### Book 10 — Application experience and screen design
+
+| Chapter | Document | What you will find |
+|---|---|---|
+| II.32 | [Application suite, screen inventory and user experience blueprint](docs/15-platform-spec/12-application-experience/00-application-suite-and-screen-inventory.md) | Complete software/app list, user groups, navigation, screen inventory, end-to-end journeys, screen data movement, usability rules and implementation gates |
+
 ## Part III — Visual walkthrough
 
 *Use this section when you want to understand the proposed experience without reading the full technical specification.*
