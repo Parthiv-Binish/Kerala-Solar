@@ -10,7 +10,7 @@ own = created/owned by user; assigned = assigned to user; team = user's team; br
 Arun belongs to Technician and Staff. Technician grants case.read/case.update on assigned cases and work_order.read on assigned jobs. Staff grants case.read at all scope and basic project visibility. Arun can read all cases but update only assigned cases. Staff visibility does not grant access to bank details or restricted finance fields.
 
 ## Evaluation
-Authenticate → load active memberships → aggregate grants → evaluate scope/relationship → apply explicit deny → field-level checks → audit sensitive action. Enforce database query filters on list, detail, search, export, aggregates, document downloads, WebSockets and bulk endpoints. Do not filter only in the frontend.
+Authenticate → verify account/session → load valid memberships/grants → resolve each scope independently → apply matching deny (deny wins) → field-level checks → audit sensitive action. An individual allow never overrides a matching deny. Enforce scope before list/detail/search/count/export/aggregate/files/realtime/background jobs. Enforce database query filters on list, detail, search, export, aggregates, document downloads, WebSockets and bulk endpoints. Do not filter only in the frontend.
 
 ## Schema
 users; groups; group_memberships; permissions; group_permission_rules(effect allow/deny, scope, conditions); user_permission_rules; resource_assignments; delegations; temporary_elevations; audit_logs. Temporary access requires approver, reason, scope and expiry. Increment authorization version and invalidate cache after policy changes.
@@ -28,4 +28,4 @@ Assess applicability of CERT-In directions, maintain required logs and time sync
 Login failures; membership/permission changes; elevation; quotation approval; invoice/payment edits; project status; sensitive document access; export; account disablement; consent changes.
 
 ## Tests
-Multiple groups, deny precedence, assignment scope, branch scope, expired delegation, removed membership, stale token, cross-customer access, search/export leakage, WebSocket leakage and signed-link reuse.
+Multiple groups, deny precedence, assignment scope, location scope, expired delegation, removed membership, stale token, cross-customer access, search/export leakage, WebSocket leakage and signed-link reuse.
