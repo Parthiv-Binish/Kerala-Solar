@@ -1,8 +1,12 @@
 # GreenGrid Solar Platform — Documentation Package
 
+[← Back to the Project Book & Master Index](../../INDEX.md)
+
 Version 1.0-draft | Prepared 22 November 2026 | Client: GreenGrid Solar Solutions, Erattupetta, Kottayam, Kerala.
 
-This package supplements the existing product and website documentation. It defines the proposed internal operations platform, customer app, technician app, group-based access, utility tracking, IoT monitoring and service workflows.
+This package supplements the business study and visual showcase. It defines the proposed internal operations platform, customer app, technician app, group-based access, utility tracking, IoT monitoring and service workflows.
+
+For the complete repository reading order and chapter descriptions, use the [Project Book & Master Index](../../INDEX.md).
 
 ## Folder map
 - 01-strategy: charter and business requirements
@@ -30,7 +34,7 @@ This package supplements the existing product and website documentation. It defi
   - [Stage 3 — Canonical Data Dictionary & Migration Backlog](05-data-and-api/stage-3-canonical-data-dictionary-and-migration-backlog.md)
   - [PostgreSQL Bootstrap SQL Migrations](../../database/migrations/README.md)
 - 06-security-and-access: authorization, privacy and security
-  - [Platform Security — Authentication, Authorization, Privacy & Compliance](../06-security-and-access/platform-security-authentication-authorization-privacy-and-compliance.md)
+  - [Platform Security — Authentication, Authorization, Privacy & Compliance](06-security-and-access/platform-security-authentication-authorization-privacy-and-compliance.md)
 - 07-iot-monitoring: device integrations, telemetry and alerts
 - 08-integrations: notifications and external systems
 - 09-mobile-apps: customer and technician applications
