@@ -4,8 +4,8 @@
 | Phase | Scope | Indicative duration |
 |---|---|---|
 | 0 Discovery | Interviews, samples, workflow sign-off, data inventory | 1–2 weeks |
-| 1 Core MVP | Auth/groups, CRM, conversion, customer/projects, surveys, quotations, utility tracking, documents, work orders, cases, notifications | 6–9 weeks |
-| 2 Operations/mobile | Customer/technician apps, offline workflow, inventory, procurement, warranty, AMC, finance/reporting depth | 4–6 weeks |
+| 1 Core MVP | Auth/groups, CRM, conversion, customer/projects, surveys, quotations, utility tracking, documents, online-first technician work orders, cases, notifications, customer and technician app foundations | 6–9 weeks |
+| 2 Operations/mobile | Full technician offline job packs/sync, Customer Web Portal, inventory, procurement, warranty, AMC, finance/reporting depth | 4–6 weeks |
 | 3 Monitoring | First manufacturer connector, telemetry, dashboard, alert-to-case | 4–8 weeks |
 | 4 Hardening | Migration, security, restore tests, training, pilot and release | 2–3 weeks |
 
