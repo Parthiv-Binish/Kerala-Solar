@@ -21,14 +21,17 @@
 | employees | `org.employees` | Direct; employee profile, not credentials |
 | departments | `org.departments` | Direct |
 | employee_groups | `org.employee_groups` | Direct; group is membership/grant source |
-| employee_group_memberships | `org.employee_group_memberships` | Direct; validity-dated |\n| employee_reporting_relationships | `org.employees.manager_employee_id` | Current single manager only; historical/effective-dated relationship entity is not yet physically implemented |\n| employment_statuses | `org.employees.employment_status` CHECK | Current constrained text column; normalized status master is not implemented |
+| employee_group_memberships | `org.employee_group_memberships` | Direct; validity-dated |
+| employee_reporting_relationships | `org.employees.manager_employee_id` | Current single manager only; historical/effective-dated relationship entity is not yet physically implemented |
+| employment_statuses | `org.employees.employment_status` CHECK | Current constrained text column; normalized status master is not implemented |
 | user_accounts / identity_accounts | `iam.identity_accounts` | Canonical account; account_type distinguishes employee/customer/service |
 | employee account link | `iam.employee_account_links` | Typed subject link; one employee per linked account and one account per employee in current model |
 | customer account link | `iam.customer_account_links` | Typed, customer-specific, verified/revocable link; introduced by migration 0006 |
 | permissions | `iam.permissions` | Direct |
 | permission sets | `iam.permission_sets` | Physical grouping of permission rules |
 | group_permissions | `iam.permission_set_permissions` + `iam.group_permission_set_grants` | Logical relationship is represented by permission rules inside a set and a separate group-to-set grant; do not create `iam.group_permissions` |
-| employee_permission_overrides | `iam.account_permission_overrides` | Physical override is account-scoped; employee-only authorization resolver first resolves the employee link |\n| permission_scope_types | CHECK-constrained `scope_type` columns | Current bootstrap does not yet have a normalized scope catalogue table; UI labels/descriptions are pending configuration/API work |
+| employee_permission_overrides | `iam.account_permission_overrides` | Physical override is account-scoped; employee-only authorization resolver first resolves the employee link |
+| permission_scope_types | CHECK-constrained `scope_type` columns | Current bootstrap does not yet have a normalized scope catalogue table; UI labels/descriptions are pending configuration/API work |
 | permission_scope_types | CHECK-constrained `scope_type` columns | Current bootstrap does not yet have a normalized scope catalogue table; UI labels/descriptions are pending configuration/API work |
 | user_sessions | `iam.sessions` | Direct concept; refresh token hash stored |
 | credentials | `iam.account_credentials` | Direct |
@@ -65,7 +68,9 @@ For a requested permission and record set:
 7. If any applicable deny matches the permission and record, deny that record. Otherwise allow only if at least one valid allow matches. No matching allow means deny.
 8. Apply record predicates before pagination, counts, search, aggregate, export, file download, realtime subscription and background processing. Deny if a relationship or scope cannot be resolved.
 
-The current SQL CHECK constraints constrain scope vocabulary, not the meaning of each scope reference. Team/location/related reference resolution and actor-authority checks remain backend responsibilities. The current bootstrap also has no normalized scope-description catalogue.\n\nThis is a policy contract for backend implementation, not a database-only security boundary. The backend must implement and test the resolver; frontend visibility is not authorization.
+The current SQL CHECK constraints constrain scope vocabulary, not the meaning of each scope reference. Team/location/related reference resolution and actor-authority checks remain backend responsibilities. The current bootstrap also has no normalized scope-description catalogue.
+
+This is a policy contract for backend implementation, not a database-only security boundary. The backend must implement and test the resolver; frontend visibility is not authorization.
 
 ## 5. Customer identity integrity rules
 
