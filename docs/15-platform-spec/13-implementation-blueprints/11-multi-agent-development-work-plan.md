@@ -638,4 +638,290 @@ Before agents start implementation, the project owner and A0 should confirm:
 - [ ] Production data, privacy, retention and incident ownership.
 - [ ] Acceptance owner for business workflows and release sign-off.
 
+
+
+---
+
+## 13. Common Agent Workspace — the single source of truth
+
+All agents must share project information through one common, version-controlled workspace in the same repository. Private agent memory, chat history, direct messages and local notes are not authoritative project records.
+
+**Canonical shared workspace:** `docs/agent-hub/`
+
+Proposed structure:
+
+```text
+docs/agent-hub/
+├── README.md                    # How agents collaborate; links to all shared records
+├── PROJECT-STATUS.md             # Current phase, milestone, overall health and last update
+├── TASK-BOARD.md                 # Task ID, owner, status, priority, dependencies and PR
+├── AGENT-STATUS/                 # One current status report per agent
+│   ├── A0-status.md
+│   ├── A1-status.md
+│   ├── A2-status.md
+│   ├── A3-status.md
+│   ├── A4-status.md
+│   ├── A5-status.md
+│   ├── A6-status.md
+│   ├── A7-status.md
+│   ├── A8-status.md
+│   └── A9-status.md
+├── CONTRACTS/
+│   ├── API-CONTRACT-REGISTER.md
+│   ├── DATABASE-CHANGE-REGISTER.md
+│   ├── EVENT-CONTRACT-REGISTER.md
+│   ├── UI-COMPONENT-CONTRACT.md
+│   └── INTEGRATION-CONTRACT-REGISTER.md
+├── DECISIONS/
+│   ├── ADR-INDEX.md
+│   └── DECISION-LOG.md
+├── HANDOFFS/
+│   └── HANDOFF-TEMPLATE.md
+├── BLOCKERS/
+│   └── BLOCKER-AND-DEPENDENCY-LOG.md
+├── TESTING/
+│   ├── TEST-STRATEGY.md
+│   ├── TEST-CASE-REGISTER.md
+│   ├── REGRESSION-RESULTS.md
+│   └── RELEASE-TEST-REPORT.md
+└── RELEASES/
+    ├── CHANGELOG.md
+    └── RELEASE-READINESS.md
+```
+
+This folder is the proposed shared coordination hub. A0 owns its structure and index; each specialist agent owns updates to its own status and the technical records it authors. The project owner can inspect the same records without needing to reconstruct decisions from multiple agent conversations.
+
+### 13.1 What every agent must publish
+
+At the beginning of a task:
+- Task ID, assigned owner and intended outcome.
+- Planned files/modules and expected interfaces.
+- Dependencies and assumptions.
+- Questions requiring a decision.
+- Planned test cases and acceptance criteria.
+
+During work:
+- Current status: `NOT STARTED`, `IN PROGRESS`, `BLOCKED`, `IN REVIEW`, `DONE`.
+- Files/PRs changed and the latest commit/PR reference.
+- API/schema/event changes proposed.
+- Decisions made or required.
+- Test results, including failed tests.
+- Blockers, affected agents and what is needed to unblock them.
+
+At handoff:
+- Completed deliverables and exact locations.
+- What changed and what did not change.
+- Contract/schema/event versions.
+- Tests executed and actual results.
+- Known defects, limitations and follow-up tasks.
+- Deployment/migration impact.
+- Next agent(s), required action and acceptance owner.
+
+### 13.2 Communication protocol
+
+1. **Repository records are authoritative.** If a decision or contract is not recorded, it is not an approved shared decision.
+2. **Use task IDs in every handoff.** A1 should refer to `AG-0005`, not an informal description such as “the website work”.
+3. **Use PRs for code collaboration.** Reviews and change requests must remain visible on the PR.
+4. **Use contract registers for cross-agent interfaces.** Do not send an API/schema change only in chat and assume other agents know about it.
+5. **Use the blocker log for dependencies.** A blocked agent records the blocker, owner, impact, required decision and date raised.
+6. **Use ADRs for architecture decisions.** Include context, options, decision, consequences, status and approver.
+7. **Use the task board for status.** The status report and task board must link to each other.
+8. **A0 publishes an integration summary** after each integration cycle, listing merged work, contract changes, failing checks and next actions.
+9. **No silent breaking changes.** Notify every listed consumer and obtain compatibility sign-off before merging.
+10. **Do not use chat as the only record.** Conversations may be used to discuss, but decisions and outcomes must be copied into the repository.
+
+### 13.3 Contract change handshake
+
+For any API, database, event, UI component or provider integration change:
+
+1. Proposing agent creates a change entry with reason and proposed version.
+2. Owning agent reviews impact and updates the relevant contract.
+3. Every consuming agent confirms compatibility or records required changes.
+4. A0 resolves conflicts and records approval or rejection.
+5. Implementation and tests are updated together.
+6. The contract register records merged PR/commit and effective version.
+
+### 13.4 Agent status report template
+
+```text
+AGENT:
+REPORT DATE:
+CURRENT TASK IDS:
+OVERALL STATUS: NOT STARTED / IN PROGRESS / BLOCKED / IN REVIEW / DONE
+
+COMPLETED SINCE LAST UPDATE:
+CURRENT WORK:
+FILES / MODULES CHANGED:
+BRANCH / PR / COMMIT:
+
+CONTRACTS CREATED OR CHANGED:
+DEPENDENCIES:
+BLOCKERS / DECISIONS NEEDED:
+TESTS RUN:
+TEST RESULTS:
+KNOWN DEFECTS / RISKS:
+
+NEXT ACTION:
+NEXT AGENT / HANDOFF:
+```
+
+### 13.5 Task board status rules
+
+- `BACKLOG`: not yet ready for assignment.
+- `READY`: Definition of Ready satisfied.
+- `IN PROGRESS`: an agent has started work.
+- `BLOCKED`: work cannot safely continue; blocker is logged.
+- `IN REVIEW`: deliverable and tests are submitted for review.
+- `CHANGES REQUESTED`: review found required corrections.
+- `INTEGRATING`: approved work is being tested with dependent components.
+- `DONE`: Definition of Done met and evidence linked.
+- `DEFERRED`: intentionally moved to a later phase with reason and approval.
+
+Only A0 (or an explicitly delegated release coordinator) changes cross-agent milestone status to `DONE`. An agent may report its own implementation complete, but integration is not complete until dependent checks pass.
+
+---
+
+## 14. Mandatory testing rules and test case catalogue
+
+Testing is part of every agent's deliverable, not a final activity assigned only to A8. Each implementation PR must add or update tests for the behaviour it changes. A8 owns the overall strategy, cross-system regression and independent release evidence.
+
+### 14.1 Test levels
+
+| Test level | Purpose | Main owner |
+|---|---|---|
+| Static checks | Formatting, lint, type checking, dependency and secret scanning | Each agent; A9 runs CI |
+| Unit tests | Individual functions, validators, components and domain rules | Implementing agent |
+| Component tests | UI components, API handlers and adapters in isolation | Implementing agent |
+| Contract tests | API schemas, event payloads and provider adapter interfaces | A3/A5/A6/A7 with A8 |
+| Database tests | Migrations, constraints, transactions and data integrity | A4 with A8 |
+| Integration tests | Multiple modules/services working together | Relevant agents with A8 |
+| End-to-end tests | Complete user journeys across apps/API/database | A8 with A1/A2/A3 |
+| Security tests | Authentication, authorization, tenant/customer isolation, abuse cases | A8 with A3/A4/A9 |
+| Operational tests | Deployment, restore, retry, queue recovery and monitoring | A9 with A8 |
+| User acceptance tests | Real business workflow acceptance by authorised GreenGrid stakeholders | Project owner/business users, coordinated by A0 |
+
+### 14.2 Mandatory cross-platform test cases
+
+The following baseline cases must be included in the test register. Each test must have a stable ID, requirement link, setup, steps, expected result, actual result, evidence and status.
+
+| Test ID | Area | Scenario | Expected result |
+|---|---|---|---|
+| CORE-001 | Identity | Valid user signs in | Correct account/session established; no secrets exposed |
+| CORE-002 | Identity | Invalid credentials | Safe error; no account enumeration or sensitive detail |
+| CORE-003 | Identity | Expired/revoked session calls protected API | Request rejected and client prompted to re-authenticate |
+| AUTH-001 | Access | Employee has permission through one valid group | Permitted action succeeds within granted scope |
+| AUTH-002 | Access | Employee belongs to multiple groups | Valid grants combine according to canonical policy |
+| AUTH-003 | Access | Matching deny exists alongside an allow | Deny wins; action and record remain inaccessible |
+| AUTH-004 | Access | User requests another customer's record | Server rejects access without leaking record details |
+| AUTH-005 | Access | User attempts access by changing URL/ID | Server independently checks resource scope |
+| AUTH-006 | Access | List, count, search, export and file endpoints | All enforce the same authorization boundary |
+| CRM-001 | Enquiry | Public visitor submits valid enquiry | Server creates one enquiry and returns its reference |
+| CRM-002 | Enquiry | Required field missing or malformed | Field-level validation; no partial invalid record |
+| CRM-003 | Enquiry | Same request retried after timeout | Idempotency prevents duplicate enquiry |
+| CRM-004 | Conversion | Survey exists but quotation not accepted | Project conversion is blocked |
+| CRM-005 | Conversion | Accepted quotation and commercial/site preconditions satisfied | One idempotent conversion links correct customer, site and project |
+| CRM-006 | Conversion | Site or quotation version is ambiguous | Conversion blocked with actionable explanation |
+| FILE-001 | Files | User uploads allowed file type and size | File stored privately; metadata and access policy recorded |
+| FILE-002 | Files | Disallowed file type/oversized upload | Rejected safely; no public file created |
+| FILE-003 | Files | User requests another customer's file | Access denied server-side |
+| FIN-001 | Finance | Staff records funds received | Receipt is recorded as unverified, not automatically posted |
+| FIN-002 | Finance | Customer uploads payment screenshot | Screenshot alone does not mark receipt verified |
+| FIN-003 | Finance | Authorised staff verifies receipt | Verified/posted state and audit trail created |
+| FIN-004 | Finance | Duplicate receipt verification request | Idempotent result; no duplicate allocation |
+| NOTIF-001 | Notifications | Business event emitted once | Eligible recipient/channel jobs created once |
+| NOTIF-002 | Notifications | Same event consumed repeatedly | No duplicate outbound message |
+| NOTIF-003 | Notifications | Provider unavailable | Retry/backoff; event remains observable |
+| NOTIF-004 | Notifications | User opted out of a channel | That channel is not used where opt-out applies |
+| NOTIF-005 | Notifications | Provider accepts request but callback says failed | State reflects provider callback; never falsely marked delivered |
+| WA-001 | WhatsApp | Invalid webhook signature | Request rejected; no event processed |
+| WA-002 | WhatsApp | Valid webhook replayed | Replay/deduplication prevents duplicate processing |
+| WA-003 | WhatsApp | Template not approved or invalid variables | Message is blocked and reason recorded |
+| MON-001 | Monitoring | Telemetry is missing or stale | UI shows unavailable/stale, not zero generation |
+| MON-002 | Monitoring | Actual measured generation is zero | Zero is represented as a real measurement with timestamp/source |
+| MON-003 | Monitoring | Duplicate/out-of-order readings arrive | Data-quality policy handles them deterministically |
+| MON-004 | Monitoring | Alert condition repeats | Alert deduplicated/suppressed according to rule |
+| MON-005 | Monitoring | Telemetry recovers | Alert recovery recorded; service case remains independently managed |
+| MON-006 | Monitoring | Provider API rate-limits or times out | Backoff and health status; no false healthy reading |
+| SVC-001 | Service | Customer submits a service request | Case created and customer receives server-confirmed reference |
+| SVC-002 | Service | Duplicate report submitted for same active issue | Duplicate prevention policy prompts/links rather than creating uncontrolled duplicates |
+| SVC-003 | Service | Technician lacks assignment | Restricted job details/actions denied |
+| SVC-004 | Service | Technician completes visit with required evidence missing | Completion blocked with exact missing requirements |
+| SVC-005 | Service | Technician submits valid completion | Server validates, records evidence and moves case/work order according to workflow |
+| MOB-001 | Mobile | App loses connectivity while editing | Clear offline state; unsent input preserved where supported |
+| MOB-002 | Mobile | API write times out with uncertain result | Client does not claim success; safe retry/idempotency prevents duplicates |
+| MOB-003 | Mobile | Camera/notification permission denied | Explain limitation and provide safe alternative where possible |
+| WEB-001 | Web | Direct navigation to protected route without session | Redirect/sign-in state; protected data not rendered |
+| WEB-002 | Web | Narrow mobile browser viewport | Layout remains usable without horizontal overflow for normal content |
+| OPS-001 | Operations | Worker restarts with queued jobs | Retry/recovery does not lose or duplicate business effects |
+| OPS-002 | Operations | Database backup is restored in isolated environment | Restore evidence and integrity checks pass |
+| OPS-003 | Deployment | New release health check fails | Release is halted or rolled back using approved procedure |
+| OPS-004 | Audit | Privileged access or sensitive state change occurs | Required audit event recorded with actor, time and correlation |
+
+This is a baseline catalogue, not the complete test suite. Each screen, API operation, field validation, workflow transition and integration requires additional feature-specific cases.
+
+### 14.3 Required test case format
+
+```text
+TEST ID:
+TITLE:
+REQUIREMENT / SCREEN / API:
+PRIORITY: P0 / P1 / P2 / P3
+TYPE: UNIT / COMPONENT / CONTRACT / INTEGRATION / E2E / SECURITY / UAT
+
+PRECONDITIONS:
+TEST DATA:
+STEPS:
+EXPECTED RESULT:
+ACTUAL RESULT:
+PASS / FAIL / BLOCKED / NOT RUN:
+ENVIRONMENT / BUILD:
+AUTOMATION LOCATION:
+EVIDENCE:
+DEFECT ID (IF FAILED):
+OWNER:
+LAST EXECUTED:
+```
+
+### 14.4 Test data and environment rules
+
+- Unit/integration tests use isolated fixtures and disposable databases.
+- Synthetic customer, employee, plant and telemetry records must be clearly labelled test data and must never enter production.
+- Never copy production personal data into development/test environments without approved lawful basis, minimisation and protection.
+- Provider sandboxes or mocks are used until production credentials and approvals are verified.
+- Test results must identify environment, build/commit and execution date.
+- Flaky tests are logged and fixed; they are not silently skipped to make CI green.
+- A failed security/data-isolation test blocks release until fixed and retested.
+- A8 maintains regression selection and records any approved exception with owner, reason, expiry and compensating control.
+
+### 14.5 Release test gates
+
+A release cannot be marked ready unless:
+1. Required static checks, unit tests and contract tests pass.
+2. All changed migrations pass clean-install and upgrade-path tests.
+3. Critical end-to-end business journeys pass.
+4. Authorization and customer-data isolation tests pass.
+5. WhatsApp/provider integrations are either verified in the intended environment or explicitly disabled/labelled unavailable.
+6. Monitoring data-quality and alert lifecycle checks pass for any monitoring release.
+7. No unresolved P0/P1 defect remains without documented exceptional approval.
+8. Backup/restore and rollback procedures are current for the release risk.
+9. A8 publishes the test report; A0 records the release decision; A9 executes only the approved deployment.
+
+---
+
+## 15. Shared workspace bootstrap checklist
+
+Before assigning implementation tasks, A0 should create the `docs/agent-hub/` structure and populate:
+- [ ] README and collaboration protocol.
+- [ ] Project status and task board.
+- [ ] One status report file for every agent A0–A9.
+- [ ] API, database, event, UI and integration contract registers.
+- [ ] ADR index and decision log.
+- [ ] Handoff and blocker templates.
+- [ ] Test strategy and test case register with the baseline cases above.
+- [ ] Regression results and release readiness templates.
+- [ ] Changelog and release log.
+
+**Important:** The hub is a proposed repository workspace until these files are actually created. Agents must not claim it exists or is being used until the files and workflow are established and verified.
+
+
 **Status note:** This document is an agent execution plan. It does not mean agents have been started, code has been implemented, external accounts have been approved, or deployment has occurred. All workstreams remain subject to the project scope, stakeholder validation and the existing canonical consistency decisions.
