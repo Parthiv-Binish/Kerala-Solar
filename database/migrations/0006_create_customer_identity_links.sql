@@ -132,7 +132,7 @@ END;
 $$;
 
 CREATE TRIGGER trg_enforce_customer_account_link
-BEFORE INSERT OR UPDATE OF account_id, link_status, verified_at
+BEFORE INSERT OR UPDATE OF account_id, link_status, verified_at, verified_by_account_id, revoked_at, revoked_by_account_id
 ON iam.customer_account_links
 FOR EACH ROW EXECUTE FUNCTION iam.enforce_customer_account_link();
 
