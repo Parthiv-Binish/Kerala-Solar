@@ -910,18 +910,18 @@ A release cannot be marked ready unless:
 
 ## 15. Shared workspace bootstrap checklist
 
-Before assigning implementation tasks, A0 should create the `docs/agent-hub/` structure and populate:
-- [ ] README and collaboration protocol.
-- [ ] Project status and task board.
+The shared workspace has been created and verified in the repository at [docs/agent-hub/](../../../../agent-hub/README.md). It contains:
+- [ ] Initial README and collaboration protocol.
+- [ ] Project status and assigned task board.
 - [ ] One status report file for every agent A0–A9.
 - [ ] API, database, event, UI and integration contract registers.
 - [ ] ADR index and decision log.
 - [ ] Handoff and blocker templates.
-- [ ] Test strategy and test case register with the baseline cases above.
-- [ ] Regression results and release readiness templates.
-- [ ] Changelog and release log.
+- [ ] Test strategy and test case register.
+- [ ] Regression results and release test report templates.
+- [ ] Changelog and release readiness checklist.
 
-**Important:** The hub is a proposed repository workspace until these files are actually created. Agents must not claim it exists or is being used until the files and workflow are established and verified.
+**Execution status:** Workstream ownership and initial task assignments are recorded in the task board. The agents themselves have not been launched; tasks are not marked as started. The workspace is ready for coordinated execution once the project owner authorises the implementation start.
 
 
 **Status note:** This document is an agent execution plan. It does not mean agents have been started, code has been implemented, external accounts have been approved, or deployment has occurred. All workstreams remain subject to the project scope, stakeholder validation and the existing canonical consistency decisions.
