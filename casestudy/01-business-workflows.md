@@ -40,10 +40,10 @@ Support rework loops: inspection defects return to corrective work; applications
 | Role | Work | Access scope |
 |---|---|---|
 | Owner/admin | Business oversight, approvals, configuration | All authorised business records |
-| Sales | Enquiries, leads, quotations, follow-up | Own/team leads and projects |
+| Sales | Enquiries, leads, quotations, follow-up | Own/assigned/team/location-scoped leads and projects |
 | Surveyor | Roof, shading, electrical and site data | Assigned surveys |
 | Designer/engineer | Capacity, layout, inverter/battery selection, SLD | Assigned technical projects |
-| Project manager | Scheduling, procurement coordination, installation | Team/branch projects |
+| Project manager | Scheduling, procurement coordination, installation | Team/location-scoped projects |
 | Procurement/inventory | Suppliers, purchase orders, stock, serials | Inventory and purchasing |
 | Technician | Installation, tests and field service | Assigned jobs/cases |
 | Accounts | Invoices, receipts, dues, reconciliation | Financial records |
@@ -57,7 +57,7 @@ Capture lead source, customer contact, site address, consumer/property category,
 Suggested stages: New → Contact attempted → Contacted → Qualified → Survey scheduled → Proposal pending → Won/Lost/On hold. Do not collect Aadhaar or sensitive documents at lead stage without a defined need.
 
 ## Site survey
-Capture roof type, usable area, orientation, tilt, shading, structural observations, cable route, inverter location, earthing, lightning protection, distribution board, grid phase, meter details, connectivity, battery location, photos, surveyor notes and customer requirements. Version surveys and preserve prior records. Mobile forms should support offline drafts.
+Capture roof type, usable area, orientation, tilt, shading, structural observations, cable route, inverter location, earthing, lightning protection, distribution board, grid phase, meter details, connectivity, battery location, photos, surveyor notes and customer requirements. Version surveys and preserve prior records. Full technician offline drafts and synchronisation are Phase 2 (Should); MVP technician workflows are online-first.
 
 ## Design and quotation
 A quote should contain DC/AC capacity, module make/model/wattage/quantity, inverter and phase, battery and datalogger where applicable, mounting/BOS/protection/cabling/earthing, generation estimate and assumptions, expected bill impact, installation/transport/civil charges, tax lines, discount, payment milestones, validity, exclusions, warranty and AMC options.
@@ -67,7 +67,7 @@ Preserve every quotation revision. Never silently change an accepted quote. Stor
 GST depends on actual goods/services, HSN/SAC, contract structure and current notifications. Do not hardcode one generic solar GST rate; require accountant approval.
 
 ## Contract, payment and accounts
-Support advance/milestone/final payment schedules, invoices, receipts, payment method, reconciliation, refunds/credit notes and outstanding balance. Distinguish initiated, received, verified/reconciled, failed and refunded. Do not treat an unverified screenshot as settlement proof.
+Support advance/milestone/final payment schedules, invoices, receipts, payment method, reconciliation, refunds/credit notes and outstanding balance. Distinguish amount due/payment instruction, funds received, verified/posted receipt, allocation, reversal and refund. This release records and verifies receipts manually; no payment gateway is assumed. Do not treat an unverified screenshot as settlement proof.
 
 ## Procurement and inventory
 Track SKU, manufacturer/model, batch/serial, supplier, purchase order, goods receipt, reserved/issued/returned quantity, warehouse, project allocation, warranty evidence and RMA. Track inverters, batteries, dataloggers and meters individually. Project BOM should reserve stock; material issue should link quantity and serials to installation.
