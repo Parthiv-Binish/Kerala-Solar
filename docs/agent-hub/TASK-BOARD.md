@@ -1,15 +1,15 @@
 # Agent Task Board
 
-Task assignments below are work ownership, not evidence that work has started. An agent starts only when the task is READY and records a branch/PR and status update.
+Task assignments are ownership, not evidence that work has started. An agent starts only when the task is READY, records its branch/PR and updates its status report. Current status changes below reflect coordination artifacts authored on the A0 branch only; no other agent implementation is implied.
 
 | Task | Owner | Work package / deliverable | Dependencies | Priority | Status |
 |---|---|---|---|---|---|
-| AG-0001 | A0 | Repository conventions, ownership map, sprint/backlog and integration gates | Owner scope approval | P0 | READY |
+| AG-0001 | A0 | Repository conventions, ownership map, sprint/backlog and integration gates; publish A0 coordination baseline | Owner scope approval | P0 | IN REVIEW — branch a0/coordination-baseline |
 | AG-0002 | A3 | FastAPI skeleton, configuration, health endpoints and OpenAPI baseline | AG-0001 | P0 | BACKLOG |
 | AG-0003 | A4 + A3 | Reconcile SQL bootstrap with one migration strategy; clean-install test | AG-0001 | P0 | READY |
 | AG-0004 | A3 + A4 | Identity, employee, groups, membership, permission, scope and deny-precedence contracts; resolve DOC-001–DOC-003 | AG-0003; mapping register; migration 0006; business approval | P0 | BLOCKED — backend resolver and test evidence pending |
-| AG-0005 | A1 | Public website and landing-page shell using approved design tokens | AG-0001; UI design system | P1 | BACKLOG |
-| AG-0006 | A1 | Staff portal shell, navigation, dashboard shell and route guards | AG-0001; AG-0002/0004 contracts | P1 | BACKLOG |
+| AG-0005 | A1 | Public website and landing-page shell using approved design tokens | ADR-0004; UI design system | P1 | READY — static/non-integrated shell only |
+| AG-0006 | A1 | Staff portal shell, navigation and route layout placeholders | ADR-0004; AG-0001 | P1 | READY — shell only; auth, guards, permissions and data views gated on API-001/API-002 + A8 review |
 | AG-0007 | A2 | Technician Android shell, navigation and secure session foundation | AG-0001; AG-0002/0004 | P1 | BACKLOG |
 | AG-0008 | A2 | Customer Android shell, navigation and secure session foundation | AG-0001; AG-0002/0004 | P1 | BACKLOG |
 | AG-0009 | A5 | OpenWA/provider feasibility, account/session risks, adapter design and test plan | A6 message contract | P0 | READY |
@@ -17,10 +17,10 @@ Task assignments below are work ownership, not evidence that work has started. A
 | AG-0011 | A7 | Inverter/provider capability register and telemetry adapter contract | Device/plant identity from A3/A4 | P1 | READY |
 | AG-0012 | A8 | Requirement traceability, test harness and authorization test plan | Existing SRS/screen inventory | P0 | READY |
 | AG-0013 | A9 | CI pipeline, dev/staging architecture and secure deployment baseline | AG-0001 | P0 | READY |
-| AG-0014 | A0 | Establish contract review cadence, cross-agent dependency map and weekly integration report | AG-0001 | P0 | READY |
+| AG-0014 | A0 | Establish contract review cadence, cross-agent dependency map and weekly integration report | AG-0001 | P0 | IN REVIEW — branch a0/coordination-baseline |
 | AG-0015 | A3 | Enquiry/customer/site APIs and idempotent enquiry intake | AG-0002/0003/0004; DOC-002 customer verification model | P1 | BLOCKED — customer/site authorization contract pending |
 | AG-0016 | A4 | CRM/project/finance/monitoring schema implementation sequence and dictionary; reconcile DOC-003 | AG-0003; migration 0006; ERD mapping register | P1 | BLOCKED — remaining domain mappings and database review pending |
-| AG-0017 | A1 | Enquiry, customer, survey and quotation staff screens | AG-0006; A3 contracts | P1 | BACKLOG |
+| AG-0017 | A1 | Enquiry, customer, survey and quotation staff screens | AG-0006; A3 contracts | P1 | BLOCKED — DOC-001–003 and reviewed API/schema/authz contracts |
 | AG-0018 | A2 | Customer enquiry, project timeline and service request app journeys | AG-0008; A3 contracts | P2 | BACKLOG |
 | AG-0019 | A2 | Technician assigned jobs, survey, installation and service visit journeys | AG-0007; A3 contracts | P2 | BACKLOG |
 | AG-0020 | A3 + A6 | Transactional outbox, notification events and recipient eligibility | AG-0010; AG-0003 | P1 | BACKLOG |
@@ -43,6 +43,18 @@ Task assignments below are work ownership, not evidence that work has started. A
 - A9: AG-0013, AG-0024; environments, CI/CD and reliability.
 
 ## Task rules
-DOC-001–DOC-003 are partially remediated at documentation/schema-artifact level only. Migration 0006 is authored but not executed. AG-0004, AG-0015 and AG-0025 remain blocked until backend authorization and customer identity behaviour are implemented and tested. AG-0016 is limited to schema/documentation planning until migration strategy and database review are approved.
+DOC-001–DOC-003 are partially remediated at documentation/schema-artifact level only. Migration 0006 is authored but not executed. AG-0004, AG-0015 and AG-0025 remain blocked until backend authorization and customer identity behaviour are implemented and tested. AG-0016 is limited to schema/documentation planning until migration strategy and database review are approved. AG-0017 remains blocked; AG-0005 and shell-only AG-0006 may proceed under ADR-0004.
 
 Every task must add: requirement links, planned files, acceptance criteria, test IDs, dependencies, owner, reviewer and PR. Do not mark DONE without merged code/docs and test evidence. A8 may mark test execution complete; A0 controls integrated milestone status.
+
+## Coordination baseline references
+- [Master implementation roadmap](MASTER-IMPLEMENTATION-ROADMAP.md)
+- [Agent dependency matrix](AGENT-DEPENDENCY-MATRIX.md)
+- [Sprint and milestone plan](SPRINT-MILESTONE-PLAN.md)
+- [Shared API and data contract](CONTRACTS/SHARED-API-DATA-CONTRACT.md)
+- [Integration readiness checklist](INTEGRATION-READINESS-CHECKLIST.md)
+- [ADR-0004 web frontend workspace](DECISIONS/ADR-0004-web-frontend-workspace-and-sequencing.md)
+- [A0 baseline handoff](HANDOFFS/A0-BASELINE-HANDOFF.md)
+- [A0 status](AGENT-STATUS/A0.md)
+
+**No AG-0001/AG-0014 task is DONE until this branch is reviewed/merged and A0 records the integration evidence.**
