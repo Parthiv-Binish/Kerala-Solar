@@ -55,6 +55,26 @@ A scope parameter such as a team/location/resource identifier must be validated 
 
 The same policy applies to list/detail/search/export/analytics/files/realtime/jobs. Add truth-table tests for overlapping groups, scope intersections, expiry and denies.
 
+
+
+### 2.5 Authorization truth table for implementation tests
+
+Assume the requested record is within the stated scope and all grants/memberships are currently valid.
+
+| Matching group/permission-set allow | Matching group/permission-set deny | Individual allow | Individual deny | Expected |
+|---|---|---|---|---|
+| No | No | No | No | Deny |
+| Yes | No | No | No | Allow within that grant's scope |
+| Yes | Yes | No | No | Deny |
+| No | No | Yes | No | Allow only if actor is authorised to grant that capability |
+| Yes | No | Yes | No | Allow within the union of separately resolved scopes |
+| Yes | No | Yes | Yes | Deny affected records |
+| No | Yes | Yes | No | Deny affected records |
+| Yes, expired | No | No | No | Deny (expired grant ignored) |
+| Yes, wrong team/location/resource reference | No | No | No | Deny (scope predicate does not match) |
+
+A positive test is insufficient. For each operation, test cross-customer/site access, search counts, export, file downloads, websocket subscriptions and background jobs. The same deny result must hold across every access path.
+
 ## 3. Canonical enquiry-to-project conversion
 
 - Survey completion or approval does not create a project.
