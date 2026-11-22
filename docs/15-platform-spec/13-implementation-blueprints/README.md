@@ -12,6 +12,7 @@ This book contains the implementation-level specifications that bridge the produ
 - [Security, Privacy & Compliance Implementation](05-security-privacy-and-compliance-implementation.md)
 - [Application Engineering & Deployment](06-application-engineering-and-deployment.md)
 - [Testing, Traceability & Acceptance](07-testing-traceability-and-acceptance.md)
+- [SRS Requirement Traceability Matrix](12-srs-requirement-traceability-matrix.md) — atomic MVP requirements mapped to screens, proposed API operations, data, permissions and test IDs.
 - [Business User Manuals & SOPs](08-business-user-manuals-and-operating-procedures.md)
 
 All documents are working drafts until the named owners review and approve them. Authored documentation is not evidence of implementation or compliance.
