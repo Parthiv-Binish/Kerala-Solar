@@ -91,6 +91,7 @@ If this is your first time opening the repository, follow this order:
 | II.22 | [Stage 2 — Platform administration and integrations ER design](docs/15-platform-spec/05-data-and-api/stage-2-platform-settings-integrations-background-jobs-error-logging-and-administration-er-design.md) | Platform settings, integration configuration, jobs and operational logs |
 | II.23 | [Stage 3 — PostgreSQL implementation blueprint](docs/15-platform-spec/05-data-and-api/stage-3-postgresql-implementation-blueprint-and-migration-plan.md) | Schema implementation strategy, dependencies and migration planning |
 | II.24 | [Stage 3 — Canonical data dictionary and migration backlog](docs/15-platform-spec/05-data-and-api/stage-3-canonical-data-dictionary-and-migration-backlog.md) | Proposed canonical tables, fields, constraints, indexes and migration backlog |
+| II.24a | [ERD Logical-to-Physical Mapping](docs/15-platform-spec/05-data-and-api/ERD-LOGICAL-PHYSICAL-MAPPING.md) | Maps logical organization, access and customer identity concepts to physical tables and migration status |
 | II.25 | [PostgreSQL bootstrap migrations](database/migrations/README.md) | Initial SQL schema scripts, execution order and migration safety notes |
 
 ### Book 6 — Security, identity and access
