@@ -3,8 +3,8 @@
 **Review ID:** DOC-AUDIT-001  
 **Branch:** main  
 **Review date:** 22 November 2026  
-**Review type:** Static repository/documentation review  
-**Overall result:** Broadly coherent product direction; high-priority contract mismatches must be resolved before API/database implementation.
+**Review type:** Expanded static repository/documentation review  
+**Overall result:** Broadly coherent product direction; implementation is blocked by unresolved access-control semantics, logical-to-physical mappings, identity linkage and MVP boundaries.
 
 ## 1. Executive assessment
 
@@ -220,7 +220,169 @@ When a lower-level document conflicts with an approved decision, record a change
 
 This review examined repository documents and selected SQL sources on main. It did not execute migrations against PostgreSQL, generate/validate live OpenAPI, run application code/tests/UAT, verify external websites or vendor APIs, obtain GreenGrid stakeholder sign-off, or provide legal/security certification.
 
-## 8. Conclusion
+## 8. Additional findings from expanded repository pass
+
+### AUD-013 — Application documentation file count is inaccurate
+
+**Evidence:** The application experience folder contains the suite inventory (00), chapters 01–23, and the master programme: 25 Markdown files. The Documentation Register currently describes this as a 24-file book.
+
+**Risk:** Progress reporting and completeness checks can undercount the authored material.
+
+**Required action:** Correct the register to 25 files and define whether the master programme is counted as a chapter or as governance metadata. The actual application chapters are 24 files (00–23); the master programme is the 25th file.
+
+**Owner:** Documentation owner.  
+**Acceptance:** Folder inventory, master programme and register use one counting convention.
+
+### AUD-014 — “Plant” and “solar system” are not formally reconciled
+
+**Evidence:**
+- The logical data/API outline uses `plants` and endpoints such as `GET /plants`.
+- Application screens and customer language consistently refer to a solar plant.
+- Stage 2 asset, monitoring and service ER designs use `solar_systems` and `solar_system_id`.
+- Stage 3 physical dictionary uses `asset.solar_systems` with `solar_system_id`.
+
+**Risk:** Different teams may create both a plant table and a solar_systems table, duplicate identity, or build API mappings without a documented alias.
+
+**Required decision:** Confirm whether “plant” is the user-facing business term for the canonical `asset.solar_systems` entity. If yes, document one mapping (`plant` API/resource → `asset.solar_systems` physical table) and use the same opaque ID and lifecycle across screens, API, monitoring and service. If they are distinct concepts, define the relationship and cardinality.
+
+**Owner:** Product owner + asset/data architect.  
+**Acceptance:** One canonical glossary and mapping is used by logical model, Stage 2 ER, Stage 3 dictionary, API and all application chapters.
+
+### AUD-015 — Customer identity linkage is ahead of the bootstrap migration
+
+**Evidence:**
+- Stage 2 access ER describes a generic `user_accounts` entity with optional employee and customer links.
+- Bootstrap migration 0004 creates `iam.identity_accounts` and `iam.employee_account_links`; the migration does not yet create a customer-account link.
+- The migration README states that customer identity linking is part of a later migration batch.
+
+**Assessment:** This is a planned sequencing gap, not necessarily a design contradiction. However, the Stage 2 conceptual entity and physical identity model need an explicit mapping before customer login is built.
+
+**Required action:** Define customer identity/account linking in a later migration: customer/contact principal, verified contact ownership, multiple authorised household contacts, invitation lifecycle, revocation, account linking and prevention of accidental employee/customer identity collision. Clarify whether one login can represent both employee and customer and how that is audited. Do not assume a phone number alone proves authority over a customer/site.
+
+**Owner:** IAM/security lead + CRM/customer data owner.  
+**Acceptance:** Customer identity ER, physical DDL, invitation workflow, API contract and cross-customer authorization tests agree.
+
+### AUD-016 — MVP and full-suite scope are not traced feature by feature
+
+**Evidence:**
+- Project Charter defines an MVP and explicitly places inventory depth, procurement, AMC/RMA and manufacturer telemetry connectors in later scope.
+- Application chapters describe full procurement/inventory, finance, asset/warranty, monitoring and service capabilities.
+- The roadmap Phase 1 scope lists core MVP items but does not map each application/screen chapter to a phase, release or acceptance gate.
+- Customer Web Portal appears in the application suite, but the charter's application summary only names customer mobile and technician mobile experiences.
+
+**Risk:** Stakeholders may interpret every documented screen as an MVP commitment, creating scope creep, inaccurate estimates and mismatched acceptance.
+
+**Required action:** Create a feature-level release matrix with requirement ID, application/screen, Must/Should/Could, MVP/later phase, dependency, estimate, acceptance gate and explicit exclusion. Confirm whether Customer Web Portal is MVP, pilot, or later. Separate basic stock/serial traceability required for installation from advanced inventory/procurement depth if those have different release timing.
+
+**Owner:** Business sponsor + product owner + delivery lead.  
+**Acceptance:** Charter, SRS, application chapters, roadmap and UAT plan use the same release boundary.
+
+### AUD-017 — SRS is not yet a complete cross-application acceptance baseline
+
+**Evidence:** The SRS has compact requirement groups for CRM, project, utility, field, monitoring and communication. It does not yet provide atomic, separately testable requirements for the complete Customer Web Portal, detailed customer-account linking/household delegation, finance verification/allocation/reversal, stock reservation versus issue, monitoring quality/freshness, notification delivery states, provider-specific integration failures, and cross-channel parity.
+
+**Risk:** The application books may be treated as approved features without an authoritative requirement ID, making scope and acceptance hard to control.
+
+**Required action:** Expand the SRS into atomic requirements with unique IDs. Include acceptance criteria and priority for each. Map each requirement to screen/action, API operation, data entity/constraint, capability/scope, event and test case. Explicitly classify non-functional requirements with measurable targets or mark targets as pending stakeholder approval.
+
+**Owner:** Product owner + business analyst + QA lead.  
+**Acceptance:** No in-scope screen action is orphaned from an approved requirement and test.
+
+### AUD-018 — Scope vocabulary also needs physical meaning for the SQL “group” scope
+
+**Evidence:** Migration 0004 accepts `own`, `assigned`, `group`, `company` and `resource`. The conceptual ER also describes `team` scope, while other documents use branch/location and related-record scopes. The physical value `group` may be interpreted as an employee group, operational team, or arbitrary resource group.
+
+**Risk:** A group-based permission grant could accidentally expose every record associated with an employee access group, even when that group is only an organisational label.
+
+**Required action:** Define `group` scope precisely or rename it to a non-ambiguous canonical key such as `team` if that is its actual meaning. Distinguish employee permission groups from operational record-owning teams. Define the required team/resource relationship tables and record predicates. Update migration constraints only through a reviewed migration.
+
+**Owner:** Security/architecture lead + database lead.  
+**Acceptance:** Every stored scope key has one meaning, one resolver and positive/negative authorization tests.
+
+### AUD-019 — Repository link validation and generated registers remain unproven
+
+**Evidence:** INDEX and README provide navigation and the new blueprint book has its own index. The repository does not yet contain the generated screen/action, field, navigation, permission, notification, API and requirement-to-test registers described by the documentation programme. A full automated relative-link check was not run as part of this static pass.
+
+**Risk:** Documentation may drift; links and traceability can break as chapters evolve.
+
+**Required action:** Add CI validation for Markdown relative links, required document IDs, duplicate IDs, register coverage and API/schema references. Generate or validate registers from a controlled source rather than hand-maintaining conflicting copies.
+
+**Owner:** Documentation/engineering owner.  
+**Acceptance:** CI reports broken local links and orphaned/missing IDs; register generation is repeatable.
+
+### AUD-020 — Roadmap infrastructure targets are planning assumptions, not validated commitments
+
+**Evidence:** Architecture proposes a 4 vCPU / 8 GB pilot starting point and initial RPO/RTO targets, while the implementation blueprint requires workload measurement and restore drills before production sizing.
+
+**Assessment:** The documents are compatible if the values remain explicitly provisional. They must not be presented as guaranteed capacity or achieved recovery performance.
+
+**Required action:** Label these as planning assumptions in all cost/roadmap material. Record actual concurrency, telemetry rate, storage growth, backup/restore measurements and approved business RPO/RTO before production.
+
+**Owner:** Technical lead + operations owner + business sponsor.  
+**Acceptance:** Published cost/architecture figures distinguish estimate, approved target and measured result.
+
+## 9. Updated consistency matrix
+
+| Area | Current assessment | Required next action |
+|---|---|---|
+| Product architecture | Coherent central API/database and client-suite direction | Confirm MVP channel/release boundaries |
+| Workflow semantics | Mostly aligned; exact conversion prerequisites should be repeated in all contracts | Keep accepted issued quotation as explicit conversion gate |
+| Access control | High-risk inconsistency in scope keys and precedence | Gate 1 decision and policy truth table |
+| Logical-to-physical data | Broad domain coverage, but access names and plant/solar-system vocabulary need mapping | Canonical mapping register |
+| Customer identity | Conceptually covered; physical customer link is in a later migration | Complete identity-link design before customer auth |
+| Finance | Operational ledger boundary and no-gateway assumption are consistent | Preserve verification, allocation and reversal rules in SRS/API |
+| Monitoring/service | Alert and case lifecycles are correctly separate | Canonical plant/system mapping and provider contracts |
+| Application documentation | All application chapters exist as drafts; file count corrected to 25 total | Score all chapters against G1–G8 |
+| API | Families and conventions exist; exact contract remains pending | OpenAPI and operation catalogue |
+| Integrations/regulation | Verification boundaries are correctly cautious | Evidence ledger and provider approval |
+| Deployment/operations | Proposed architecture is coherent | Measure sizing; prove backup restore and RPO/RTO |
+| Governance/testing | Frameworks exist, traceability evidence not populated | Generate registers and execute tests/UAT |
+
+## 10. Updated prioritised remediation gates
+
+### Gate 0 — correct documentation metadata
+- [ ] Correct application documentation count to 25 total files (24 chapters plus master programme).
+- [ ] Add the consistency review to the master index and implementation-blueprints index.
+- [ ] Run automated local-link and stable-ID checks.
+
+### Gate 1 — decisions that block implementation
+- [ ] Canonical permission scope vocabulary and deterministic precedence.
+- [ ] Distinguish employee permission groups from operational teams.
+- [ ] Map Stage 2 access ER entities to physical SQL.
+- [ ] Define customer account/contact/household identity linking.
+- [ ] Decide whether “plant” is the business/API alias for `asset.solar_systems`.
+- [ ] Confirm exact accepted-quotation/Won/project conversion trigger.
+- [ ] Approve MVP versus later feature matrix, including Customer Web Portal.
+
+### Gate 2 — buildable contracts
+- [ ] Expand SRS into atomic cross-application requirements.
+- [ ] Score all application chapters against G1–G8.
+- [ ] Populate screen/action, field, navigation, permission and notification registers.
+- [ ] Complete API request/response/error schemas and OpenAPI.
+- [ ] Complete entity-to-DDL and migration coverage matrix.
+- [ ] Agree Alembic baseline without duplicate migration execution.
+
+### Gate 3 — verified external and regulated behaviour
+- [ ] Verify postal/PIN source access, licence and refresh rights.
+- [ ] Verify current KSEB/DISCOM and subsidy processes.
+- [ ] Verify manufacturer/model API and telemetry semantics.
+- [ ] Verify WhatsApp/SMS/email/push providers, pricing, templates and consent.
+- [ ] Obtain qualified legal, privacy, tax and electrical-engineering review.
+
+### Gate 4 — evidence-based release readiness
+- [ ] Complete requirement-to-test traceability.
+- [ ] Run migrations on disposable PostgreSQL and verify constraints.
+- [ ] Test authorization, IDOR, offline sync and provider failure/recovery.
+- [ ] Complete security review and penetration testing.
+- [ ] Complete backup restore drill and operational runbooks.
+- [ ] Conduct GreenGrid UAT and record formal approval.
+- [ ] Publish user manuals from the verified application build.
+
+## 11. Review limitations
+
+This is a static review of the repository's Markdown and SQL design artefacts on the main branch. It does not execute migrations against PostgreSQL, validate a generated OpenAPI document, run application code or automated tests, perform a complete link-check CI run, verify external provider endpoints/terms, obtain stakeholder sign-off, or provide legal, tax, security or electrical-engineering certification.
+
+## 12. Conclusion
 
 **Conditionally coherent; not yet ready for direct full implementation without resolving Gate 1.**
 
