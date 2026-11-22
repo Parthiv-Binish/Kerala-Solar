@@ -19,7 +19,7 @@ This is a proposed design baseline, not a legal opinion, penetration-test report
 3. Employee groups organize staff and grant configurable permission sets; group names are not hardcoded roles.
 4. Users may belong to multiple groups. Effective permissions are calculated from approved grants, explicit denials, resource scope and individual overrides.
 5. Reporting relationships do not automatically grant broad access to employee, customer, finance or project data.
-6. Customer accounts and employee accounts are distinct identity populations with separate onboarding and authorization policies.
+6. Customer accounts and employee accounts are distinct identity populations with separate onboarding and authorization policies. Employee subjects use `iam.employee_account_links`; customer subjects use verified, revocable `iam.customer_account_links`.
 7. Workers, schedulers and integrations use service identities with narrowly scoped permissions.
 8. Sensitive actions require stronger verification, audit and sometimes approval.
 9. Default access is denied; access is granted only by explicit policy.
@@ -48,15 +48,17 @@ This is a proposed design baseline, not a legal opinion, penetration-test report
 - verified_by (FK → employees)
 - is_primary
 
-**customer_identity_links**
-- customer_identity_link_id (PK)
-- identity_account_id (FK → identity_accounts)
-- customer_id (FK → customers)
-- customer_contact_id (nullable FK → customer_contacts)
-- relationship_type_id (FK → customer_relationship_types)
-- linked_at
-- verified_at (nullable)
-- is_primary
+**customer_account_links**
+- customer_account_link_id (PK)
+- account_id (FK → identity_accounts; account_type must be customer)
+- customer_id (FK → crm.customers)
+- customer_contact_id (nullable composite FK with customer_id → crm.customer_contacts)
+- relationship_type
+- link_status (pending/active/rejected/revoked)
+- linked_at, verified_at, verified_by_account_id
+- revoked_at, revocation_reason
+
+Physical implementation is migration 0006. The account/contact relationship is customer-specific; an optional contact must belong to the same customer. The initial account model does not support one account acting simultaneously as employee and customer.
 
 **service_identities**
 - service_identity_id (PK)
