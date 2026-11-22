@@ -19,18 +19,18 @@ GreenGrid needs a connected workflow from first enquiry to installation and long
 | BR-011 | Manage manual and automated service cases | Must |
 | BR-012 | Send consent-aware customer notifications | Must |
 | BR-013 | Restrict customers to their own authorised records | Must |
-| BR-014 | Provide offline-capable technician workflows | Should |
+| BR-014 | Provide full encrypted offline technician job packs, durable drafts, media queueing and conflict-aware synchronisation | Should (Phase 2; not MVP acceptance) |
 | BR-015 | Integrate approved manufacturer APIs | Should |
 | BR-016 | Manage inventory, warranty, AMC and RMA | Should |
 | BR-017 | Provide operational and management reports | Should |
 
 ## Enquiry conversion
-An enquiry is a potential sale, not automatically a customer. Conversion requires Won status and configured commercial checks. Conversion must find or create a customer, link the enquiry, create a project, retain survey/quotation references, create initial milestones and write an audit event. One customer may have multiple enquiries, sites and projects. Duplicate candidates must be reviewed rather than silently merged.
+An enquiry is a potential sale, not automatically a customer. Won conversion requires acceptance of one exact issued quotation version and configured commercial/contract approvals. Staff must resolve the customer and confirm one valid site before project creation; incomplete or ambiguous site data blocks conversion. The idempotent transaction links/creates customer, confirmed site and project, retains survey/quotation references, creates initial milestones and writes an audit event. One customer may have multiple enquiries, sites and projects. Duplicate candidates must be reviewed rather than silently merged.
 
 ## Roles
 Owner/admin; sales; surveyor; designer/engineer; project manager; procurement; technician; accounts; support; customer. Actual headcount and hierarchy are VERIFY items.
 
-## Constraints
+## Finance boundary\nMVP finance records and verifies funds actually received, then allocates posted receipts. Customer-submitted screenshots/references are not proof of settlement. No online payment gateway is assumed.\n\n## Constraints
 Government portal status remains authoritative. Generation and savings must show timestamps and limitations. Authorization is server-side. Important status changes retain actor and timestamp.
 
 ## Open decisions
