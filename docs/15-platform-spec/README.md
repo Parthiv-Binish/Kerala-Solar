@@ -15,6 +15,7 @@ The application suite blueprint defines the proposed products and overall screen
 - [Staff Portal — Navigation, Workspace Shell & Dashboard](12-application-experience/01-staff-portal-navigation-and-dashboard.md)
 - [Staff Portal — Enquiries, Follow-ups & Customer Management](12-application-experience/02-staff-portal-enquiries-and-customers.md)
 - [Staff Portal — Survey Scheduling, Site Assessment & Survey Review](12-application-experience/03-staff-portal-survey-management.md)
+- [Staff Portal — Solar Design, Bill of Materials & Quotation Management](12-application-experience/04-staff-portal-design-and-quotations.md)
 - [Staff Portal — Survey Scheduling, Site Assessment & Survey Review](12-application-experience/03-staff-portal-survey-management.md)
 
 - [Application Suite, Screen Inventory & User Experience Blueprint](12-application-experience/00-application-suite-and-screen-inventory.md) — defines the proposed applications, users, navigation, screens, workflows, data movement and usability principles.
