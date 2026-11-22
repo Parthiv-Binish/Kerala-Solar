@@ -277,13 +277,13 @@ The organization design defines employee groups and group membership. This secur
 - evaluated_at
 - correlation_id
 
-Users can belong to multiple groups. Permissions are separate from group labels. Effective access is computed from active memberships, permission-set grants, explicit denies, individual overrides and resource scope. Explicit deny takes precedence over grants. Conflicting or ambiguous policy results should fail closed.
+Users can belong to multiple groups. Permissions are separate from group labels. Effective access is computed from active memberships, permission-set grants, explicit denies, individual overrides and resource scope. Canonical scope keys are own, assigned, team, related, location and company only. Valid allows are unioned within their own scopes; any matching deny blocks the affected permission/records; individual allow never overrides a matching deny. Unknown or ambiguous policy results fail closed. Apply scope before list/detail/search/count/export/aggregate/files/realtime/background jobs.
 
 Individual overrides require reason, expiry and approval rules. A group membership must not automatically grant access to all records in the company unless that scope is explicitly approved.
 
 ### 5.2 Resource scope and relationship-based access
 
-**permission_scope_types** should support approved scopes such as:
+**permission_scope_types** must use only these canonical employee scopes: own, assigned, team, related, location and company. The meanings and predicates are defined in the linked decision register. Do not store branch, all, group or resource as scope keys. Examples of approved related-record access include:
 - own records
 - assigned records
 - team/group records
