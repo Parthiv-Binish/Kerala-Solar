@@ -67,6 +67,7 @@ Counts describe this initial register and may overlap by affected workstream onl
 
 ### DOC-005 — Enquiry-to-project conversion prerequisites are not equally explicit everywhere
 - **Priority:** High
+- **Remediation status (22 Nov 2026):** PARTIALLY DOCUMENTED — workflow, BRD, SRS and canonical decisions now state exact issued-quotation acceptance, commercial approvals, confirmed customer/site, atomic idempotent conversion and post-commit notification. Screen-level coverage, reviewed API schemas and transaction/isolation tests remain outstanding; keep OPEN.
 - **Owners:** Business owner, A0 product, A3 backend, A1/A2 UX
 - **Affected documents:** Charter, business workflows, SRS FR-013, enquiry/customer screens, quotation screens, project screens, cross-application workflow, API contract.
 - **Problem:** The intended conversion is after acceptance of an exact issued quotation version and commercial approvals, but older workflow wording may imply a looser Won conversion.
@@ -75,6 +76,7 @@ Counts describe this initial register and may overlap by affected workstream onl
 
 ### DOC-006 — SRS is not sufficiently atomic or traceable
 - **Priority:** High
+- **Remediation status (22 Nov 2026):** PARTIALLY DOCUMENTED — a new SRS traceability matrix decomposes core MVP requirements into testable outcomes and maps them to screens/actions, proposed API operations, data constraints, permissions and test IDs. Remaining domain requirements, exact screen/API IDs, approved schemas and executable test evidence are still outstanding; keep OPEN.
 - **Owners:** A0 requirements, A3/A4 domain owners, A8 QA
 - **Affected documents:** SRS and all application/workflow/ERD documents.
 - **Problem:** Several important rules exist only in screen or workflow chapters, making acceptance coverage easy to miss.
