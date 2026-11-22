@@ -3,8 +3,8 @@
 ## Identity and access
 - FR-001: Staff can authenticate securely.
 - FR-002: A user can belong to multiple groups.
-- FR-003: Group grants combine; explicit deny overrides grants.
-- FR-004: Scopes include own, assigned, team, branch, related and all.
+- FR-003: Apply the canonical deny-overrides authorization policy; valid explicit denies block matching allows.
+- FR-004: Canonical employee scopes are own, assigned, team, related, location and company; no implicit all/branch/group/resource scope exists.
 - FR-005: Temporary elevation/delegation requires approval, reason and expiry.
 - FR-006: Sensitive actions are audited.
 
@@ -12,7 +12,7 @@
 - FR-010: Create, edit, assign, search and filter enquiries.
 - FR-011: Record calls, messages, notes and follow-ups.
 - FR-012: Track lead stages and lost reasons.
-- FR-013: Convert Won enquiry to customer/project with duplicate prevention.
+- FR-013: Convert an eligible Won enquiry to customer, confirmed site and project exactly once after acceptance of an exact issued quotation version and required commercial approvals; ambiguous/incomplete sites block project creation.
 - FR-014: Support multiple sites and projects per customer.
 
 ## Project and commercial
@@ -49,10 +49,10 @@
 - FR-061: Track consent, template, attempt and delivery status.
 - FR-062: Customers see only their own authorised data.
 - FR-063: Technicians see assigned/authorised jobs and submit evidence.
-- FR-064: Technician app supports offline drafts and conflict-aware sync.
+- FR-064: Full encrypted offline job packs, durable drafts, media queueing and conflict-aware sync are Phase 2 (Should), not MVP acceptance. MVP is online-first and must clearly report connectivity and pending submission state.
 
-## Non-functional requirements
+## Finance boundary\n- FR-070: MVP records funds actually received, verifies receipts through an authorised staff procedure and allocates posted receipts to eligible dues/invoices.\n- FR-071: Customer-submitted references/screenshots do not prove settlement. No payment gateway is assumed; gateway initiation/confirmation requires separately approved integration.\n\n## Non-functional requirements
 Security: server-side authorization on every protected API. Privacy: minimisation, purpose and retention controls. Reliability: idempotent retry-safe jobs. Auditability: actor/time for important changes. Accessibility: contrast, scalable text and keyboard navigation. Offline: drafts survive restart and sync safely. Backup: tested offsite restore. Observability: structured logs, metrics and error reporting.
 
 ## Validation
-Validate required fields, ranges, dates, file types, transitions and relationships server-side. Errors must not expose secrets or stack traces. Every requirement maps to screen/API, data entity, permission and acceptance test before release.
+Validate required fields, ranges, dates, file types, transitions and relationships server-side. Errors must not expose secrets or stack traces. Every requirement maps to screen/API, data entity, permission and acceptance test before release. Route examples in other documents are illustrative; the reviewed OpenAPI contract is normative.
