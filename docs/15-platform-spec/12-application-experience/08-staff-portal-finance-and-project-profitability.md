@@ -30,7 +30,7 @@ Display contract value from accepted quotation version, approved change orders, 
 Money stored as decimal/numeric or integer minor units under one explicit currency policy; never binary floating point. Calculations are server-side. Define rounding, tax treatment, credit notes, refunds and exchange-rate policy before implementation. Every posted transaction is immutable; correction uses linked reversal/adjustment.
 
 ## 10. Data movement
-Reads: quotation snapshots, projects, customers, supplier/PO/receipt, expense categories, payment records and approval policy. Writes: receipts, allocations, supplier bills, payments, expenses, refunds, reconciliation entries and audit events. Enforce transaction boundaries and idempotency for imports/webhooks.
+Reads: quotation snapshots, projects, customers, supplier/PO/receipt, expense categories, supplier payment records and approval policy. Writes: manual receipts, receipt verification, allocations, supplier bills, supplier payment records, expenses, refunds, reconciliation entries and audit events. Customer receipts are recorded only after funds have actually been received; verification/posted status is separate from a customer claim. No payment gateway is included. Use receipt-oriented API commands; do not expose a generic payment initiation endpoint. Enforce transaction boundaries and idempotency for imports/webhooks.
 
 ## 11. Permissions
 finance.view; receipt.create/verify/allocate/reverse; supplier_bill.record/approve; supplier_payment.create/approve; expense.submit/approve; refund.create/approve; reconciliation.manage; finance.export; sensitive_reference.view. Separation of duties is policy-controlled.
