@@ -29,5 +29,5 @@ Use authorized upload-intent, completion and download-intent operations. Validat
 ## OpenAPI and backend boundaries
 Every route has operation ID, auth, capability, schemas, errors, idempotency/concurrency rules and synthetic examples. CI validates schema and breaking changes. Routers handle transport, services enforce use cases, domain modules own rules, repositories persist, adapters integrate providers and workers process asynchronous work.
 
-## Acceptance
+## Canonical naming decisions\nThe logical API outline and screen examples are illustrative. The reviewed OpenAPI document is normative. Use enquiries (not a parallel leads resource without an approved lead entity), service-cases for after-sales cases, and receipt/receipt-allocation commands for received funds. A generic payment route must not initiate a gateway in the MVP. Each operation has one stable operationId.\n\n## Acceptance
 All routes have OpenAPI contracts; every operation has permission tests; mutations have transaction/idempotency policy; stale writes are detected; errors are safe; events are idempotent; files are private; no client accesses the database or queue directly.
