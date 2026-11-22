@@ -209,7 +209,7 @@ Employee subjects link through `iam.employee_account_links`. Customer subjects l
 
 ### 3.11.1 customer_account_links
 
-A customer account is linked to a customer and optionally to one contact belonging to that same customer. The physical table is `iam.customer_account_links`; migration 0006 adds it and the minimum `crm.customers` / `crm.customer_contacts` subject tables. Links have pending, active, rejected and revoked states. Activation requires verification; revocation retains timestamp and reason. One customer can have multiple authorized accounts, and an account may be linked to multiple customers only through separate verified records. This link is not an employee permission grant and does not grant access to other customers or sites automatically.
+A customer account is linked to a customer and optionally to one contact belonging to that same customer. The physical table is `iam.customer_account_links`; migration 0006 adds it and the minimum `crm.customers` / `crm.customer_contacts` subject tables. Links have pending, active, rejected and revoked states. Activation requires verification by an employee account; revocation retains timestamp, employee actor and reason. One customer can have multiple authorized accounts, and an account may be linked to multiple customers only through separate verified records. This link is not an employee permission grant and does not grant access to other customers or sites automatically.
 
 ### 3.12 account_statuses
 
