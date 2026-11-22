@@ -2,7 +2,7 @@
 
 This book contains the implementation-level specifications that bridge the product/application books and actual engineering delivery.
 
-- [Full Documentation Consistency Review](09-full-documentation-consistency-review.md)\n- [Consistency Resolution Decisions](10-consistency-resolution-decisions.md) — proposed canonical resolutions to cross-document conflicts.
+- [Full Documentation Consistency Review](09-full-documentation-consistency-review.md)\n- [Consistency Resolution Decisions](10-consistency-resolution-decisions.md) — proposed canonical resolutions to cross-document conflicts, including plant→solar_system mapping and migrations 0001–0006.
 - [Master Documentation Register](DOCUMENTATION-REGISTER.md)
 - [Screen & Experience Implementation Specification](01-screen-and-experience-implementation-specification.md)
 - [API & Backend Contracts](02-api-and-backend-contracts.md)
