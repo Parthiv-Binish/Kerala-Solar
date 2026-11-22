@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#092b25">
+<meta name="description" content="A plain-language showcase of the GreenGrid Solar study: one connected system for enquiries, solar projects, customer and technician apps, monitoring and after-sales service.">
+<title>GreenGrid Solar | One connected solar journey</title>
+<style>
+:root{--ink:#102a24;--muted:#5d7069;--green:#176b4b;--lime:#c8f169;--mint:#e9f5ed;--paper:#f7faf6;--line:#dce7de;--white:#fff;--dark:#092b25;--orange:#f3a65a;--shadow:0 18px 50px rgba(9,43,37,.09);--radius:22px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}a{color:inherit}button{font:inherit}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}.eyebrow{font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;font-weight:800;color:var(--green)}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(2.7rem,6vw,5.5rem);line-height:.99;letter-spacing:-.065em;max-width:850px;margin:18px 0 24px}h2{font-size:clamp(2rem,4vw,3.25rem);line-height:1.08;letter-spacing:-.045em;margin-bottom:16px}h3{font-size:1.15rem;letter-spacing:-.02em;margin-bottom:8px}.lead{font-size:1.15rem;color:#d5e6dc;max-width:680px}.muted{color:var(--muted)}.section{padding:92px 0}.section-head{max-width:760px;margin-bottom:38px}.section-head p{font-size:1.05rem;color:var(--muted)}.pill{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border:1px solid rgba(255,255,255,.2);border-radius:99px;font-size:.8rem;color:#e9f5ed;background:rgba(255,255,255,.07)}.dot{width:7px;height:7px;border-radius:50%;background:var(--lime)}.nav{position:sticky;top:0;z-index:20;background:rgba(247,250,246,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:850;letter-spacing:-.03em}.brand-mark{display:grid;place-items:center;width:36px;height:36px;border-radius:12px;background:var(--green);color:var(--lime);font-size:1.15rem}.nav-links{display:flex;gap:22px;align-items:center}.nav-links a{text-decoration:none;font-size:.87rem;color:#43574f;font-weight:650}.nav-links a:hover{color:var(--green)}.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 17px;border-radius:999px;text-decoration:none;font-weight:750;border:1px solid transparent;transition:.2s}.nav-cta,.btn-primary{background:var(--lime);color:var(--dark)}.btn-outline{border-color:rgba(255,255,255,.35);color:#fff;background:transparent}.btn:hover,.nav-cta:hover{transform:translateY(-2px)}.menu-btn{display:none;border:1px solid var(--line);background:#fff;border-radius:12px;padding:8px 12px;color:var(--ink)}
+.hero{background:radial-gradient(circle at 82% 22%,rgba(200,241,105,.2),transparent 26%),linear-gradient(135deg,#092b25 0%,#0c4937 62%,#176b4b 100%);color:white;padding:88px 0 74px;overflow:hidden;position:relative}.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:50px;align-items:center}.hero h1 span{color:var(--lime)}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0}.hero-note{font-size:.82rem;color:#b9d0c4;max-width:620px}.solar-art{min-height:380px;position:relative;display:grid;place-items:center}.sun{position:absolute;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#efffb8,#a5d84e 70%);right:9%;top:0;box-shadow:0 0 100px rgba(200,241,105,.2)}.roof-card{position:relative;margin-top:100px;width:min(100%,430px);padding:22px;border-radius:26px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.23);backdrop-filter:blur(12px);transform:rotate(-3deg);box-shadow:0 30px 80px rgba(0,0,0,.2)}.roof-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;color:#e4f2e8;font-size:.82rem}.roof-panels{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;transform:skewY(-9deg);margin:12px 0 26px}.roof-panels span{height:48px;border-radius:5px;background:linear-gradient(145deg,#1e6681,#0d354e);border:1px solid #5ba3b2;box-shadow:inset 0 0 10px rgba(255,255,255,.12)}.roof-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.roof-stats div{background:rgba(0,0,0,.17);padding:12px;border-radius:14px}.roof-stats b{display:block;font-size:1.2rem;color:var(--lime)}.roof-stats small{color:#c7ddd0}.float-chip{position:absolute;background:#fff;color:var(--ink);padding:13px 16px;border-radius:15px;box-shadow:var(--shadow);font-size:.8rem;font-weight:750}.chip-one{left:-2%;top:22%}.chip-two{right:-2%;bottom:8%}
+.notice{background:#fff8e9;border:1px solid #f0dfb8;border-radius:14px;padding:13px 16px;color:#6d5528;font-size:.87rem;margin-top:26px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-28px;position:relative}.stat{background:#fff;padding:22px;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}.stat b{display:block;font-size:1.65rem;letter-spacing:-.05em;color:var(--green)}.stat span{font-size:.82rem;color:var(--muted)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 8px 30px rgba(9,43,37,.035)}.icon{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--mint);font-size:1.35rem;margin-bottom:18px}.card p{font-size:.93rem;color:var(--muted);margin-bottom:0}.card ul{padding-left:19px;color:var(--muted);font-size:.9rem;margin-bottom:0}.card li{margin:6px 0}.soft{background:var(--mint)}.dark{background:var(--dark);color:#fff}.dark .section-head p{color:#b7cfc2}.dark .eyebrow{color:var(--lime)}
+.ecosystem{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;align-items:stretch}.eco-card{border:1px solid var(--line);background:#fff;border-radius:22px;padding:25px;position:relative}.eco-card.featured{background:var(--dark);color:white;border-color:var(--dark);transform:translateY(-10px)}.eco-card p{font-size:.9rem;color:var(--muted)}.eco-card.featured p{color:#c2d7cb}.eco-tag{font-size:.73rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--green)}.featured .eco-tag{color:var(--lime)}.eco-card ul{padding-left:18px;font-size:.88rem;color:var(--muted)}.featured ul{color:#c2d7cb}.shared-bar{margin:20px auto 0;max-width:740px;text-align:center;border:1px dashed #a8c8b2;border-radius:16px;padding:15px;color:var(--green);font-weight:700;background:#f1f8f2}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;counter-reset:step}.flow-step{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 14px;min-height:145px}.flow-step:before{counter-increment:step;content:counter(step,decimal-leading-zero);display:block;color:var(--green);font-size:.75rem;font-weight:900;margin-bottom:16px}.flow-step b{display:block;font-size:.92rem;line-height:1.3}.flow-step small{display:block;color:var(--muted);font-size:.78rem;margin-top:8px}.flow-step:not(:nth-child(5n)):after{content:"→";position:absolute;right:-13px;top:46%;z-index:1;color:var(--green);font-weight:900}
+.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:46px;align-items:start}.sticky-copy{position:sticky;top:112px}.timeline{border-left:2px solid #c6ddcb;padding-left:26px}.timeline-item{position:relative;padding:0 0 25px}.timeline-item:before{content:"";position:absolute;left:-33px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--green);border:3px solid var(--mint)}.timeline-item p{font-size:.88rem;color:var(--muted);margin:5px 0 0}.tagline{display:inline-block;background:var(--mint);color:var(--green);padding:4px 9px;border-radius:8px;font-size:.72rem;font-weight:800;margin-bottom:8px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}.tab{border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:10px 15px;font-weight:750;cursor:pointer}.tab[aria-selected="true"]{background:var(--green);color:#fff;border-color:var(--green)}.tab-panel{display:none}.tab-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}.screen{background:#f2f7f3;border:1px solid var(--line);border-radius:22px;padding:22px;max-width:470px}.screen-top{display:flex;justify-content:space-between;align-items:center;font-weight:800;margin-bottom:16px}.screen-badge{font-size:.7rem;color:var(--green);background:#e2f1e5;padding:5px 8px;border-radius:99px}.screen-box{background:white;border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0}.screen-box small{color:var(--muted)}.progress{height:8px;border-radius:99px;background:#e2eae3;overflow:hidden;margin-top:10px}.progress span{display:block;width:68%;height:100%;background:var(--green);border-radius:99px}.screen-row{display:flex;justify-content:space-between;gap:12px;font-size:.85rem;padding:7px 0;border-bottom:1px solid #edf1ed}.screen-row:last-child{border:0}.feature-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.feature-list div{background:#fff;border:1px solid var(--line);border-radius:13px;padding:12px;font-size:.85rem}.feature-list b{display:block}.feature-list span{color:var(--muted);font-size:.77rem}
+.comparison{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;font-size:.9rem}.comparison th,.comparison td{text-align:left;padding:16px;border-bottom:1px solid var(--line);vertical-align:top}.comparison th{background:#eff6ef;color:var(--green)}.comparison td:first-child{font-weight:750;width:23%}.comparison tr:last-child td{border:0}.caveat{font-size:.8rem;color:var(--muted);margin-top:12px}
+.accordion details{background:#fff;border:1px solid var(--line);border-radius:14px;margin:9px 0;padding:0 17px}.accordion summary{cursor:pointer;list-style:none;padding:16px 0;font-weight:750;display:flex;justify-content:space-between;gap:15px}.accordion summary::-webkit-details-marker{display:none}.accordion summary:after{content:"+";color:var(--green);font-size:1.2rem}.accordion details[open] summary:after{content:"−"}.accordion details p{color:var(--muted);font-size:.9rem;padding:0 0 15px;margin:0}
+.phase{border-top:3px solid var(--green)}.phase small{font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.08em}.phase h3{margin-top:12px}.phase p{font-size:.87rem;color:var(--muted)}
+.footer{background:#061f1b;color:#d3e5da;padding:55px 0 30px}.footer-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}.footer a{color:var(--lime);text-decoration:none}.footer p{color:#a9c2b5;font-size:.88rem;max-width:560px}.footer-bottom{border-top:1px solid rgba(255,255,255,.15);margin-top:35px;padding-top:18px;color:#9cb7a8;font-size:.78rem;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:900px){.hero-grid,.split{grid-template-columns:1fr}.solar-art{min-height:330px}.stats{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(2,1fr)}.flow{grid-template-columns:repeat(3,1fr)}.flow-step:after{display:none!important}.sticky-copy{position:static}.ecosystem{grid-template-columns:1fr}.eco-card.featured{transform:none}.nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:#f7faf6;padding:18px 22px 24px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.nav-links.open{display:flex}.menu-btn{display:block}.nav-cta{display:none}}
+@media(max-width:600px){.wrap{width:min(100% - 28px,1160px)}.section{padding:66px 0}.hero{padding:62px 0 56px}.hero-grid{gap:15px}.solar-art{min-height:280px}.sun{width:160px;height:160px}.roof-card{margin-top:65px;padding:16px}.roof-panels span{height:34px}.float-chip{font-size:.7rem;padding:10px}.chip-one{left:0}.chip-two{right:0}.stats{gap:8px}.stat{padding:16px}.stat b{font-size:1.35rem}.grid-3,.grid-2{grid-template-columns:1fr}.flow{grid-template-columns:repeat(2,1fr)}.flow-step{min-height:125px}.tab-panel.active{grid-template-columns:1fr}.feature-list{grid-template-columns:1fr 1fr}.comparison{font-size:.78rem}.comparison th,.comparison td{padding:10px 8px}.comparison td:first-child{width:25%}.nav-inner{height:64px}.nav-links{top:64px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="nav">
+ <div class="wrap nav-inner">
+  <a class="brand" href="#top" aria-label="GreenGrid Solar home"><span class="brand-mark">✳</span><span>GreenGrid <span style="color:var(--green)">Solar</span></span></a>
+  <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+   <a href="#platform">The platform</a><a href="#journey">Customer journey</a><a href="#apps">Apps & software</a><a href="#difference">What is different</a><a href="#trust">Trust & compliance</a>
+  </nav>
+  <a class="nav-cta" href="#next">Explore the study ↗</a>
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu</button>
+ </div>
+</header>
+<main id="top">
+<section class="hero">
+ <div class="wrap hero-grid">
+  <div>
+   <span class="pill"><span class="dot"></span> A connected solar operations study · Kerala</span>
+   <h1>One solar journey.<br><span>One connected system.</span></h1>
+   <p class="lead">From the first customer enquiry to the day a solar plant is monitored and maintained, bring people, projects and updates into one clear journey.</p>
+   <div class="hero-actions"><a class="btn btn-primary" href="#journey">See how it works <span>↓</span></a><a class="btn btn-outline" href="#apps">Explore the apps</a></div>
+   <p class="hero-note">Prepared for GreenGrid Solar Solutions · Erattupetta, Kottayam, Kerala · Study snapshot: 22 November 2026</p>
+  </div>
+  <div class="solar-art" aria-label="Illustration of a solar plant dashboard">
+   <div class="sun"></div><div class="float-chip chip-one">☀️ Solar project · In progress</div>
+   <div class="roof-card">
+    <div class="roof-top"><b>GreenGrid · Plant overview</b><span>● Concept screen</span></div>
+    <div class="roof-panels"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="roof-stats"><div><b>Live*</b><small>Plant status</small></div><div><b>Today</b><small>Energy view</small></div><div><b>24/7</b><small>Monitoring goal</small></div></div>
+   </div><div class="float-chip chip-two">📲 Customer updates in one place</div>
+  </div>
+ </div>
+</section>
+<div class="wrap"><div class="stats">
+ <div class="stat"><b>3 connected</b><span>Workspaces: office, customer and field team</span></div>
+ <div class="stat"><b>1 journey</b><span>Enquiry through installation and service</span></div>
+ <div class="stat"><b>Every step</b><span>Owner, status, evidence and next action</span></div>
+ <div class="stat"><b>Built to grow</b><span>Monitoring, automation and future integrations</span></div>
+</div>
+<div class="notice"><b>Important — this is a proposed platform study.</b> The screens and workflows on this page explain the recommended solution; they are not a claim that the software, apps, integrations or live monitoring are already built or deployed. Final scope depends on GreenGrid's confirmation and technical/regulatory verification.</div></div>
+
+<section class="section" id="why">
+ <div class="wrap">
+  <div class="section-head"><span class="eyebrow">The idea</span><h2>Solar work has many moving parts.<br>Customers should not have to chase them.</h2><p>A solar installation involves conversations, site visits, designs, approvals, equipment, technicians, utility milestones and future service. The study brings those steps together so the right person can see what is happening and what needs to happen next.</p></div>
+  <div class="grid-3">
+   <article class="card"><div class="icon">🧭</div><h3>Know what is next</h3><p>Every enquiry, project, approval and service request has a clear status, responsible person and next action.</p></article>
+   <article class="card"><div class="icon">🤝</div><h3>Keep everyone connected</h3><p>Office staff, customers and technicians work from the same project information, with access suited to their work.</p></article>
+   <article class="card"><div class="icon">🔎</div><h3>Keep a useful history</h3><p>Documents, site photos, equipment serial numbers, updates and service records stay linked to the right customer and site.</p></article>
+  </div>
+ </div>
+</section>
+
+<section class="section soft" id="platform">
+ <div class="wrap">
+  <div class="section-head"><span class="eyebrow">One platform · three experiences</span><h2>Different people see what they need.</h2><p>It is not three disconnected products. The office system coordinates the work; the customer app keeps the customer informed; the technician app supports the work at the site.</p></div>
+  <div class="ecosystem">
+   <article class="eco-card"><span class="eco-tag">01 · Internal web workspace</span><div class="icon">🖥️</div><h3>The control room for the team</h3><p>Used by management and staff to manage the complete business workflow.</p><ul><li>Enquiries, leads and follow-ups</li><li>Customers, sites and projects</li><li>Surveys, designs and quotations</li><li>Utility milestones and documents</li><li>Procurement, inventory and work orders</li><li>Accounts, cases, AMC and reports</li><li>Staff groups, approvals and audit history</li></ul></article>
+   <article class="eco-card featured"><span class="eco-tag">02 · Customer mobile app</span><div class="icon">📱</div><h3>A clear view for the customer</h3><p>Customers can follow their own solar sites and projects without seeing internal business information.</p><ul><li>Project progress and next steps</li><li>Utility and subsidy status updates</li><li>Plant performance where connected</li><li>Documents, invoices and payment history</li><li>Service requests and ticket history</li><li>Notifications, preferences and support</li></ul></article>
+   <article class="eco-card"><span class="eco-tag">03 · Technician mobile app</span><div class="icon">🧰</div><h3>Work from the field</h3><p>Technicians get assigned jobs and record the work at the customer site.</p><ul><li>Assigned jobs and site details</li><li>Checklists and task instructions</li><li>Equipment and serial-number capture</li><li>Photos, readings and visit notes</li><li>Parts used and fault diagnosis</li><li>Customer acknowledgement and sync status</li></ul></article>
+  </div>
+  <div class="shared-bar">↔ All three use the same secure platform data — updates are shared according to each person's access.</div>
+ </div>
+</section>
+
+<section class="section" id="journey">
+ <div class="wrap">
+  <div class="section-head"><span class="eyebrow">The complete customer journey</span><h2>From “I’m interested” to “My system is running”.</h2><p>Here is the proposed end-to-end journey in everyday language. Some steps happen inside GreenGrid; others depend on the customer, utility or external provider.</p></div>
+  <div class="flow">
+   <div class="flow-step"><b>Enquiry received</b><small>Call, website, referral or walk-in</small></div>
+   <div class="flow-step"><b>Contact & qualify</b><small>Understand the need and site</small></div>
+   <div class="flow-step"><b>Site survey</b><small>Roof, shade, wiring and requirements</small></div>
+   <div class="flow-step"><b>Design & quotation</b><small>System proposal, price and terms</small></div>
+   <div class="flow-step"><b>Customer approval</b><small>Accept, revise or decide later</small></div>
+   <div class="flow-step"><b>Project created</b><small>Customer, site and project linked</small></div>
+   <div class="flow-step"><b>Utility process</b><small>Application and required documents</small></div>
+   <div class="flow-step"><b>Materials arranged</b><small>Purchase, reserve and serial tracking</small></div>
+   <div class="flow-step"><b>Installation</b><small>Assigned team completes site work</small></div>
+   <div class="flow-step"><b>Inspection & meter</b><small>Utility steps tracked separately</small></div>
+   <div class="flow-step"><b>Commission & handover</b><small>Evidence, documents and customer guide</small></div>
+   <div class="flow-step"><b>Monitor & support</b><small>Performance, warranty, AMC and service</small></div>
+  </div>
+  <p class="caveat">Important: physical installation, inspection, agreement, meter installation, grid commissioning and subsidy payment are separate milestones. One must not be shown as completed just because another is complete.</p>
+ </div>
+</section>
+
+<section class="section soft">
+ <div class="wrap split">
+  <div class="sticky-copy"><span class="eyebrow">A closer look · Enquiry to customer</span><h2>Every enquiry gets a next step.</h2><p class="muted">A new enquiry is not automatically a customer. The team first understands the requirement, follows up, surveys the site and prepares a proposal.</p><div class="notice">When a proposal is accepted and the required checks are complete, the team converts the enquiry into a customer/project. Existing customers can have more than one site or project.</div></div>
+  <div class="timeline">
+   <div class="timeline-item"><span class="tagline">01 · New</span><h3>Capture the enquiry</h3><p>Record contact details, source, site location, solar requirement and preferred contact method. Avoid collecting unnecessary identity documents at this stage.</p></div>
+   <div class="timeline-item"><span class="tagline">02 · Contacted</span><h3>Assign a staff member</h3><p>A sales person receives ownership, contacts the prospect and records the conversation and next follow-up date.</p></div>
+   <div class="timeline-item"><span class="tagline">03 · Qualified</span><h3>Understand the requirement</h3><p>Clarify residential, commercial or industrial use; on-grid, off-grid or hybrid needs; electricity usage; budget and site readiness.</p></div>
+   <div class="timeline-item"><span class="tagline">04 · Survey & proposal</span><h3>Visit, assess and prepare a quote</h3><p>The survey captures roof area, shade, electrical details and photos. The proposal lists equipment, capacity, estimated generation, price, taxes, payment stages and warranty terms.</p></div>
+   <div class="timeline-item"><span class="tagline">05 · Decision</span><h3>Won, lost or on hold</h3><p>Accepted proposals move forward. Declined opportunities keep a reason and history. On-hold enquiries get a planned follow-up.</p></div>
+   <div class="timeline-item"><span class="tagline">06 · Conversion</span><h3>Create the customer relationship</h3><p>The accepted enquiry is linked to a customer, site and project. Duplicate checks prevent creating the same customer twice. App access is invited separately.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="apps">
+ <div class="wrap">
+  <div class="section-head"><span class="eyebrow">What each app actually does</span><h2>Three views of the same work.</h2><p>Select a workspace to see example screens and the practical tasks it supports. These are illustrative concepts, not screenshots of a released app.</p></div>
+  <div class="tabs" role="tablist" aria-label="Choose a workspace">
+   <button class="tab" role="tab" id="tab-office" aria-controls="panel-office" aria-selected="true" data-tab="office">🖥️ Office web</button>
+   <button class="tab" role="tab" id="tab-customer" aria-controls="panel-customer" aria-selected="false" data-tab="customer">📱 Customer app</button>
+   <button class="tab" role="tab" id="tab-tech" aria-controls="panel-tech" aria-selected="false" data-tab="tech">🧰 Technician app</button>
+  </div>
+  <div class="tab-panel active" id="panel-office" role="tabpanel" aria-labelledby="tab-office">
+   <div><h3>Office web workspace</h3><p class="muted">A browser-based workspace for staff and management. Each team sees the work they are allowed to access.</p><div class="feature-list"><div><b>Sales & CRM</b><span>Enquiry, follow-up, quotation</span></div><div><b>Projects</b><span>Sites, stages and owners</span></div><div><b>Operations</b><span>Procurement and field jobs</span></div><div><b>Service desk</b><span>Cases, SLA and warranty</span></div><div><b>Accounts</b><span>Invoices, receipts and dues</span></div><div><b>Management</b><span>Reports, approvals and audit</span></div></div></div>
+   <div class="screen"><div class="screen-top"><span>Team workboard</span><span class="screen-badge">Illustrative</span></div><div class="screen-box"><small>Follow-up due today</small><b style="display:block;font-size:1.4rem">12 enquiries</b><div class="progress"><span style="width:55%"></span></div></div><div class="screen-box"><b>Project · Residential rooftop</b><div class="screen-row"><span>Survey</span><b>Completed ✓</b></div><div class="screen-row"><span>Quotation</span><b>Accepted ✓</b></div><div class="screen-row"><span>Meter</span><b style="color:#9a681e">Awaiting update</b></div><div class="screen-row"><span>Next action</span><b>Follow up</b></div></div><div class="screen-row"><span>Assigned team</span><b>Project operations</b></div></div>
+  </div>
+  <div class="tab-panel" id="panel-customer" role="tabpanel" aria-labelledby="tab-customer">
+   <div><h3>Customer app</h3><p class="muted">A simple place to see the customer's own projects, plant information and support history. No internal staff notes or another customer's data.</p><div class="feature-list"><div><b>My solar systems</b><span>One or more sites</span></div><div><b>Project timeline</b><span>Progress and pending steps</span></div><div><b>Plant dashboard</b><span>Generation and savings estimates</span></div><div><b>My documents</b><span>Warranty, invoice and handover</span></div><div><b>Raise a request</b><span>Service and support</span></div><div><b>Notifications</b><span>Updates and preferences</span></div></div></div>
+   <div class="screen"><div class="screen-top"><span>My solar project</span><span class="screen-badge">Illustrative</span></div><div class="screen-box"><small>Project progress</small><b style="display:block;font-size:1.4rem">Installation journey</b><div class="progress"><span></span></div><small>Next: utility inspection update</small></div><div class="screen-box"><div class="screen-row"><span>Survey</span><b>Done ✓</b></div><div class="screen-row"><span>Installation</span><b>Done ✓</b></div><div class="screen-row"><span>Meter process</span><b>In progress</b></div></div><div class="screen-box"><b>Need help?</b><p style="font-size:.82rem;margin:5px 0 0;color:var(--muted)">Raise a service request and follow its status.</p></div></div>
+  </div>
+  <div class="tab-panel" id="panel-tech" role="tabpanel" aria-labelledby="tab-tech">
+   <div><h3>Technician app</h3><p class="muted">A field companion that shows assigned work, captures proof of work and syncs updates to the office system.</p><div class="feature-list"><div><b>My jobs</b><span>Schedule and site details</span></div><div><b>Checklist</b><span>Step-by-step task checks</span></div><div><b>Equipment</b><span>Scan or enter serial numbers</span></div><div><b>Site evidence</b><span>Photos and test readings</span></div><div><b>Parts used</b><span>Material usage record</span></div><div><b>Offline drafts</b><span>Sync when connection returns</span></div></div></div>
+   <div class="screen"><div class="screen-top"><span>Assigned work order</span><span class="screen-badge">Illustrative</span></div><div class="screen-box"><small>Today's visit</small><b style="display:block;font-size:1.15rem">Site installation checklist</b><div class="screen-row"><span>Confirm site and safety</span><b>✓</b></div><div class="screen-row"><span>Record equipment serials</span><b>✓</b></div><div class="screen-row"><span>Upload installation photos</span><b>Pending</b></div><div class="screen-row"><span>Submit test readings</span><b>Pending</b></div></div><div class="screen-box"><b>Sync status</b><p style="font-size:.82rem;color:var(--muted);margin:5px 0">Drafts are saved on device and uploaded when online. Conflicts are flagged, not silently overwritten.</p></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="section dark" id="operations">
+ <div class="wrap">
+  <div class="section-head"><span class="eyebrow">Beyond the installation</span><h2>One record follows the project through its full life.</h2><p>The platform is not just a lead tracker or an installation checklist. It is designed to support the business before, during and after the solar system is handed over.</p></div>
+  <div class="grid-3">
+   <article class="card"><div class="icon">📐</div><h3>Survey & design</h3><p>Roof and shade observations, electrical details, photos, system sizing, equipment selection, design revisions and quotation versions.</p></article>
+   <article class="card"><div class="icon">📄</div><h3>Utility & scheme tracking</h3><p>Application references, feasibility, vendor selection, inspection, defects, agreement, meter, commissioning and subsidy status.</p></article>
+   <article class="card"><div class="icon">📦</div><h3>Procurement & inventory</h3><p>Suppliers, purchase orders, goods received, stock reservation, project material issue, returns and equipment serial numbers.</p></article>
+   <article class="card"><div class="icon">🦺</div><h3>Installation work orders</h3><p>Team assignment, schedule, checklists, work progress, photos, test readings, defects and manager review.</p></article>
+   <article class="card"><div class="icon">💳</div><h3>Accounts & payments</h3><p>Payment milestones, invoices, receipts, reconciliation, refunds, credit notes and outstanding balances. Gateway integration is optional and separately scoped.</p></article>
+   <article class="card"><div class="icon">🛠️</div><h3>Service, warranty & AMC</h3><p>Customer requests, fault diagnosis, field visits, manufacturer claims, replacements, planned maintenance and renewals.</p></article>
+   <article class="card"><div class="icon">📊</div><h3>Reports & management</h3><p>Enquiry conversion, follow-up ageing, project delays, pending meters, team workload, inventory, revenue and service performance.</p></article>
+   <article class="card"><div class="icon">🔔</div><h3>Notifications</h3><p>Relevant updates by approved WhatsApp, email, push or compliant SMS, with delivery status and consent preferences.</p></article>
+   <article class="card"><div class="icon">🔐</div><h3>Staff groups & approvals</h3><p>People can belong to groups such as Sales, Technician, Accounts or Management. Access also depends on the records and actions they are assigned.</p></article>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="monitoring">
+ <div class="wrap split">
+  <div><span class="eyebrow">After commissioning</span><h2>A solar plant should not become invisible after handover.</h2><p class="muted">Where the installed equipment and manufacturer access support it, the platform can collect performance data and show it to authorised users.</p><div class="notice">Monitoring depends on the exact inverter, datalogger, firmware, connectivity and manufacturer API access. Brand names alone do not guarantee integration.</div></div>
+  <div class="grid-2">
+   <article class="card"><div class="icon">⚡</div><h3>Performance view</h3><p>Energy generated, current power, daily and lifetime totals, battery state and grid import/export where available.</p></article>
+   <article class="card"><div class="icon">📡</div><h3>Device health</h3><p>Online/offline state, last update time, device faults and connection quality.</p></article>
+   <article class="card"><div class="icon">🚨</div><h3>Useful alerts</h3><p>Possible offline equipment, fault conditions or unusual output can be flagged using model-aware rules.</p></article>
+   <article class="card"><div class="icon">🧑‍🔧</div><h3>Alert to service</h3><p>An alert can be reviewed and, when appropriate, turned into a service case and assigned to a technician.</p></article>
+  </div>
+ </div>
+</section>
+
+<section class="section soft" id="difference">
+ <div class="wrap">
+  <div class="section-head"><span class="eyebrow">Why this approach</span><h2>Designed around the whole customer experience.</h2><p>We should not claim every other solar agency works the same way or lacks these capabilities. The difference described here is the operating model proposed for GreenGrid, not an independently verified competitor ranking.</p></div>
+  <table class="comparison">
+   <thead><tr><th>Area</th><th>Typical disconnected approach</th><th>GreenGrid platform approach</th></tr></thead>
+   <tbody>
+    <tr><td>Customer enquiry</td><td>Details may be spread across calls, messages and sheets.</td><td>One enquiry record, owner, history and next follow-up.</td></tr>
+    <tr><td>Project updates</td><td>Customer may need to contact staff for progress.</td><td>Customer view shows approved milestones and updates.</td></tr>
+    <tr><td>Team coordination</td><td>Separate handovers between sales, office and field staff.</td><td>Shared project record with role-appropriate access.</td></tr>
+    <tr><td>Utility delays</td><td>Pending steps can be difficult to track consistently.</td><td>Separate milestone, ageing, reason, owner and next action.</td></tr>
+    <tr><td>Installation proof</td><td>Photos and equipment details may be stored separately.</td><td>Work order captures checklist, serials, photos and readings.</td></tr>
+    <tr><td>After-sales service</td><td>Past installation and service details may be hard to find.</td><td>Cases, warranty, AMC and device history link to the plant.</td></tr>
+    <tr><td>Visibility</td><td>Management may rely on manual status collection.</td><td>Dashboards and reports use the same operational records.</td></tr>
+   </tbody>
+  </table>
+  <p class="caveat">This comparison is an illustrative contrast between fragmented tools and the proposed connected workflow. It is not a survey of named competitors or a claim about all solar agencies.</p>
+ </div>
+</section>
+
+<section class="section" id="trust">
+ <div class="wrap">
+  <div class="section-head"><span class="eyebrow">Trust, safety & transparency</span><h2>Technology should make the process clearer — not promise what it cannot control.</h2><p>The platform supports the work and keeps evidence. Government authorities, manufacturers, qualified professionals and payment providers remain responsible for their own approvals and systems.</p></div>
+  <div class="grid-3">
+   <article class="card"><div class="icon">🏛️</div><h3>Government portals stay authoritative</h3><p>The system records portal references, evidence and verified updates. It does not pretend to approve applications or replace KSEB, MNRE or other official systems.</p></article>
+   <article class="card"><div class="icon">🧾</div><h3>Rules are checked and versioned</h3><p>Scheme eligibility, capacity rules, metering, equipment compliance and tax treatment must be checked against current official requirements before quoting or applying.</p></article>
+   <article class="card"><div class="icon">🛡️</div><h3>Privacy and controlled access</h3><p>Staff groups, record-level access, audit logs, consent preferences, data minimisation and secure document access are part of the design.</p></article>
+  </div>
+  <div class="accordion" style="margin-top:28px">
+   <details><summary>What about PM Surya Ghar and subsidy?</summary><p>The study treats PM Surya Ghar as a residential rooftop solar programme with eligibility and process conditions. It is not a universal subsidy for every commercial, industrial, off-grid or solar-water-heater project. Current eligibility, CFA amounts, deadlines and process must be verified for each customer using the latest official guidance.</p></details>
+   <details><summary>Will the system automatically connect to KSEB or E-Kiran?</summary><p>No automatic integration is assumed. The study found no confirmed public third-party API for these portals. The initial design supports staff-entered status with reference numbers, timestamps and evidence. An official integration can be added only if access is formally authorised and documented.</p></details>
+   <details><summary>Will every inverter brand show live generation?</summary><p>No. It depends on the exact model, datalogger, firmware, customer account permissions and manufacturer API terms. The first supported device family should be selected only after GreenGrid confirms its installed equipment and access.</p></details>
+   <details><summary>Are WhatsApp messages guaranteed?</summary><p>No channel can guarantee delivery in every circumstance. The recommendation is to use the official WhatsApp Business Platform where permitted, with email, push and compliant SMS options. Consent, templates, provider status and delivery failures must be handled.</p></details>
+   <details><summary>Does the platform issue electrical or statutory certificates?</summary><p>No. It stores the evidence and documents issued by authorised people or authorities. It does not replace electrical engineering judgement, inspections, statutory certificates or professional sign-off.</p></details>
+   <details><summary>How will employee access work?</summary><p>Employees can belong to one or more groups, such as Sales, Technician, Accounts or Management. Group permissions are combined, but the system also checks whether a person is assigned to the job or allowed to view that branch or record. Sensitive finance and personal information can have additional restrictions.</p></details>
+  </div>
+ </div>
+</section>
+
+<section class="section soft" id="delivery">
+ <div class="wrap">
+  <div class="section-head"><span class="eyebrow">A practical rollout</span><h2>Start with the work that connects everything.</h2><p>The study proposes staged delivery. The sequence and duration are planning estimates, not a committed delivery date.</p></div>
+  <div class="grid-3">
+   <article class="card phase"><small>Phase 0 · 1–2 weeks</small><h3>Confirm how GreenGrid works</h3><p>Meet the team, validate forms and documents, confirm roles, equipment brands, customer journey and current processes.</p></article>
+   <article class="card phase"><small>Phase 1 · 6–9 weeks</small><h3>Build the operational core</h3><p>Staff access, enquiries, customers, surveys, quotations, projects, utility tracking, documents, cases and notifications.</p></article>
+   <article class="card phase"><small>Phase 2 · 4–6 weeks</small><h3>Connect the field and customer</h3><p>Customer and technician apps, offline work, inventory, procurement, warranty, AMC and deeper finance/reporting.</p></article>
+   <article class="card phase"><small>Phase 3 · 4–8 weeks</small><h3>Add plant monitoring</h3><p>Confirm equipment access, build the first supported device connector, dashboards and alert-to-case flow.</p></article>
+   <article class="card phase"><small>Phase 4 · 2–3 weeks</small><h3>Test, train and launch</h3><p>Security checks, backup restoration, pilot, staff training, issue fixing and production readiness review.</p></article>
+   <article class="card phase"><small>Planning estimate</small><h3>About 17–28 weeks</h3><p>Indicative small-team estimate. Client decisions, integrations, migration and regulatory review may change the timeline.</p></article>
+  </div>
+  <div class="notice"><b>Indicative infrastructure planning:</b> ₹1,100–₹3,250 per month in the study, excluding development effort, messaging usage, provider fees, taxes, manufacturer access and app-store fees. This is an estimate, not a supplier quote.</div>
+ </div>
+</section>
+
+<section class="section" id="next">
+ <div class="wrap split">
+  <div><span class="eyebrow">What needs GreenGrid's confirmation</span><h2>Make the study match the real business.</h2><p class="muted">Before implementation, the team should validate the actual workflow, staff hierarchy, documents, approval rules, equipment brands, service area and existing tools.</p><p class="muted">The detailed study and technical specification are available in the project repository for review.</p><a class="btn btn-primary" href="https://github.com/Parthiv-Binish/Kerala-Solar/tree/main/casestudy" target="_blank" rel="noopener">Read the business study ↗</a> <a class="btn" style="border-color:var(--line)" href="https://github.com/Parthiv-Binish/Kerala-Solar/tree/main/docs/15-platform-spec" target="_blank" rel="noopener">Read the full specification ↗</a></div>
+  <div class="accordion">
+   <details open><summary>Business structure and approvals</summary><p>Who approves quotations, discounts, procurement, project completion and refunds? Which teams and branches exist? Can staff hold multiple responsibilities?</p></details>
+   <details><summary>Real customer journey</summary><p>Where do enquiries arrive? What makes an enquiry qualified? When is it considered won? What documents and follow-ups are required?</p></details>
+   <details><summary>Equipment and monitoring</summary><p>Which exact module, inverter, battery and datalogger models are installed? Are manufacturer cloud accounts and API permissions available?</p></details>
+   <details><summary>Utility and compliance</summary><p>Who handles KSEB and National Portal work? What forms and documents are used? Which professional reviews electrical, tax, privacy and scheme requirements?</p></details>
+   <details><summary>Existing tools and rollout</summary><p>Which spreadsheets, accounting tools, messaging accounts and monitoring portals are already in use? Which team should pilot the first release?</p></details>
+  </div>
+ </div>
+</section>
+</main>
+<footer class="footer">
+ <div class="wrap">
+  <div class="footer-grid"><div><a class="brand" href="#top"><span class="brand-mark">✳</span><span style="color:white">GreenGrid Solar</span></a><p style="margin-top:16px">A connected digital operations concept for GreenGrid Solar Solutions, Erattupetta, Kottayam, Kerala.</p></div><div><b>Explore</b><p><a href="#platform">Platform overview</a><br><a href="#journey">Customer journey</a><br><a href="#apps">Apps and software</a><br><a href="#trust">Trust and compliance</a></p></div><div><b>Project documents</b><p><a href="https://github.com/Parthiv-Binish/Kerala-Solar/tree/main/casestudy" target="_blank" rel="noopener">Business case study ↗</a><br><a href="https://github.com/Parthiv-Binish/Kerala-Solar/tree/main/docs/15-platform-spec" target="_blank" rel="noopener">Platform specification ↗</a></p></div></div>
+  <div class="footer-bottom"><span>Study snapshot: 22 November 2026 · Version 1.0</span><span>Concept and planning material · Not a live service or regulatory approval</span></div>
+ </div>
+</footer>
+<script>
+(function(){
+ const menu=document.getElementById('menuBtn'), nav=document.getElementById('navLinks');
+ menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});
+ nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}));
+ const tabs=[...document.querySelectorAll('[data-tab]')];
+ function activate(name){tabs.forEach(t=>{const on=t.dataset.tab===name;t.setAttribute('aria-selected',String(on));t.tabIndex=on?0:-1;document.getElementById('panel-'+t.dataset.tab).classList.toggle('active',on);});}
+ tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>activate(tab.dataset.tab));tab.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const next=(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length;tabs[next].focus();activate(tabs[next].dataset.tab);}});});
+})();
+</script>
+</body>
+</html>
