@@ -31,7 +31,7 @@ Design loading, first-use empty, filtered-empty, partial data, stale data, forbi
 Maintain a route registry with route ID, application, path pattern, required capability, scope, query parameters, canonical destination and fallback. Deep links fetch data through authorized APIs. Hiding a menu item is not authorization. Back navigation must not resubmit mutations. Destructive actions name the affected record and consequence.
 
 ## Permission-to-screen matrix
-Each screen has a view capability; each action has a separate command capability. Define record scope (own, assigned, team, related customer/project, location or company) and field restrictions. Deny by default. Group membership alone does not grant access. Temporary overrides require reason, approver, expiry and audit.
+Each screen has a view capability; each action has a separate command capability. Define record scope using canonical keys own, assigned, team, related, location or company; the exact predicate and permitted relationship path are defined by the authorization contract and field restrictions. Deny by default. Group membership alone does not grant access. Temporary overrides require reason, approver, expiry and audit.
 
 ## Notification matrix
 For each event define source, recipient relationship, channel, purpose, consent, preference/quiet-hour rule, template version, language, sensitivity, idempotency key, expiry and retry. Provider acceptance is not delivery/read. Delivery failure does not roll back business state.
