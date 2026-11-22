@@ -165,6 +165,7 @@ If this is your first time opening the repository, follow this order:
 | II.67 | [Consistency Resolution Decisions](docs/15-platform-spec/13-implementation-blueprints/10-consistency-resolution-decisions.md) | Proposed canonical decisions resolving access, conversion, MVP, retention, finance, API and regulatory inconsistencies |
 | II.68 | [UI/UX Design System & Interaction Standards](docs/15-platform-spec/12-application-experience/24-ui-ux-design-system-and-interaction-standards.md) | Shared colour palette, typography, spacing, responsive layouts, navigation, buttons, forms, popups, notifications, accessibility and screen design rules |
 | II.69 | [Multi-Agent Development Work Plan](docs/15-platform-spec/13-implementation-blueprints/11-multi-agent-development-work-plan.md) | Agent ownership, interfaces, dependencies, parallel work, acceptance gates and delivery sequence |
+| II.70 | [Documentation Issue Register](docs/15-platform-spec/13-implementation-blueprints/DOCUMENTATION-ISSUE-REGISTER.md) | Consolidated issue IDs, severity, owners, affected documents, correction sequence and acceptance criteria |
 
 ## Part III — Visual walkthrough
 
