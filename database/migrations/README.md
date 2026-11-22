@@ -9,7 +9,8 @@ Run exactly in this order on a new, empty GreenGrid database:
 1. `0001_create_platform_schemas.sql` — creates domain namespaces.
 2. `0002_create_reference_and_geography.sql` — creates empty geography, postal-source, provenance and unit tables.
 3. `0003_create_organization.sql` — creates company locations, departments, employees, contacts, addresses and configurable employee groups.
-4. `0004_create_identity_and_access.sql` — creates accounts, credentials, sessions, MFA, permission sets, group grants and individual overrides.\n5. `0005_align_authorization_scopes.sql` — maps legacy scope aliases to the canonical scope vocabulary and constrains future values.
+4. `0004_create_identity_and_access.sql` — creates accounts, credentials, sessions, MFA, permission sets, group grants and individual overrides.
+5. `0005_align_authorization_scopes.sql` — maps legacy scope aliases to the canonical scope vocabulary and constrains future values.
 
 Each script uses a transaction. Stop on the first error; do not continue with later scripts after a failed migration.
 
@@ -28,7 +29,8 @@ Example:
 psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f database/migrations/0001_create_platform_schemas.sql
 psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f database/migrations/0002_create_reference_and_geography.sql
 psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f database/migrations/0003_create_organization.sql
-psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f database/migrations/0004_create_identity_and_access.sql\npsql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f database/migrations/0005_align_authorization_scopes.sql
+psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f database/migrations/0004_create_identity_and_access.sql
+psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f database/migrations/0005_align_authorization_scopes.sql
 ```
 
 Do not place a real production URL, password or secret in shell history, CI logs or repository files. Use the deployment platform's secret manager.
