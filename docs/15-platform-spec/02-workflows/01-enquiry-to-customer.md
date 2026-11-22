@@ -20,7 +20,9 @@ Record use case, site availability, consumer category, approximate load/consumpt
 Quotation versions reference survey/design basis, components, taxes, exclusions, validity and warranty assumptions. Accepted versions are immutable; revisions create a new version.
 
 ## Won conversion
-1. Lock enquiry and verify conversion eligibility.
+**Precondition:** The customer has accepted a specific issued quotation version and the required commercial approvals/contract conditions are satisfied. Survey approval alone does not create a project. The accepted quotation response is the event that makes the enquiry eligible to enter Won conversion.
+
+1. Lock enquiry and verify conversion eligibility, accepted quotation version and conversion prerequisites.
 2. Search for possible existing customer matches.
 3. Create customer or link the confirmed existing customer.
 4. Create project linked to customer and site.
@@ -38,4 +40,4 @@ Lost requires a reason and optional notes. On hold requires a reason and review 
 Customer record creation and app activation are separate. Invitation states: not invited, sent, activated, expired, revoked. A phone number alone does not create a login.
 
 ## Acceptance
-Enquiry can be created/assigned; follow-ups are auditable; duplicate candidates are surfaced; Won conversion creates one customer/project transactionally; existing customers can receive additional projects; history remains linked; lost reasons are reportable.
+Enquiry can be created/assigned; follow-ups are auditable; duplicate candidates are surfaced; Won conversion after accepted quotation creates one customer/project transactionally; existing customers can receive additional projects; history remains linked; lost reasons are reportable.
