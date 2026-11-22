@@ -17,6 +17,7 @@ This package supplements the existing product and website documentation. It defi
   - [Stage 2 — Survey, Solar Design & Quotations ER Design](05-data-and-api/stage-2-survey-design-and-quotations-er-design.md)
   - [Stage 2 — Project Management, Tasks, Milestones & Scheduling ER Design](05-data-and-api/stage-2-project-management-tasks-milestones-and-scheduling-er-design.md)
   - [Stage 2 — Government Applications, Subsidies & External Portal Tracking ER Design](05-data-and-api/stage-2-government-applications-subsidies-and-external-tracking-er-design.md)
+  - [Stage 2 — Procurement, Suppliers, Purchase Orders & Inventory ER Design](05-data-and-api/stage-2-procurement-suppliers-purchase-orders-and-inventory-er-design.md)
 - 06-security-and-access: authorization, privacy and security
 - 07-iot-monitoring: device integrations, telemetry and alerts
 - 08-integrations: notifications and external systems
