@@ -201,30 +201,21 @@ Stores reporting relationships separately from access grants.
 
 This supports reporting and workflow routing. It does not automatically grant a manager access to every record owned by a subordinate. If manager visibility is required, grant a suitable permission and explicit team scope.
 
-### 3.11 user_accounts
+### 3.11 identity_accounts
 
-Authentication identity linked to an employee or customer identity. Employee and customer account ownership must be explicit.
+Authentication identity is separate from employee/customer profile data. The physical account table is `iam.identity_accounts`; each account has exactly one `account_type` (`employee`, `customer` or `service`) and an account status. Normalized login email/phone values are unique when present. Credentials, sessions and MFA are separate child entities. Do not add nullable `employee_id` and `customer_id` columns to this account table.
 
-| Column | Key | Meaning |
-|---|---|---|
-| user_account_id | PK | Account identifier |
-| employee_id | FK, nullable | Employee identity, where applicable |
-| customer_id | FK, nullable | Customer identity, where applicable |
-| login_identifier | UQ | Normalized login identifier |
-| account_status_id | FK | Database-managed account status |
-| email_verified_at |  | Optional verification timestamp |
-| phone_verified_at |  | Optional verification timestamp |
-| last_login_at |  | Optional last login |
-| created_at, created_by |  | Audit fields |
-| updated_at, updated_by |  | Audit fields |
+Employee subjects link through `iam.employee_account_links`. Customer subjects link through `iam.customer_account_links` (see below). The initial model does not support one account simultaneously representing an employee and customer; a shared identity context requires a separately approved design.
 
-Enforce that an account is linked to the intended identity type and does not accidentally represent both an employee and customer unless an approved account-linking model explicitly supports that case. Credentials/password hashes and external identity-provider secrets must be handled using the authentication design, not stored in employee profile fields.
+### 3.11.1 customer_account_links
 
-### 3.13 account_statuses
+A customer account is linked to a customer and optionally to one contact belonging to that same customer. The physical table is `iam.customer_account_links`; migration 0006 adds it and the minimum `crm.customers` / `crm.customer_contacts` subject tables. Links have pending, active, rejected and revoked states. Activation requires verification; revocation retains timestamp and reason. One customer can have multiple authorized accounts, and an account may be linked to multiple customers only through separate verified records. This link is not an employee permission grant and does not grant access to other customers or sites automatically.
+
+### 3.12 account_statuses
 
 Database-managed account status catalogue. Actual values are maintained through authorized configuration. Status transitions and security restrictions must be enforced server-side.
 
-### 3.14 user_sessions
+### 3.13 user_sessions
 
 | Column | Key | Meaning |
 |---|---|---|
@@ -240,7 +231,7 @@ Database-managed account status catalogue. Actual values are maintained through 
 
 Session tokens must be high entropy, stored hashed, revocable, and protected from exposure in logs.
 
-### 3.15 authentication_events
+### 3.14 authentication_events
 
 | Column | Key | Meaning |
 |---|---|---|
