@@ -29,24 +29,22 @@ This is a proposed design baseline, not a legal opinion, penetration-test report
 
 ### 3.1 Identity records
 
-**identity_accounts**
-- identity_account_id (PK)
-- identity_reference (unique)
-- identity_type_id (FK → identity_types)
-- account_status_id (FK → account_statuses)
-- authentication_source_id (FK → authentication_sources)
-- created_at
-- last_authenticated_at (nullable)
-- disabled_at (nullable)
-- disabled_by (nullable FK → employees)
+**identity_accounts** (physical: `iam.identity_accounts`)
+- account_id (PK), public_id (unique)
+- account_type (`employee`, `customer` or `service`)
+- account_status (`invited`, `active`, `locked`, `disabled`, `pending_recovery`)
+- login_email / normalized_login_email (nullable)
+- login_phone / normalized_login_phone (nullable)
+- email_verified_at, phone_verified_at, last_login_at
+- created_at, updated_at
 
-**employee_identity_links**
-- employee_identity_link_id (PK)
-- identity_account_id (FK → identity_accounts)
-- employee_id (FK → employees)
+The security concepts in this document are mapped to the current physical bootstrap by [ERD Logical-to-Physical Mapping](../05-data-and-api/ERD-LOGICAL-PHYSICAL-MAPPING.md).
+
+**employee_account_links** (physical: `iam.employee_account_links`)
+- account_id (PK/FK → `iam.identity_accounts`)
+- employee_id (unique FK → `org.employees`)
 - linked_at
-- verified_by (FK → employees)
-- is_primary
+- linked_by_account_id
 
 **customer_account_links**
 - customer_account_link_id (PK)
@@ -60,21 +58,16 @@ This is a proposed design baseline, not a legal opinion, penetration-test report
 
 Physical implementation is migration 0006. The account/contact relationship is customer-specific; an optional contact must belong to the same customer. The initial account model does not support one account acting simultaneously as employee and customer.
 
-**service_identities**
-- service_identity_id (PK)
-- identity_account_id (FK → identity_accounts)
-- service_name
-- owning_component_id (FK → application_components)
-- service_identity_status_id (FK → service_identity_statuses)
-- created_at
-- expires_at (nullable)
-- last_used_at (nullable)
+**service_identities** (logical service-principal profile; physical account is `iam.identity_accounts` with `account_type='service'`; dedicated service profile table remains pending)
+- service identity/account reference
+- service name and owning component
+- status, expiry and last-used metadata (physical extension pending)
 
 An identity account must not be assumed to represent a customer, contact or employee without a verified link. A customer may have multiple authorized contacts, and one contact's access must not automatically extend to every customer record.
 
 ### 3.2 Account lifecycle and invitations
 
-**account_invitations**
+**account_invitations** (physical: `iam.invitations`; intended subject context is validated by application)
 - account_invitation_id (PK)
 - invitation_reference (unique)
 - identity_type_id (FK → identity_types)
