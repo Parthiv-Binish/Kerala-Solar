@@ -14,6 +14,7 @@ This package supplements the existing product and website documentation. It defi
   - [Stage 2 — Master Data & Geography ER Design](05-data-and-api/stage-2-master-data-and-geography-er-design.md)
   - [Stage 2 — Organization, Employees & Access Control ER Design](05-data-and-api/stage-2-organization-employees-and-access-control-er-design.md)
   - [Stage 2 — Customers, Contacts, Addresses & CRM ER Design](05-data-and-api/stage-2-customers-contacts-addresses-and-crm-er-design.md)
+  - [Stage 2 — Survey, Solar Design & Quotations ER Design](05-data-and-api/stage-2-survey-design-and-quotations-er-design.md)
 - 06-security-and-access: authorization, privacy and security
 - 07-iot-monitoring: device integrations, telemetry and alerts
 - 08-integrations: notifications and external systems
