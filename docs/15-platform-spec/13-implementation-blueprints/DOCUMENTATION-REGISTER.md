@@ -35,7 +35,11 @@ Primary location: [Application experience book](../12-application-experience/00-
 | QA-D01–D10 | Traceability, unit/API/web/mobile/E2E/offline/security/performance/UAT | [Testing, Traceability & Acceptance](07-testing-traceability-and-acceptance.md) | Approved requirements, screens, APIs and data mappings | QA lead + business owner | Authored draft; test cases/evidence pending |
 | BIZ-D01–D09 | Staff, technician and customer manuals; onboarding, SOPs, support, document and KPI procedures | [Business User Manuals & SOPs](08-business-user-manuals-and-operating-procedures.md) | Implemented screens, approved policies and UAT | Operations/training owner | Authored framework; final manuals await verified product |
 
-## 4. Canonical decision and audit documents\n- [Full Documentation Consistency Review](09-full-documentation-consistency-review.md) — findings AUD-001 onward; static review only.\n- [Consistency Resolution Decisions](10-consistency-resolution-decisions.md) — proposed canonical resolutions for access scopes, conversion, product boundaries, offline scope, retention, finance, API naming and regulatory applicability. Requires GreenGrid approval before treating decisions as approved.\n\n## 5. Existing source documents that must be reconciled
+## 4. Canonical decision and audit documents
+- [Full Documentation Consistency Review](09-full-documentation-consistency-review.md) — findings AUD-001 onward; static review only.
+- [Consistency Resolution Decisions](10-consistency-resolution-decisions.md) — proposed canonical resolutions for access scopes, conversion, product boundaries, offline scope, retention, finance, API naming and regulatory applicability. Requires GreenGrid approval before treating decisions as approved.
+
+## 5. Existing source documents that must be reconciled
 - Project charter and business requirements.
 - Business workflows and SRS.
 - System architecture and technology stack.
@@ -87,4 +91,4 @@ Each register entry has a stable ID, owner, source, status, last-reviewed date, 
 - No real customer personal data, credentials or production secrets are committed to this repository.
 
 ## 9. Current status summary
-The application suite documentation and eight implementation-blueprint documents have been authored as drafts. The next work is detailed register population, reconciliation, stakeholder review, exact API/DDL generation and evidence-based verification. The platform itself is not represented as implemented or deployed by this register.
+The application suite documentation, eight implementation work-package blueprints, consistency review and consistency resolution decision register have been authored as drafts. The next work is detailed register population, reconciliation, stakeholder review, exact API/DDL generation and evidence-based verification. The platform itself is not represented as implemented or deployed by this register.
