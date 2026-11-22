@@ -7,7 +7,7 @@ Use group-based grants plus scope-aware ABAC and limited relationship checks. Us
 own = created/owned by user; assigned = assigned to user; team = user's team; branch = authorised branch; related = explicit relationship; all = all records in company scope, subject to field restrictions.
 
 ## Arun example
-Arun belongs to Technician and Staff. Technician grants case.read/case.update on assigned cases and work_order.read on assigned jobs. Staff grants case.read at all scope and basic project visibility. Arun can read all cases but update only assigned cases. Staff visibility does not grant access to bank details or restricted finance fields.
+Arun belongs to Technician and Staff. Technician grants case.read/case.update on assigned cases and work_order.read on assigned jobs. Staff grants case.read at company scope and basic project visibility. Arun can read all cases but update only assigned cases. Staff visibility does not grant access to bank details or restricted finance fields.
 
 ## Evaluation
 Authenticate → verify account/session → load valid memberships/grants → resolve each scope independently → apply matching deny (deny wins) → field-level checks → audit sensitive action. An individual allow never overrides a matching deny. Enforce scope before list/detail/search/count/export/aggregate/files/realtime/background jobs. Enforce database query filters on list, detail, search, export, aggregates, document downloads, WebSockets and bulk endpoints. Do not filter only in the frontend.
