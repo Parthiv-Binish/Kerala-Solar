@@ -12,6 +12,14 @@ This is the single repository-backed coordination workspace for agents A0–A9. 
 7. Record architectural decisions in [DECISIONS](DECISIONS/); blockers in [BLOCKERS](BLOCKERS/); handoffs in [HANDOFFS](HANDOFFS/).
 8. Add tests to [TESTING](TESTING/) with every change. A8 owns cross-system regression and release evidence.
 
+## A0 coordination baseline
+- [Master implementation roadmap](MASTER-IMPLEMENTATION-ROADMAP.md)
+- [Agent dependency matrix](AGENT-DEPENDENCY-MATRIX.md)
+- [Sprint and milestone plan](SPRINT-MILESTONE-PLAN.md)
+- [Shared API and data contract](CONTRACTS/SHARED-API-DATA-CONTRACT.md)
+- [Integration readiness checklist](INTEGRATION-READINESS-CHECKLIST.md)
+- [A0 handoff](HANDOFFS/A0-BASELINE-HANDOFF.md)
+
 ## Agent ownership
 - A0 architecture, backlog, integration and release coordination.
 - A1 public website, landing pages, staff portal and platform admin UI.
@@ -36,10 +44,8 @@ This is the single repository-backed coordination workspace for agents A0–A9. 
 ## Status vocabulary
 BACKLOG → READY → IN PROGRESS → IN REVIEW → INTEGRATING → DONE. Use BLOCKED, CHANGES REQUESTED or DEFERRED when appropriate. Only A0/release delegate marks cross-agent milestones DONE after evidence.
 
-
 ## Read-before-code gate
 Every agent must record the documents reviewed for each task in its status report or PR. Read the relevant screen/workflow, ERD/data dictionary, API contract and security requirements before changing that feature. If documents conflict or omit a required rule, stop and raise it with A0; do not guess. A0 confirms the reading route and acceptance criteria before moving a task to implementation.
 
-
 ## Issue-register gate
-The [Documentation Issue Register](../15-platform-spec/13-implementation-blueprints/DOCUMENTATION-ISSUE-REGISTER.md) is the shared remediation tracker. Every task/PR must identify relevant DOC issue IDs, state whether its prerequisites are resolved or formally blocked, and link correction evidence. Critical issues block affected implementation. A0 coordinates cross-document edits; business/legal/engineering/provider decisions require the relevant owner or qualified reviewer. Creating or editing the register does not itself resolve an issue.
+The [Documentation Issue Register](../15-platform-spec/13-implementation-blueprints/DOCUMENTATION-ISSUE-REGISTER.md) is the shared remediation tracker. Every task/PR must identify relevant DOC issue IDs, state whether its prerequisites are resolved or formally blocked, and link correction evidence. Critical issues block affected implementation. A0 coordinates cross-document edits; business/legal/engineering/provider decisions require the relevant owner or qualified reviewer.
