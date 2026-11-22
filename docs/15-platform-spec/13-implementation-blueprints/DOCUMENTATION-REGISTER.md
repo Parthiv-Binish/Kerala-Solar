@@ -35,7 +35,7 @@ Primary location: [Application experience book](../12-application-experience/00-
 | QA-D01–D10 | Traceability, unit/API/web/mobile/E2E/offline/security/performance/UAT | [Testing, Traceability & Acceptance](07-testing-traceability-and-acceptance.md) | Approved requirements, screens, APIs and data mappings | QA lead + business owner | Authored draft; test cases/evidence pending |
 | BIZ-D01–D09 | Staff, technician and customer manuals; onboarding, SOPs, support, document and KPI procedures | [Business User Manuals & SOPs](08-business-user-manuals-and-operating-procedures.md) | Implemented screens, approved policies and UAT | Operations/training owner | Authored framework; final manuals await verified product |
 
-## 4. Existing source documents that must be reconciled
+## 4. Canonical decision and audit documents\n- [Full Documentation Consistency Review](09-full-documentation-consistency-review.md) — findings AUD-001 onward; static review only.\n- [Consistency Resolution Decisions](10-consistency-resolution-decisions.md) — proposed canonical resolutions for access scopes, conversion, product boundaries, offline scope, retention, finance, API naming and regulatory applicability. Requires GreenGrid approval before treating decisions as approved.\n\n## 5. Existing source documents that must be reconciled
 - Project charter and business requirements.
 - Business workflows and SRS.
 - System architecture and technology stack.
@@ -48,7 +48,7 @@ Primary location: [Application experience book](../12-application-experience/00-
 
 Do not create a competing source of truth. Where documents conflict, record a decision with owner, rationale, date and affected artefacts.
 
-## 5. Dependency-aware delivery order
+## 6. Dependency-aware delivery order
 1. Populate the screen/action, field, navigation and permission registers.
 2. Agree workflows and domain state transitions.
 3. Reconcile ER designs and canonical data dictionary.
@@ -60,7 +60,7 @@ Do not create a competing source of truth. Where documents conflict, record a de
 9. Derive automated test cases and traceability.
 10. Complete UAT, user manuals and operational SOPs after real product verification.
 
-## 6. Required registers and evidence
+## 7. Required registers and evidence
 Maintain:
 - Screen/action register.
 - Field/data dictionary and screen-to-API mapping.
@@ -78,7 +78,7 @@ Maintain:
 
 Each register entry has a stable ID, owner, source, status, last-reviewed date, decision reference and evidence link.
 
-## 7. Governance rules
+## 8. Governance rules
 - No provider integration is called production-ready without access, terms, security review and successful representative tests.
 - No migration is called executed until a target database run and verification evidence exist.
 - No document is marked approved without a named approver and date.
@@ -86,5 +86,5 @@ Each register entry has a stable ID, owner, source, status, last-reviewed date, 
 - No legal, regulatory, engineering, tax or subsidy claim is treated as final without qualified verification.
 - No real customer personal data, credentials or production secrets are committed to this repository.
 
-## 8. Current status summary
+## 9. Current status summary
 The application suite documentation and eight implementation-blueprint documents have been authored as drafts. The next work is detailed register population, reconciliation, stakeholder review, exact API/DDL generation and evidence-based verification. The platform itself is not represented as implemented or deployed by this register.
