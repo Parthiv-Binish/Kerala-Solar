@@ -10,8 +10,10 @@
 - Agent dependency matrix and file ownership proposal.
 - Relative sprint/milestone plan and Definition of Ready/Done.
 - Integration readiness checklist with evidence gates.
-- ADR-0001 platform boundaries, ADR-0002 identity/authorization, ADR-0003 migration authority.
-- Coordination branch and task/contract update proposal.
+- ADR-0001 platform boundaries, ADR-0002 identity/authorization, ADR-0003 migration authority, ADR-0004 web frontend workspace/task sequence.
+- Shared API/data contract baseline and expanded API contract register.
+- A1 issue #2 answered with a safe start: AG-0005 public static shell and AG-0006 staff shell/navigation placeholders; protected behavior remains gated.
+- Coordination branch, task board, status and PR #3.
 
 ## Not delivered / not claimed
 - No application code or database migrations were executed.
@@ -23,7 +25,7 @@
 Each agent replies in its status report with: accepted ownership or proposed correction; branch/worktree; planned files; dependencies; contract changes; test plan; blockers; estimated capacity. Agents must not begin overlapping edits until path ownership is agreed.
 
 ## Agent-specific next actions
-- **A1:** confirm public/staff/admin web path ownership; map first screens to reviewed API; wait on protected data APIs/authz.
+- **A1:** acknowledge ADR-0004; start AG-0005 public static shell and shell-only AG-0006 under `apps/web/**`; use UI/UX tokens; no fabricated claims or API wiring; keep AG-0017 blocked.
 - **A2:** confirm distinct customer/technician app identities, secure storage and online-first MVP boundary; map device/push token lifecycle.
 - **A3:** publish FastAPI/OpenAPI skeleton plan; own executable authorization resolver, error/idempotency/outbox contract; coordinate schema impact with A4.
 - **A4:** audit SQL 0001–0006 and test clean install; publish remaining schema batches and migration ledger; reconcile physical map with Stage 3.
