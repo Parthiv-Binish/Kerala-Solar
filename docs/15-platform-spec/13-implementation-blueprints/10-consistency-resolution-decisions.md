@@ -164,21 +164,26 @@ Keep estimated, submitted, sanctioned and credited subsidy values separate. A ca
 
 ## 10. Logical-to-physical database mapping
 
-Stage 2 ER documents describe logical concepts. Stage 3 dictionary and SQL migrations define physical names. Maintain a mapping table for every entity and relationship. For the access domain, canonical physical mapping is:
+Stage 2 ER documents describe logical concepts. Stage 3 dictionary and SQL migrations define physical names. The canonical register is [ERD Logical-to-Physical Mapping](../05-data-and-api/ERD-LOGICAL-PHYSICAL-MAPPING.md); it is the source for mapping status and identifies entities that are still logical-only. For the access domain, canonical physical mapping is:
 - `employee_groups.group_id` ↔ logical `employee_group_id`;
 - `employee_group_memberships.group_id` ↔ logical membership group FK;
 - `iam.permissions.permission_id` ↔ logical permission;
 - `iam.permission_sets` and `iam.permission_set_permissions` implement reusable capability bundles;
 - `iam.group_permission_set_grants` links groups to permission sets and scope;
 - `iam.account_permission_overrides` implements individual allow/deny;
-- `iam.identity_accounts` and `iam.employee_account_links` implement authentication identity and employee linkage.
+- `iam.identity_accounts`, `iam.employee_account_links` and `iam.customer_account_links` implement authentication identity and typed employee/customer linkage. Migration 0006 adds the minimum customer/contact subject tables required for customer links.
 
 Do not create duplicate physical tables merely to preserve a logical ER label. The physical mapping must include columns, PK/FK, cardinality, delete behaviour and migration.
 
 ## 11. Migration baseline
 
-Migrations 0001–0004 are the existing bootstrap SQL source. A follow-on migration must alter their schema through a formal, versioned path. Before Alembic adoption, choose exactly one baseline strategy: (a) execute SQL bootstrap once and stamp the equivalent Alembic baseline after schema verification, or (b) translate the bootstrap into Alembic revisions and retire the standalone execution path. Never run both paths against the same database.
+Migrations 0001–0006 are the current bootstrap SQL source. A follow-on migration must alter their schema through a formal, versioned path. Before Alembic adoption, choose exactly one baseline strategy: (a) execute SQL bootstrap once and stamp the equivalent Alembic baseline after schema verification, or (b) translate the bootstrap into Alembic revisions and retire the standalone execution path. Never run both paths against the same database. Migration 0005 canonicalizes scope values; migration 0006 adds the minimum customer/contact subjects and verified/revocable customer-account links. Neither has been executed in this review.
 
 ## 12. Change control and approval
 
 All decisions above remain proposed until GreenGrid's authorised business owner and relevant technical reviewers approve them. Approval record must identify decision ID, approver role/name, date, accepted/rejected alternative, rationale and affected documents. No external legal, regulatory, engineering or provider assumption is approved by this document.
+
+
+## 12. Plant terminology and physical identity
+
+Use **solar plant** as the business-facing and API resource name because it describes the installed generation system in customer, project, monitoring and service workflows. The current physical entity is `asset.solar_systems`; its physical primary key is `solar_system_id`. Map the logical/API resource `plant` to `asset.solar_systems` and `plant_id` to `solar_system_id` in API/database adapters and documentation. Do not create a second `asset.plants` table. A plant is distinct from a project, installation site, inverter/device, meter, monitoring connection and service case. A project may create one or more plants only where the approved business workflow requires it; the default conversion must not assume every project has already been commissioned. Keep this mapping until a future approved data migration renames the physical entity.
