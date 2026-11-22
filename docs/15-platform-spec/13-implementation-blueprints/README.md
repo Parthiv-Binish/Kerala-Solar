@@ -2,7 +2,7 @@
 
 This book contains the implementation-level specifications that bridge the product/application books and actual engineering delivery.
 
-- [Full Documentation Consistency Review](09-full-documentation-consistency-review.md)
+- [Full Documentation Consistency Review](09-full-documentation-consistency-review.md)\n- [Consistency Resolution Decisions](10-consistency-resolution-decisions.md)
 - [Master Documentation Register](DOCUMENTATION-REGISTER.md)
 - [Screen & Experience Implementation Specification](01-screen-and-experience-implementation-specification.md)
 - [API & Backend Contracts](02-api-and-backend-contracts.md)
