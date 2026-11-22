@@ -41,5 +41,5 @@ Encrypt secrets and sensitive payloads, restrict operator access, audit credenti
 ## 13. APIs/events
 Internal commands: register device, test connection, sync now, replay range, update mapping, acknowledge integration issue. Events: telemetry.observed, telemetry.quality_changed, device.freshness_changed, alert.opened, alert.updated, alert.recovered, integration.failed/recovered. Use schema version, event ID and idempotency.
 
-## 14. Operations and tests
+## 14. Retention baseline\nUse the provisional planning baseline: raw observations/provider payloads 90 days; 15-minute aggregates 12 months; daily aggregates 5 years. Alert/fault events, service evidence, customer documents and security/audit logs require separate schedules. This is not a legally approved retention period; no deletion automation is enabled until the data owner and qualified reviewer approve purpose, basis, retention and evidence.\n\n## 15. Operations and tests
 Metrics: poll success, ingest lag, queue depth, provider latency/rate limit, invalid payload, freshness distribution, alert volume and processing delay. Tests cover signature verification, duplicates, gaps, units, timezone, late data, provider outage, replay and no-data-not-zero.
