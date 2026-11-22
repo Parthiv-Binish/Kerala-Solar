@@ -513,3 +513,16 @@ This blueprint establishes the product map. It should be expanded into separate,
 8. Screen-to-data/API mapping — exact reads, writes, validations and side effects for every screen.
 
 **Design rule:** keep the experience simple for the user while keeping validation, permissions, data integrity and audit controls strong behind the scenes.
+
+
+## 15. Release boundary alignment
+
+Use the [Consistency Resolution Decisions](../13-implementation-blueprints/10-consistency-resolution-decisions.md) as the proposed release-boundary authority:
+- Staff Portal is the primary internal MVP workspace.
+- Customer Android and Technician Android are MVP foundations; technician operation is online-first.
+- Customer Web Portal is Phase 2 by default unless promoted through signed scope change. It shares customer identity, APIs and permissions with Customer Android.
+- Monitoring and Notification Engines are backend modules/workers, not separate customer-facing products.
+- Platform Administration is a protected Staff Portal area/module by default, not a separate deployment.
+- Full encrypted technician offline job packs, durable drafts, media queueing and conflict-aware sync are Phase 2 (Should).
+
+The complete screen inventory is a product vision, not a statement that every screen is committed to MVP. Every screen/action must receive a release phase and acceptance priority before implementation.
