@@ -119,16 +119,34 @@ If this is your first time opening the repository, follow this order:
 | II.30 | [Roadmap, estimates and costs](docs/15-platform-spec/10-delivery/01-roadmap-estimates-and-costs.md) | Delivery phases, implementation estimates and cost assumptions |
 | II.31 | [Discovery, acceptance and verification](docs/15-platform-spec/11-governance/01-discovery-acceptance-and-verification.md) | Questions for stakeholders, acceptance criteria and items requiring evidence |
 
-### Book 10 — Application experience and screen design
+### Book 10 — Complete application documentation
 
-| Chapter | Document | What you will find |
-|---|---|---|
-| II.32 | [Application suite, screen inventory and user experience blueprint](docs/15-platform-spec/12-application-experience/00-application-suite-and-screen-inventory.md) | Complete software/app list, user groups, navigation, screen inventory, end-to-end journeys, screen data movement and usability rules |
-| II.33 | [Staff Portal — Navigation, Workspace Shell & Dashboard](docs/15-platform-spec/12-application-experience/01-staff-portal-navigation-and-dashboard.md) | Sign-in, global layout, navigation, search, notifications, dashboard, My Work, profile, permissions and shared UX rules |
-| II.34 | [Staff Portal — Enquiries, Follow-ups & Customer Management](docs/15-platform-spec/12-application-experience/02-staff-portal-enquiries-and-customers.md) | Enquiry capture, duplicate checks, follow-ups, customer profiles, sites, invitations and conversion workflow |
-| II.35 | [Staff Portal — Survey Scheduling, Site Assessment & Survey Review](docs/15-platform-spec/12-application-experience/03-staff-portal-survey-management.md) | Survey requests, appointments, site assessment, evidence, submission, review, approval and hand-off |
-| II.36 | [Staff Portal — Solar Design, Bill of Materials & Quotation Management](docs/15-platform-spec/12-application-experience/04-staff-portal-design-and-quotations.md) | Design versions, technical inputs, product catalogue, BOM, costing, pricing, approvals, quotation issue and acceptance |
-| II.37 | [Complete Application Documentation Programme](docs/15-platform-spec/12-application-experience/MASTER-APPLICATION-DOCUMENTATION-PROGRAMME.md) | Complete documentation scope for every app/service, screen specification standard, ownership, quality gates and delivery order |
+| II.32 | [Application suite and screen inventory](docs/15-platform-spec/12-application-experience/00-application-suite-and-screen-inventory.md) | Product list, user groups, navigation, screen inventory and UX principles |
+| II.33 | [Staff Portal — Navigation and Dashboard](docs/15-platform-spec/12-application-experience/01-staff-portal-navigation-and-dashboard.md) | Shell, search, notifications, dashboard and shared patterns |
+| II.34 | [Staff Portal — Enquiries and Customers](docs/15-platform-spec/12-application-experience/02-staff-portal-enquiries-and-customers.md) | CRM capture, follow-ups, customer profiles, sites and conversion |
+| II.35 | [Staff Portal — Survey Management](docs/15-platform-spec/12-application-experience/03-staff-portal-survey-management.md) | Appointments, assessment, evidence, review and approval |
+| II.36 | [Staff Portal — Design and Quotations](docs/15-platform-spec/12-application-experience/04-staff-portal-design-and-quotations.md) | Design versions, BOM, costing, quotation approval and acceptance |
+| II.37 | [Staff Portal — Projects, Milestones and Scheduling](docs/15-platform-spec/12-application-experience/05-staff-portal-project-workspace-and-scheduling.md) | Project conversion, milestones, tasks, dependencies, blockers and changes |
+| II.38 | [Staff Portal — Utility and Subsidy Tracking](docs/15-platform-spec/12-application-experience/06-staff-portal-utility-and-subsidy-tracking.md) | DISCOM processes, evidence, status observations and subsidy tracking |
+| II.39 | [Staff Portal — Procurement and Inventory](docs/15-platform-spec/12-application-experience/07-staff-portal-procurement-and-inventory.md) | Suppliers, purchase requests, POs, receipts, stock ledger and serials |
+| II.40 | [Staff Portal — Finance and Project Profitability](docs/15-platform-spec/12-application-experience/08-staff-portal-finance-and-project-profitability.md) | Receipts, allocations, supplier payments, expenses and project summaries |
+| II.41 | [Staff Portal — Installation, Commissioning and Handover](docs/15-platform-spec/12-application-experience/09-staff-portal-installation-commissioning-handover.md) | Readiness, field work, quality checks, commissioning and handover |
+| II.42 | [Staff Portal — Plant, Assets and Warranty](docs/15-platform-spec/12-application-experience/10-staff-portal-plant-assets-and-warranty.md) | Plant registry, equipment, serials, warranty and maintenance plans |
+| II.43 | [Staff Portal — Monitoring and Alerts](docs/15-platform-spec/12-application-experience/11-staff-portal-monitoring-and-alerts.md) | Fleet health, telemetry freshness, alerts and integration status |
+| II.44 | [Staff Portal — Service Desk and Work Orders](docs/15-platform-spec/12-application-experience/12-staff-portal-service-desk-and-work-orders.md) | Customer/staff reports, duplicate prevention, cases, visits and resolution |
+| II.45 | [Staff Portal — Documents and Analytics](docs/15-platform-spec/12-application-experience/13-staff-portal-documents-and-analytics.md) | Private documents, versioning, reports, metrics and exports |
+| II.46 | [Staff Portal — People, Access and Settings](docs/15-platform-spec/12-application-experience/14-staff-portal-people-access-and-settings.md) | Employees, groups, permissions, overrides, policies and settings |
+| II.47 | [Technician Android App](docs/15-platform-spec/12-application-experience/15-technician-android-app.md) | Field navigation, survey, installation, commissioning, service and offline sync |
+| II.48 | [Customer Android App](docs/15-platform-spec/12-application-experience/16-customer-android-app.md) | Customer journeys, projects, quotations, plants, payments and service |
+| II.49 | [Customer Web Portal](docs/15-platform-spec/12-application-experience/17-customer-web-portal.md) | Responsive customer pages, parity, accessibility and secure sessions |
+| II.50 | [Solar Monitoring Engine](docs/15-platform-spec/12-application-experience/18-solar-monitoring-engine.md) | Provider adapters, telemetry, data quality, freshness and alerts |
+| II.51 | [Notification and Communication Engine](docs/15-platform-spec/12-application-experience/19-notification-and-communication-engine.md) | Consent, templates, channels, queues, retries and delivery events |
+| II.52 | [Platform Administration](docs/15-platform-spec/12-application-experience/20-platform-administration.md) | Identity, privileged access, integrations, jobs, audit and recovery |
+| II.53 | [Cross-Application Workflows](docs/15-platform-spec/12-application-experience/21-cross-application-workflows.md) | End-to-end business processes and integration invariants |
+| II.54 | [Screen-to-Data and API Catalogue](docs/15-platform-spec/12-application-experience/22-screen-data-api-catalogue.md) | API conventions, data mapping, errors, permissions and traceability |
+| II.55 | [Quality, Security and Operations](docs/15-platform-spec/12-application-experience/23-quality-security-and-operations-runbooks.md) | Test strategy, release readiness, backup, incident and operations |
+
+| II.56 | [Complete Application Documentation Programme](docs/15-platform-spec/12-application-experience/MASTER-APPLICATION-DOCUMENTATION-PROGRAMME.md) | Master scope, documentation standards, quality gates and delivery governance |
 
 ## Part III — Visual walkthrough
 
