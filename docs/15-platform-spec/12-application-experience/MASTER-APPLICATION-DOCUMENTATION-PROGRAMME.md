@@ -55,16 +55,16 @@ The Staff Portal is the main operational workspace. Its screen-by-screen chapter
 | A02 | Enquiries, follow-ups and customer management | Existing |
 | A03 | Survey scheduling, site assessment and survey review | Existing |
 | A04 | Solar design, BOM and quotation management | Existing |
-| A05 | Project workspace, milestones, tasks and scheduling | Planned |
-| A06 | Utility applications, DISCOM processes and subsidy tracking | Planned |
-| A07 | Suppliers, procurement, purchase orders and inventory | Planned |
-| A08 | Finance, receipts, payments, expenses and project profitability | Planned |
-| A09 | Installation, commissioning, quality checks and handover | Planned |
-| A10 | Plant registry, equipment, warranty and maintenance plans | Planned |
-| A11 | Monitoring dashboard, telemetry, alerts and plant health | Planned |
-| A12 | Service desk, service cases, work orders and field maintenance | Planned |
-| A13 | Documents, reports, dashboards and management analytics | Planned |
-| A14 | Employees, groups, permission sets, settings and administration | Planned |
+| A05 | Project workspace, milestones, tasks and scheduling | Draft |
+| A06 | Utility applications, DISCOM processes and subsidy tracking | Draft |
+| A07 | Suppliers, procurement, purchase orders and inventory | Draft |
+| A08 | Finance, receipts, payments, expenses and project profitability | Draft |
+| A09 | Installation, commissioning, quality checks and handover | Draft |
+| A10 | Plant registry, equipment, warranty and maintenance plans | Draft |
+| A11 | Monitoring dashboard, telemetry, alerts and plant health | Draft |
+| A12 | Service desk, service cases, work orders and field maintenance | Draft |
+| A13 | Documents, reports, dashboards and management analytics | Draft |
+| A14 | Employees, groups, permission sets, settings and administration | Draft |
 
 ### Book B — Technician Android App
 
@@ -321,21 +321,21 @@ Statuses:
 
 Do not use “complete” or “implemented” to describe a draft specification.
 
-## 8. Delivery order
+## 8. Remaining delivery order
 
-1. Finish the Staff Portal book (A05–A14).
-2. Complete the Technician Android App book.
-3. Complete Customer Android App book.
-4. Complete Customer Web Portal book and parity map.
-5. Complete Monitoring Engine book.
-6. Complete Notification & Communication Engine book.
-7. Complete Platform Administration book.
-8. Complete cross-application workflow maps.
-9. Complete screen-to-data/API catalogue.
-10. Complete quality, security and operations runbooks.
-11. Run a consistency review across all books and update the master index.
+The application books listed in Section 3 and the related app/service documents have been authored as drafts. Remaining work is to complete the detailed contracts and review gates:
 
-This order builds the business lifecycle first, then the field/customer channels, then the automation and administration services, and finally validates the end-to-end contracts.
+1. Populate the screen/action and field-validation registers.
+2. Complete navigation/deep-link and permission-to-action matrices.
+3. Complete Customer Android/Web feature-parity mapping.
+4. Finalise technician offline operation IDs, sync conflicts and recovery rules.
+5. Reconcile cross-application state transitions and conversion rules.
+6. Map every screen action to approved API schemas and canonical database entities.
+7. Complete notification event, recipient, consent and retry matrices.
+8. Record stakeholder review, decisions, deferrals and acceptance evidence.
+9. Generate automated traceability and test registers from approved contracts.
+
+Do not recreate application chapters already present in the repository.
 
 ## 9. Release boundaries and verification
 
@@ -354,4 +354,4 @@ This order builds the business lifecycle first, then the field/customer channels
 
 The application suite blueprint, all fourteen Staff Portal chapters, Technician Android App, Customer Android App, Customer Web Portal, Monitoring Engine, Notification Engine, Platform Administration, cross-application workflows, API catalogue and quality/operations specification have now been authored as draft specifications in this repository. They have been committed and fetched for content verification. They are not yet stakeholder-approved, legally/technically certified, implemented or tested in a running system. Detailed API route schemas, exact database mappings, provider-specific integration contracts and formal acceptance sign-offs remain follow-on review work. This document remains the programme checklist and distinguishes authored documentation from approved/implemented capability.
 
-**Next delivery:** Staff Portal Chapter A05 — Project Workspace, Milestones, Tasks & Scheduling.
+**Next delivery:** Detailed screen/action and field-validation registers, followed by cross-application workflow and API/data reconciliation.
