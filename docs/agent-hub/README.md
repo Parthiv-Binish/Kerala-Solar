@@ -18,6 +18,7 @@ This is the single repository-backed coordination workspace for agents A0–A9. 
 - [Sprint and milestone plan](SPRINT-MILESTONE-PLAN.md)
 - [Shared API and data contract](CONTRACTS/SHARED-API-DATA-CONTRACT.md)
 - [Integration readiness checklist](INTEGRATION-READINESS-CHECKLIST.md)
+- [Cross-agent blocker register](BLOCKERS/A0-CROSS-AGENT-BLOCKERS.md)
 - [ADR-0001 platform boundaries](DECISIONS/ADR-0001-platform-boundaries-and-stack.md)
 - [ADR-0002 identity and authorization](DECISIONS/ADR-0002-identity-authorization-policy.md)
 - [ADR-0003 migration authority](DECISIONS/ADR-0003-database-migration-authority.md)
