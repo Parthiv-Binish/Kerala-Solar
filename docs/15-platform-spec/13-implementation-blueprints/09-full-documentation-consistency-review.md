@@ -4,7 +4,7 @@
 **Branch:** main  
 **Review date:** 22 November 2026  
 **Review type:** Expanded static repository/documentation review  
-**Overall result:** Broadly coherent product direction; implementation is blocked by unresolved access-control semantics, logical-to-physical mappings, identity linkage and MVP boundaries.
+**Overall result:** Broadly coherent product direction. Initial documentation blockers have been partially remediated; implementation remains blocked by unimplemented authorization enforcement/tests, incomplete domain mappings and API/SRS acceptance contracts.
 
 **Follow-up note (22 November 2026):** Foundational remediation artifacts have since been added: [ERD Logical-to-Physical Mapping](../05-data-and-api/ERD-LOGICAL-PHYSICAL-MAPPING.md), migration 0006 for customer/contact identity subjects and verified customer-account links, and aligned Stage 2/Stage 3/security/decision documents. The original AUD findings below are preserved as the historical review baseline; use the live [Documentation Issue Register](DOCUMENTATION-ISSUE-REGISTER.md) for current remediation status. DOC-001–DOC-003 remain open pending backend authorization implementation/tests, full CRM/customer verification workflow and complete domain-wide physical mapping/DDL reconciliation.
 
@@ -35,7 +35,7 @@ These are strong foundations. The main issues are at the boundary between logica
 - SRS FR-004 lists own, assigned, team, branch, related and all.
 - Application chapters and screen blueprint use own, assigned, team, related customer/project, location and company.
 - Stage 2 access ER design defines own, assigned, team and company as initial conceptual scope keys.
-- Migration 0004 constrains scope_type to own, assigned, group, company and resource.
+- Migration 0004 contained the legacy values; migration 0005 maps group→team, resource→related, branch→location and all→company, then constrains both grant and override scope columns to the six canonical values. Migration 0005 is authored but not execution-verified.
 
 **Risk:** A permission may be designed with one scope label and rejected or interpreted differently by the database/API. Group, resource, related, location, branch and company are not interchangeable.
 
@@ -49,7 +49,7 @@ These are strong foundations. The main issues are at the boundary between logica
 **Evidence**
 - The short security overview says group grants combine and explicit deny overrides allow.
 - Stage 2 ER says group-level deny is optional and suggests individual deny overrides if group-level deny is not required.
-- Migration 0004 supports allow/deny in permission-set permissions, group grants and account overrides.
+- Migration 0004 supports allow/deny in permission-set permissions, group grants and account overrides. The proposed deterministic precedence is now documented in the consistency decisions and Stage 2 access ER; implementation and truth-table tests remain pending.
 - Application chapters refer to direct grants, explicit denies and individual overrides, but do not provide one complete deterministic precedence algorithm.
 
 **Risk:** Two engineers can calculate different effective permissions for the same user, especially where multiple groups, overlapping scopes or expired memberships exist.
@@ -120,9 +120,9 @@ Important rules currently appear only in workflow/application chapters: immutabl
 
 #### AUD-009 — Database migrations are an initial foundation, not the complete application schema
 
-Migrations 0001–0004 create schemas, reference/geography, organisation and identity/access structures. Stage 3 describes many additional business domains. The migration README calls these initial bootstrap scripts.
+Migrations 0001–0006 create schemas, reference/geography, organization, identity/access, canonical scope constraints and the minimum customer/contact identity foundation. Stage 3 describes many additional business domains. The migration README calls these initial bootstrap scripts.
 
-**Required action:** Maintain a migration coverage matrix: entity/table, target migration, dependency, DDL review and test status. Resolve the Alembic baseline/stamp approach before adopting a formal migration runner. Do not create a second path that reapplies 0001–0004. No claim is made that these SQL scripts have been executed on a live database.
+**Required action:** Maintain a migration coverage matrix: entity/table, target migration, dependency, DDL review and test status. Resolve the Alembic baseline/stamp approach before adopting a formal migration runner. Do not create a second path that reapplies 0001–0006. No claim is made that these SQL scripts have been executed on a live database.
 
 #### AUD-010 — Duplicate security documents need an authority label
 
@@ -254,7 +254,7 @@ This review examined repository documents and selected SQL sources on main. It d
 
 **Evidence:**
 - Stage 2 access ER describes a generic `user_accounts` entity with optional employee and customer links.
-- Bootstrap migration 0004 creates `iam.identity_accounts` and `iam.employee_account_links`; the migration does not yet create a customer-account link.
+- Bootstrap migrations 0004 and 0006 create `iam.identity_accounts`, `iam.employee_account_links` and `iam.customer_account_links`; migration 0006 also creates minimal `crm.customers` and `crm.customer_contacts` subject tables. Full CRM and application verification workflow remain pending.
 - The migration README states that customer identity linking is part of a later migration batch.
 
 **Assessment:** This is a planned sequencing gap, not necessarily a design contradiction. However, the Stage 2 conceptual entity and physical identity model need an explicit mapping before customer login is built.
@@ -292,7 +292,7 @@ This review examined repository documents and selected SQL sources on main. It d
 
 ### AUD-018 — Scope vocabulary also needs physical meaning for the SQL “group” scope
 
-**Evidence:** Migration 0004 accepts `own`, `assigned`, `group`, `company` and `resource`. The conceptual ER also describes `team` scope, while other documents use branch/location and related-record scopes. The physical value `group` may be interpreted as an employee group, operational team, or arbitrary resource group.
+**Evidence:** Migration 0004 originally accepted `own`, `assigned`, `group`, `company` and `resource`; migration 0005 now maps these legacy values and enforces canonical scopes. The conceptual ER also describes `team` scope, while other documents use branch/location and related-record scopes. The physical value `group` may be interpreted as an employee group, operational team, or arbitrary resource group.
 
 **Risk:** A group-based permission grant could accidentally expose every record associated with an employee access group, even when that group is only an organisational label.
 
@@ -547,6 +547,11 @@ The following are **document-level corrections / proposed resolutions**, not sta
 | AUD-019 | Effective-dated applicability fields specified in decision register | Proposed data contract; regulatory schema/reviewer approval pending |
 | AUD-020 | Index numbering and duplicate navigation corrected | Corrected and re-fetched from GitHub |
 
-**Migration caution:** Migration 0005 is authored but has not been executed. Review existing scope rows and backup a populated database before applying. It does not implement authorization logic.
+**Migration caution:** Migrations 0005 and 0006 are authored but have not been executed against a live or disposable database in this review. Review existing scope rows, take a backup of any populated database and run the full ordered migration suite in a disposable PostgreSQL instance first. These migrations do not implement the backend authorization resolver.
 
 **Still open:** stakeholder approvals; complete Stage 2/Stage 3 mapping across every domain; feature-level release matrix; atomic SRS traceability; complete API schemas/OpenAPI; regulatory/provider verification; automated tests; live migration validation; UAT.
+
+
+## 11. Remediation checkpoint — 22 November 2026
+
+The issue register is the live tracker; this historical audit is not the source of current status. Since the initial review, migration 0005 has canonicalized scope values and migration 0006 has introduced minimal customer/contact subjects and verified, employee-approved, revocable customer-account links. Stage 2 identity/access and customer ERDs, Stage 3 dictionary, security architecture and migration README have been reconciled to those physical names. The logical-to-physical mapping register now identifies implemented foundations and still-pending entities. None of these SQL migrations has been executed or integration-tested in this review. Backend permission resolution, customer invitation/verification UX, customer/site isolation, full domain mapping, full SRS/API contracts and regulatory approvals remain open.
