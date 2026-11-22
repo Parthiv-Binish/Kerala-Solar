@@ -387,3 +387,127 @@ This is a static review of the repository's Markdown and SQL design artefacts on
 **Conditionally coherent; not yet ready for direct full implementation without resolving Gate 1.**
 
 The highest-risk inconsistency is the access-control scope and precedence model because it affects every API and data query. The second is mapping logical access ER names to physical SQL. The project-creation trigger should also be stated unambiguously. After these decisions, turn the authored screen/workflow drafts into exact screen/action, API, data and test contracts.
+
+
+## 9. Additional findings from the full-suite pass
+
+The following findings extend AUD-001–AUD-012 after comparing the project charter, SRS, workflow documents, case study, architecture, application suite, monitoring specifications, API catalogue, implementation blueprints and bootstrap SQL.
+
+### AUD-013 — Application product boundaries are not fully reconciled
+
+**Evidence**
+- The project charter lists an internal web workspace, customer mobile experience and technician mobile experience.
+- The application suite separately identifies staff web, technician Android, customer Android, customer web, monitoring engine, notification engine and platform administration.
+- The mobile architecture says customer and technician experiences may share a React Native codebase.
+
+**Risk:** Teams may mistake a shared codebase for one app, omit the customer web portal from MVP planning, or treat background engines/admin functions as independently deployed products without defining their runtime boundary.
+
+**Required decision:** Approve a product/deployment matrix with user audience, installable app/package, web route/domain, shared code packages, backend service/module, release cadence and MVP phase. Explicitly decide whether customer web is MVP, and whether platform administration is a protected area of the staff portal or a separate deployment.
+
+**Owner:** Product owner + technical lead.  
+**Acceptance:** Charter, suite inventory, architecture, roadmap, deployment blueprint and app-store plan show the same product boundaries.
+
+### AUD-014 — Technician offline capability has conflicting priority
+
+**Evidence**
+- Business requirements BR-014 marks offline-capable technician workflows as **Should**.
+- SRS FR-064 requires offline drafts and conflict-aware sync.
+- The charter includes technician app foundations in MVP.
+- Technician app and cross-application workflow documents describe offline capture and synchronisation as expected behaviour.
+
+**Risk:** MVP scope, estimates and acceptance criteria can disagree. Offline support is a major architectural requirement, not a minor UI enhancement.
+
+**Required decision:** Decide whether offline capture is a must-have MVP requirement or a later phase. If MVP, define minimum offline scope precisely (assigned job cache, allowed fields, photos, local encryption, operation IDs, conflict rules, expiry, revoke behaviour and sync evidence). If deferred, update FR-064 and app/workflow claims consistently.
+
+**Owner:** Business owner + product/technical lead.  
+**Acceptance:** BRD, SRS, charter, mobile specification, roadmap and QA plan share one priority and minimum acceptance boundary.
+
+### AUD-015 — Telemetry retention proposals conflict
+
+**Evidence**
+- Case study monitoring design proposes raw points for 30–90 days, 5-minute aggregates for 12–24 months and daily aggregates while justified.
+- Monitoring application specification proposes raw 1–5-minute points for 90 days, 15-minute aggregates for 12 months and daily aggregates for 5 years.
+- IoT monitoring overview proposes raw points for 90 days, 15-minute aggregates for 12 months and daily aggregates for 5 years.
+
+**Risk:** Storage forecasts, cost estimates, deletion jobs, customer history and incident investigations will use different retention expectations.
+
+**Required decision:** Approve a metric-class retention schedule (raw, 5/15-minute, hourly/daily, fault/event, service evidence) with purpose, legal/business basis, storage estimate, aggregation method, deletion/archive process and owner. Confirm whether 5-minute or 15-minute aggregates are required; do not retain daily data for five years by default without approval.
+
+**Owner:** Product/data owner + operations + privacy reviewer.  
+**Acceptance:** One approved retention table is referenced by monitoring, database, privacy, backup/cost and operations documents.
+
+### AUD-016 — Site creation/linking during conversion is ambiguous
+
+**Evidence**
+- Enquiry conversion workflow says to create a project linked to customer and site.
+- It also says a customer can be created or an existing customer linked.
+- The workflow does not define the decision when the enquiry has no verified site, the address is incomplete, or the customer already has a matching site.
+- SRS requires multiple sites/projects per customer and duplicate-candidate review.
+
+**Risk:** Duplicate site records, project linked to the wrong property, or a conversion that cannot complete because a site record is missing.
+
+**Required decision:** Define a site resolution step: identify candidate existing site; confirm relationship and address; create a new site only after required minimum verification; allow a controlled pending-site state if business needs it; bind the project to exactly one confirmed site before execution. Define merge/correction rules and audit.
+
+**Owner:** CRM/product owner.  
+**Acceptance:** Conversion flow, data model, API transaction and duplicate tests cover new, existing, ambiguous and incomplete sites.
+
+### AUD-017 — Finance terminology may imply payment processing beyond the agreed scope
+
+**Evidence**
+- Product/architecture documents say no payment gateway is assumed and finance is operational project/customer finance.
+- Customer app inventory includes invoices and payment history.
+- Logical API outline proposes POST /payments; the screen/API blueprint also refers to payment operations.
+- Cross-application workflow correctly states receipt is recorded only after verified funds and allocation is separate.
+
+**Risk:** A developer or customer may interpret a payment endpoint as initiating online payment or treating a submitted reference as confirmed funds.
+
+**Required decision:** Define the MVP as manual receipt recording and verification (cash/UPI/bank transfer or other approved modes), with reference/evidence, received-by, received-at, verification status, allocation, reversal/refund and audit. Rename API operations to 'record-receipt', 'verify-receipt', 'allocate-receipt' or another approved vocabulary. A gateway is a separate future integration requiring explicit approval.
+
+**Owner:** Finance/business owner + backend lead.  
+**Acceptance:** Finance requirements, UI labels, API names, database entities and customer display distinguish payment intent, funds received, verified receipt, allocation, refund and gateway transaction.
+
+### AUD-018 — API route examples are not consistently labelled as illustrative
+
+**Evidence**
+- Logical API document gives concrete routes such as /auth/login, /enquiries, /leads, /cases, /service-cases and payment/receipt concepts across different files.
+- The screen-to-data catalogue says route names are not final and must be assigned during API design.
+- The backend blueprint lists endpoint families but does not publish a normative route table.
+
+**Risk:** Developers may implement whichever example they encounter first, generating duplicate aliases or incompatible clients.
+
+**Required decision:** Mark all route tables as illustrative until OpenAPI approval. Then choose one canonical resource vocabulary (for example, enquiry vs lead; case vs service-case; payment vs receipt), define command routes and deprecate alternatives. Give each operation a stable operation ID.
+
+**Owner:** Backend/API lead + product owner.  
+**Acceptance:** One reviewed OpenAPI document is the only normative route/schema contract; other documents link to it or label examples non-normative.
+
+### AUD-019 — Regulatory and commercial reference data needs temporal applicability at field level
+
+**Evidence**
+- Case study contains capacity bands, CFA amounts, storage conditions, fees/charges and GST observations with VERIFY caveats.
+- SRS requires versioned regulatory rules.
+- Regulatory workflow and implementation blueprint describe external status mirrors and effective-dated rules, but no single approved data contract specifies all applicability dimensions.
+
+**Risk:** A correct historical rule may be applied to a new application, or a current rule may be retroactively applied to an earlier project. Customer quotations could present a reference figure as a guaranteed entitlement.
+
+**Required decision:** Each rule record must include source authority, exact clause/paragraph, publication date, effective-from/to, application/commissioning date basis, geography/DISCOM, consumer category, capacity range, system type, scheme version, formula/units, exclusions, reviewer and approval state. Store calculated estimate separately from official submission, sanction and credit. Do not use case-study values as production defaults.
+
+**Owner:** Regulatory/business reviewer + engineering lead.  
+**Acceptance:** Regulatory rule schema, quote calculator, utility tracker, customer copy and tests use the same versioned rule and applicability dimensions.
+
+## 10. Additional cross-document consistency matrix
+
+| Area | Current observation | Required disposition |
+|---|---|---|
+| App suite | Charter lists fewer client surfaces than suite inventory | Approve product/deployment matrix |
+| Technician offline | BRD says Should; SRS/mobile flow make it required | Set one MVP priority |
+| Telemetry retention | Raw/aggregate retention differs across three docs | Approve one retention schedule |
+| Conversion | Project requires a site, but create/link decision is underspecified | Define site resolution transaction |
+| Finance | Payment terminology may be confused with payment gateway | Use receipt verification vocabulary |
+| API routes | Examples vary and are explicitly non-final in catalogue | Publish one normative OpenAPI |
+| Regulation | Values are version/date/category-sensitive | Add temporal applicability to rules and tests |
+
+## 11. Revised overall assessment
+
+The review confirms a coherent high-level product and architecture direction, but the documentation is **not yet a single internally consistent build contract**. AUD-001–AUD-004 remain the highest-risk blockers because they affect authorization, data integrity and conversion correctness. AUD-013–AUD-019 should be resolved before freezing MVP scope, API naming, finance behaviour, telemetry storage and regulatory calculation rules.
+
+This is a static review of repository contents on the main branch. No live database migration, application test suite, deployed service, provider integration, official portal workflow, legal applicability or stakeholder approval was executed or independently certified.
