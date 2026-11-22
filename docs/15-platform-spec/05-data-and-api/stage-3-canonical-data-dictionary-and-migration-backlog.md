@@ -135,7 +135,7 @@ These are proposed paths, not final OpenAPI contracts. The frontend calls GreenG
 | org.employee_addresses | employee_address_id PK, employee_id FK, address_type_id FK, address fields | Explicit ownership |
 | org.employee_groups | group_id PK, group_name, description, is_active | Configurable groups, not roles |
 | org.employee_group_memberships | membership_id PK, employee_id FK, group_id FK, valid_from, valid_to | Multiple groups; unique active membership |
-| iam.identity_accounts | account_id PK, subject_type, employee_id/customer_id link | Define explicit subject-link integrity |
+| iam.identity_accounts | account_id PK, account_type, account_status, normalized login identifiers | One account population per account; typed subject links; no unconstrained polymorphic IDs |
 | iam.account_credentials | credential_id PK, account_id FK, credential_type, secret_hash/reference | No plaintext passwords |
 | iam.sessions | session_id PK, account_id FK, token_hash, issued_at, expires_at, revoked_at | Store token hash |
 | iam.mfa_methods | mfa_method_id PK, account_id FK, method_type, secret_reference, verified_at | Secret material protected |
@@ -144,9 +144,9 @@ These are proposed paths, not final OpenAPI contracts. The frontend calls GreenG
 | iam.permission_set_permissions | permission_set_id PK/FK, permission_id PK/FK, effect | Explicit allow/deny |
 | iam.group_permission_set_grants | grant_id PK, group_id FK, permission_set_id FK, scope_type/reference, effect, validity | Groups and permissions remain separate |
 | iam.account_permission_overrides | override_id PK, account_id FK, permission_id FK, scope, effect, reason, validity | Individually audited |
-| iam.invitations | invitation_id PK, account/contact reference, token_hash, expires_at, accepted_at | Single-use and expiry |
+| iam.invitations | invitation_id PK, account_id FK, token_hash, expires_at, accepted_at, revoked_at | Single-use and expiry; application validates intended subject context |\n| iam.customer_account_links | customer_account_link_id PK, account_id FK, customer_id FK, optional customer_contact_id FK, relationship_type, status, verification/revocation audit | Customer-specific verified authorization; migration 0006 |
 
-Authentication and authorization remain separate. Manager relationships do not automatically grant permissions. Use typed subject-link tables if one account can link to multiple business subjects; avoid unconstrained nullable polymorphic IDs.
+Authentication and authorization remain separate. Manager relationships do not automatically grant permissions. Employee links use `iam.employee_account_links`; customer links use `iam.customer_account_links`. The initial model does not support one account simultaneously acting as employee and customer. See [ERD Logical-to-Physical Mapping](ERD-LOGICAL-PHYSICAL-MAPPING.md).
 
 ## 6. CRM, sales and project dictionary
 
@@ -156,8 +156,8 @@ Authentication and authorization remain separate. Manager relationships do not a
 | crm.enquiry_contacts | enquiry_contact_id PK, enquiry_id FK, contact_type_id, value, normalized_value | Multiple contacts |
 | crm.enquiry_addresses | enquiry_address_id PK, enquiry_id FK, address and postal references | Preserve pre-conversion address |
 | crm.enquiry_activities | activity_id PK, enquiry_id FK, activity_type_id, actor_id, occurred_at | Append history |
-| crm.customers | customer_id PK, customer_reference, customer_type_id, display_name, status_id | Unique reference |
-| crm.customer_contacts | customer_contact_id PK, customer_id FK, contact fields, consent reference | Consent is separate |
+| crm.customers | customer_id PK, public_id, customer_reference, customer_kind, legal_name, display_name, customer_status | Core subject table in migration 0006; later migrations add approved master FKs and remaining CRM fields |
+| crm.customer_contacts | customer_contact_id PK, public_id, customer_id FK, full_name, relationship_or_designation, is_primary_contact | Core contact subject in migration 0006; contact methods/consent remain later migrations |
 | crm.customer_addresses | customer_address_id PK, customer_id FK, address_type_id FK, address fields | Multiple addresses |
 | crm.enquiry_conversions | conversion_id PK, enquiry_id FK unique, customer_id FK, converted_at/by | Preserve source history |
 | catalog.product_categories | category_id PK, parent_category_id FK, name, is_active | Configurable |
@@ -395,9 +395,9 @@ The Stage 2 access ER is logical. The current physical bootstrap model uses:
 - `iam.permissions`, `iam.permission_sets`, `iam.permission_set_permissions`;
 - `iam.group_permission_set_grants` as the group-to-permission-set/scope grant;
 - `iam.account_permission_overrides` as the individual allow/deny override;
-- `iam.identity_accounts` and `iam.employee_account_links` for identity linkage.
+- `iam.identity_accounts`, `iam.employee_account_links` and `iam.customer_account_links` for typed identity linkage; migration 0006 creates the minimal customer/contact subject tables required by the latter.
 
-Do not create duplicate tables named `group_permissions`, `user_accounts` or `employee_permission_overrides` solely to mirror logical labels. Maintain explicit logical-to-physical mappings in the ER reconciliation register.
+Do not create duplicate tables named `group_permissions`, `user_accounts` or `employee_permission_overrides` solely to mirror logical labels. The full mapping and authorization evaluation contract are maintained in [ERD Logical-to-Physical Mapping](ERD-LOGICAL-PHYSICAL-MAPPING.md).
 
 Canonical scope values for new writes are exactly `own`, `assigned`, `team`, `related`, `location`, `company`. Do not use `group`, `resource`, `branch` or `all`. Group is a grant source; scope reference is a separately validated parameter. Scope semantics and deny precedence are defined in [Consistency Resolution Decisions](../13-implementation-blueprints/10-consistency-resolution-decisions.md). Enforce identical predicates for list/detail/search/export/aggregate/file/realtime/background paths.
 
