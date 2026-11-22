@@ -126,11 +126,7 @@ CREATE TABLE ref.postal_codes (
     payload_hash VARCHAR(256),
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at TIMESTAMPTZ,
-    CONSTRAINT uq_postal_codes_country_code UNIQUE (country_id, postal_code),
-    CONSTRAINT ck_india_pincode_format CHECK (
-        country_id <> (SELECT country_id FROM ref.countries WHERE country_code = 'IN')
-        OR postal_code ~ '^[0-9]{6}$'
-    )
+    CONSTRAINT uq_postal_codes_country_code UNIQUE (country_id, postal_code)
 );
 
 CREATE TABLE ref.post_offices (
