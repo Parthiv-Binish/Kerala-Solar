@@ -103,6 +103,51 @@ Authentication/login identifiers belong to user-account records. Do not duplicat
 | Supplier | Organisation address and multiple supplier representatives/contact methods |
 | Company | Office/branch/warehouse address and office contact methods |
 
+## 3.5 Master data — database-managed, not hardcoded
+
+All business master data must be stored in PostgreSQL and managed through authorized application screens. Master values must not be embedded as hardcoded arrays, constants, enums, or dropdown options in the frontend or backend.
+
+**Entry method:** authorized users enter and maintain master records through the application (for example, an Admin → Master Data screen). The application validates the entry and saves it to the database. The web portal, technician app, customer app, APIs, reports, and workflows retrieve the active values from the database.
+
+### Master data categories and proposed records
+
+| Category | Examples of master records |
+|---|---|
+| Geography | Countries, states, districts, local bodies, post offices, PIN codes |
+| Organization | Company locations, departments, employee groups, permissions |
+| Customer | Customer types, address types, contact labels/types |
+| CRM | Enquiry sources, enquiry statuses, loss reasons, follow-up types |
+| Products | Product categories, brands, manufacturers, models, units of measurement |
+| Suppliers | Supplier categories and supplier types |
+| Projects | Project types, project statuses, milestone types |
+| Finance | Payment modes, payment statuses, tax categories, expense categories |
+| Installation | Installation types, checklist templates, inspection types |
+| Monitoring | Inverter/device types, manufacturers, integration providers, alert categories |
+| Service | Case categories, issue types, priorities, resolution types |
+| Communication | Notification channels, communication types, reusable message templates |
+| Documents | Document categories and document types |
+
+These are categories of master data, not a requirement to create every example as a separate table without reviewing relationships. The final ER model will define appropriate normalized tables and foreign keys. Operational records such as actual customers, enquiries, payments, alerts, and service cases are transactional data, not master data.
+
+### Master data behaviour
+
+1. Provide authorized create, view, update, activate, and deactivate operations through the application.
+2. Store every master record in the database with a stable primary key; business records reference it using foreign keys.
+3. Do not hardcode master values in UI components, API logic, validation lists, or client-side dropdowns. Fetch options from database-backed APIs.
+4. Changes to master data should be reflected consistently across all applications after refresh/cache invalidation.
+5. Use active/inactive status rather than deleting a master record that has already been referenced by transactions.
+6. Prevent duplicate records using appropriate unique constraints and normalized comparison rules.
+7. Record who created or changed a master record and when; audit important changes, including activation/deactivation.
+8. Apply permissions so only authorized groups/users can manage each master-data category.
+9. Support search, filtering, and pagination for large master lists.
+10. Validate dependencies before deactivation (for example, do not deactivate a product model still required for an active workflow without an explicit override/process).
+11. Provide controlled initial setup for required master data through the application. Do not depend on code-level seed scripts to populate business lists.
+12. Do not create mock/sample customers, employees, suppliers, addresses, projects, or other operational records.
+
+### Initial database state
+
+The database schema and required technical metadata may be created by migrations. Business master records should begin empty unless a specific minimum bootstrap record is approved as a security or application prerequisite. Any such prerequisite must be documented separately and must not become a hidden hardcoded business list. An authorized administrator should enter the organization's actual master data through the application before normal operations begin.
+
 ## 4. Proposed logical entity inventory
 
 The following is the Stage 1 working inventory. Names are proposed snake_case identifiers.
