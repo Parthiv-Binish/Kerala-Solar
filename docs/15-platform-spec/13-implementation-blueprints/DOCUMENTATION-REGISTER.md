@@ -46,6 +46,7 @@ Primary location: [Application experience book](../12-application-experience/00-
 - Stage 1 entity inventory, Stage 2 domain ER designs, Stage 3 PostgreSQL blueprint and canonical data dictionary.
 - Bootstrap SQL migrations 0001–0004.
 - Platform security and access-control specifications.
+- Consistency review and proposed resolution decision register.
 - Monitoring/device integration and notification specifications.
 - Mobile application and delivery/governance documents.
 - Application suite and all application experience chapters.
