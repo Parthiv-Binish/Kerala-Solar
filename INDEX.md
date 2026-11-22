@@ -152,6 +152,7 @@ If this is your first time opening the repository, follow this order:
 
 | Chapter | Document | What you will find |
 |---|---|---|
+| II.66 | [Full Documentation Consistency Review](docs/15-platform-spec/13-implementation-blueprints/09-full-documentation-consistency-review.md) | Cross-document findings, severity, corrected stale status and remediation gates |
 | II.57 | [Master Documentation Register](docs/15-platform-spec/13-implementation-blueprints/DOCUMENTATION-REGISTER.md) | Existing and pending document register, owners, dependencies, statuses and approval gates |
 | II.58 | [Screen & Experience Implementation Specification](docs/15-platform-spec/13-implementation-blueprints/01-screen-and-experience-implementation-specification.md) | Screen/action contracts, fields, validation, navigation, permissions, notifications and UI states |
 | II.59 | [API & Backend Contracts](docs/15-platform-spec/13-implementation-blueprints/02-api-and-backend-contracts.md) | Endpoint families, schemas, errors, auth, idempotency, events and OpenAPI governance |
