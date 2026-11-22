@@ -38,13 +38,14 @@ Primary location: [Application experience book](../12-application-experience/00-
 ## 4. Canonical decision and audit documents
 - [Full Documentation Consistency Review](09-full-documentation-consistency-review.md) — findings AUD-001 onward; static review only.
 - [Consistency Resolution Decisions](10-consistency-resolution-decisions.md) — proposed canonical resolutions for access scopes, conversion, product boundaries, offline scope, retention, finance, API naming and regulatory applicability. Requires GreenGrid approval before treating decisions as approved.
+- [Documentation Issue Register](DOCUMENTATION-ISSUE-REGISTER.md) — consolidated DOC-001 onward remediation tracker with priority, owners, affected artefacts, acceptance criteria and dependency order. All initial issues are open.
 
 ## 5. Existing source documents that must be reconciled
 - Project charter and business requirements.
 - Business workflows and SRS.
 - System architecture and technology stack.
 - Stage 1 entity inventory, Stage 2 domain ER designs, Stage 3 PostgreSQL blueprint and canonical data dictionary.
-- Bootstrap SQL migrations 0001–0004.
+- Bootstrap SQL migrations 0001–0005.
 - Platform security and access-control specifications.
 - Consistency review and proposed resolution decision register.
 - Monitoring/device integration and notification specifications.
