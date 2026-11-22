@@ -52,6 +52,7 @@ CREATE TABLE iam.customer_account_links (
     verified_at TIMESTAMPTZ,
     verified_by_account_id BIGINT REFERENCES iam.identity_accounts(account_id) ON DELETE RESTRICT,
     revoked_at TIMESTAMPTZ,
+    revoked_by_account_id BIGINT REFERENCES iam.identity_accounts(account_id) ON DELETE RESTRICT,
     revocation_reason TEXT,
     CONSTRAINT fk_customer_account_contact
         FOREIGN KEY (customer_id, customer_contact_id)
@@ -63,8 +64,8 @@ CREATE TABLE iam.customer_account_links (
         CHECK (link_status IN ('pending', 'active', 'rejected', 'revoked')),
     CONSTRAINT ck_customer_account_verification
         CHECK (
-            (link_status <> 'active' OR verified_at IS NOT NULL)
-            AND (link_status <> 'revoked' OR revoked_at IS NOT NULL)
+            (link_status <> 'active' OR (verified_at IS NOT NULL AND verified_by_account_id IS NOT NULL))
+            AND (link_status <> 'revoked' OR (revoked_at IS NOT NULL AND revoked_by_account_id IS NOT NULL))
         )
 );
 
@@ -89,6 +90,7 @@ LANGUAGE plpgsql
 AS $$
 DECLARE
     v_account_type VARCHAR(30);
+    v_actor_type VARCHAR(30);
 BEGIN
     SELECT account_type INTO v_account_type
     FROM iam.identity_accounts
@@ -99,8 +101,30 @@ BEGIN
         RAISE EXCEPTION 'customer_account_links requires a customer identity account';
     END IF;
 
-    IF NEW.link_status = 'active' AND NEW.verified_at IS NULL THEN
-        RAISE EXCEPTION 'customer account link cannot be active before verification';
+    IF NEW.link_status = 'active' THEN
+        IF NEW.verified_at IS NULL OR NEW.verified_by_account_id IS NULL THEN
+            RAISE EXCEPTION 'customer account link cannot be active before verification';
+        END IF;
+        SELECT account_type INTO v_actor_type
+        FROM iam.identity_accounts
+        WHERE account_id = NEW.verified_by_account_id
+        FOR KEY SHARE;
+        IF v_actor_type IS DISTINCT FROM 'employee' THEN
+            RAISE EXCEPTION 'customer account link must be verified by an employee account';
+        END IF;
+    END IF;
+
+    IF NEW.link_status = 'revoked' THEN
+        IF NEW.revoked_at IS NULL OR NEW.revoked_by_account_id IS NULL THEN
+            RAISE EXCEPTION 'revoked customer account link requires actor and timestamp';
+        END IF;
+        SELECT account_type INTO v_actor_type
+        FROM iam.identity_accounts
+        WHERE account_id = NEW.revoked_by_account_id
+        FOR KEY SHARE;
+        IF v_actor_type IS DISTINCT FROM 'employee' THEN
+            RAISE EXCEPTION 'customer account link must be revoked by an employee account';
+        END IF;
     END IF;
 
     RETURN NEW;
