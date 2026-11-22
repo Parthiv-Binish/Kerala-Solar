@@ -1,9 +1,9 @@
 # Workflow: Project, Utility, Installation and Service
 
 ## Project lifecycle
-Lead conversion → project setup → survey/design → quotation/contract → payment milestone → utility application tracking → procurement → installation → inspection/agreement/meter → commissioning → handover → monitoring → O&M/AMC.
+Enquiry qualification → pre-sales site survey → design → issued quotation → customer acceptance and commercial approval → Won conversion (customer + confirmed site + project) → payment/receipt milestones → utility application tracking → procurement → installation → inspection/agreement/meter → commissioning → handover → monitoring → O&M/AMC.
 
-Project status is a summary. Each milestone has its own state, owner, due date, evidence and update history.
+Survey/design/quotation work before acceptance remains linked to the enquiry and prospect site; it is not a delivery project. Survey approval alone does not create a project. Project creation occurs only through the idempotent Won conversion after acceptance of an exact issued quotation version, required commercial approvals and confirmation of one installation site. Ambiguous/incomplete site data blocks conversion. Project status is a summary. Each milestone has its own state, owner, due date, evidence and update history.
 
 ## Utility milestones
 Track feasibility/application, vendor selection/reference, installation completion submission, inspection, agreement, meter request, meter availability, meter installation, commissioning and subsidy status independently. Store application reference, last checked date, updater, source and supporting document. Government completion requires evidence or a documented exception.
