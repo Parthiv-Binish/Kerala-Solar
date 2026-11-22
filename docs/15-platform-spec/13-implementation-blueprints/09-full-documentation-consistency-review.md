@@ -511,3 +511,15 @@ The following findings extend AUD-001–AUD-012 after comparing the project char
 The review confirms a coherent high-level product and architecture direction, but the documentation is **not yet a single internally consistent build contract**. AUD-001–AUD-004 remain the highest-risk blockers because they affect authorization, data integrity and conversion correctness. AUD-013–AUD-019 should be resolved before freezing MVP scope, API naming, finance behaviour, telemetry storage and regulatory calculation rules.
 
 This is a static review of repository contents on the main branch. No live database migration, application test suite, deployed service, provider integration, official portal workflow, legal applicability or stakeholder approval was executed or independently certified.
+
+
+### AUD-020 — Master index chapter numbering and navigation are inconsistent
+
+**Evidence:** The implementation-blueprint section places the consistency review at II.66 before chapters II.57–II.65. The platform specification README also contains repeated application chapter links in its navigation list.
+
+**Risk:** Readers encounter non-sequential numbering and duplicate navigation entries, weakening the master index as a reliable document map.
+
+**Correction:** Renumber the implementation-blueprint chapters sequentially II.57–II.66 and remove duplicate application links from the platform README. Keep the audit linked from both the root index and implementation-blueprint book index.
+
+**Owner:** Documentation maintainer.  
+**Acceptance:** One unique chapter number per entry; all internal links resolve to existing paths; no duplicate navigation entries.
