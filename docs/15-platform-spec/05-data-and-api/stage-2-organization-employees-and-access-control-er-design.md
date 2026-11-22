@@ -262,10 +262,13 @@ erDiagram
     PERMISSION_SCOPE_TYPES ||--o{ EMPLOYEE_PERMISSION_OVERRIDES : scoped_by
     EMPLOYEES ||--o{ EMPLOYEE_REPORTING_RELATIONSHIPS : reports
     EMPLOYEES ||--o{ EMPLOYEE_REPORTING_RELATIONSHIPS : manages
-    EMPLOYEES ||--o| USER_ACCOUNTS : may_have
-    USER_ACCOUNTS ||--o{ USER_SESSIONS : opens
-    USER_ACCOUNTS ||--o{ AUTHENTICATION_EVENTS : generates
-    ACCOUNT_STATUSES ||--o{ USER_ACCOUNTS : classifies
+    EMPLOYEES ||--o| IDENTITY_ACCOUNTS : via_employee_account_link
+    IDENTITY_ACCOUNTS ||--o{ CUSTOMER_ACCOUNT_LINKS : customer_subject_link
+    CUSTOMERS ||--o{ CUSTOMER_ACCOUNT_LINKS : authorized_accounts
+    CUSTOMER_CONTACTS o|--o{ CUSTOMER_ACCOUNT_LINKS : optional_contact_scope
+    IDENTITY_ACCOUNTS ||--o{ USER_SESSIONS : opens
+    IDENTITY_ACCOUNTS ||--o{ AUTHENTICATION_EVENTS : generates
+    ACCOUNT_STATUSES ||--o{ IDENTITY_ACCOUNTS : classifies
 ~~~
 
 The diagram is conceptual. Employee accounts link through `iam.employee_account_links`; customer accounts link through `iam.customer_account_links` to `crm.customers` and optionally `crm.customer_contacts`. These typed link tables prevent unconstrained polymorphic subject IDs. Employee contact and address entities remain separate and reference employees.
